@@ -10,7 +10,16 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["DOM", "ES2020"]
+    "lib": [
+      "DOM",
+      "ES2020"
+    ],
+    "noUnusedLocals": true
   },
-  "include": ["src", "config", "styles", "remotion.config.ts"]
+  "include": [
+    "src",
+    "config",
+    "styles",
+    "remotion.config.ts"
+  ]
 }

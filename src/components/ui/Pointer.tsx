@@ -1,6 +1,6 @@
 import React from "react";
 import { color, font, shadow } from "../../../styles/tokens";
-import { clamp, ease, invLerp } from "../motion/anim";
+import { clamp, ease } from "../motion/anim";
 import { IconBell } from "./Icons";
 
 /** Mouse cursor (original rounded arrow) with an optional click ripple. */
@@ -91,6 +91,3 @@ export const Chip: React.FC<{
     {children}
   </div>
 );
-
-/** Fade helper for pop-in chips etc. */
-export const popIn = (t: number, at: number, dur = 0.18) => clamp(invLerp(at, at + dur, t));

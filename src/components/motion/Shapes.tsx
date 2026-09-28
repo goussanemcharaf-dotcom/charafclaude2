@@ -1,10 +1,10 @@
 import React from "react";
 import { color } from "../../../styles/tokens";
-import { clamp, ease, prog } from "./anim";
+import { clamp } from "./anim";
 
 // Graphic devices lifted from the reference's motion language, redrawn as
-// original SVG: the soft 4-point star, viewfinder brackets, concentric rings,
-// a drawn zigzag line and a light-bar sweep.
+// original SVG: the soft 4-point star, viewfinder brackets, concentric rings
+// and a drawn zigzag line.
 
 /** Soft 4-point star (superellipse with n < 1), centred on 0,0, radius R. */
 export const starPath = (R = 100, n = 0.62, samples = 320) => {
@@ -120,24 +120,5 @@ export const DrawLine: React.FC<{
         strokeDasharray={dashed ? `0 ${width * 2.6}` : undefined}
       />
     </svg>
-  );
-};
-
-/** White light bar sweeping across (the reference's bar wipe). */
-export const LightBar: React.FC<{ t: number; at: number; dur?: number; y: number; h?: number; angle?: number }> = ({
-  t, at, dur = 0.45, y, h = 46, angle = 0,
-}) => {
-  const p = prog(t, at, dur, ease.inOutCubic);
-  if (p <= 0 || p >= 1) return null;
-  const x = -1300 + p * 2600;
-  return (
-    <div
-      style={{
-        position: "absolute", left: x, top: y - h / 2, width: 1300, height: h,
-        transform: `rotate(${angle}deg)`,
-        background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, #fff 30%, #fff 70%, rgba(255,255,255,0) 100%)",
-        boxShadow: "0 0 40px rgba(255,255,255,0.8)",
-      }}
-    />
   );
 };

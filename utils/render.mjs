@@ -9,7 +9,7 @@ const only = process.argv[2]; // optional: "program" | "subs"
 const concurrency = Number(process.env.CONCURRENCY ?? 4);
 const serveUrl = await makeBundle();
 const browser = await makeBrowser();
-mkdirSync(join(root, "renders"), { recursive: true });
+mkdirSync(join(root, "renders/_work"), { recursive: true });
 
 async function render(id, outputLocation, extra) {
   const composition = await selectComposition({
@@ -30,13 +30,13 @@ async function render(id, outputLocation, extra) {
 }
 
 if (!only || only === "program") {
-  await render("MetaAd", join(root, "renders/program_clean.mp4"), {
+  await render("MetaAd", join(root, "renders/_work/program_clean.mp4"), {
     codec: "h264", crf: 10, x264Preset: "slow", pixelFormat: "yuv420p",
     colorSpace: "bt709", imageFormat: "jpeg", jpegQuality: 96,
   });
 }
 if (!only || only === "subs") {
-  await render("Subtitles", join(root, "renders/subtitles_alpha.mov"), {
+  await render("Subtitles", join(root, "renders/_work/subtitles_alpha.mov"), {
     codec: "prores", proResProfile: "4444", imageFormat: "png", pixelFormat: "yuva444p10le",
   });
 }

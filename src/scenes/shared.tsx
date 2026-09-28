@@ -1,5 +1,5 @@
 import React from "react";
-import { color, font } from "../../styles/tokens";
+import { font } from "../../styles/tokens";
 import { KineticLine } from "../components/motion/KineticText";
 
 export type SceneProps = { t: number };
@@ -7,7 +7,7 @@ export type SceneProps = { t: number };
 export const NNBSP = " "; // French punctuation spacing ("travail ?")
 
 /** "Comment présentes-tu ton travail ?" — shared by S01 (on violet) and S02 (on light). */
-export const QUESTION_AT = { comment: 4.72, presentes: 4.84, ton: 5.0, travail: 5.1 };
+export const QUESTION_AT = { comment: 4.8, presentes: 4.92, ton: 5.06, travail: 5.16 };
 
 export const QuestionHeadline: React.FC<{
   t: number; ink: string; accent: string; y?: number; dy?: number; scale?: number; exit?: { at: number; dur?: number };
@@ -36,4 +36,3 @@ export const Fill: React.FC<{ bg: string; children?: React.ReactNode; style?: Re
   <div style={{ position: "absolute", inset: 0, background: bg, overflow: "hidden", ...style }}>{children}</div>
 );
 
-export const inkText = color.ink;

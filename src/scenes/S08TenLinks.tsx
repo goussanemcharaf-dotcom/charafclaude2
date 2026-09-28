@@ -32,6 +32,7 @@ const Counter: React.FC<{ t: number }> = ({ t }) => {
     return i >= 0 && i < 10 && !merged ? Math.sin(clamp(invLerp(at, at + 0.14, t)) * Math.PI) * 0.06 : 0;
   })();
   const big = { fontFamily: font.display, fontWeight: 800, letterSpacing: "-0.06em", lineHeight: 1 } as const;
+  if (n < 1) return null;
   const inS = springy(t, LINK_T.first, { stiffness: 300, damping: 18 });
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 262, height: 240, display: "flex", justifyContent: "center", alignItems: "baseline", gap: 22, transform: `scale(${(0.7 + 0.3 * inS) * (1 + bump)})`, transformOrigin: "50% 60%" }}>

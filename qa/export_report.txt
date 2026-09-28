@@ -1,0 +1,84 @@
+EXPORT REPORT — 2026-09-28T21:19Z
+
+== 01_FINAL_MASTER.mp4  (21M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=4347452
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=259957
+   duration=36.933333
+   bit_rate=4616054
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 02_META_AD.mp4  (15M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=3073292
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=259957
+   duration=36.933333
+   bit_rate=3341888
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 03_CLEAN_VERSION.mp4  (15M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=2997695
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=259957
+   duration=36.933333
+   bit_rate=3266298
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 04_SUBTITLED_VERSION.mp4  (21M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=4447445
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=259957
+   duration=36.933333
+   bit_rate=4716041
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 05_THUMBNAIL.png
+   1080,1920

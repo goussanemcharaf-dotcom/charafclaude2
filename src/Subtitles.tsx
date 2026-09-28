@@ -50,11 +50,3 @@ export const Subtitles: React.FC = () => {
   const cue = CUES.find((c) => t >= c.start && t < c.end);
   return <AbsoluteFill style={{ backgroundColor: "transparent" }}>{cue && <CaptionBlock cue={cue} t={t} />}</AbsoluteFill>;
 };
-
-/** Program + captions in one pass (preview / QA only; exports composite the layers). */
-export const SubtitlesPreview: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <AbsoluteFill>
-    {children}
-    <Subtitles />
-  </AbsoluteFill>
-);

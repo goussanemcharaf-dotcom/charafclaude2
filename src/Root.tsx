@@ -6,7 +6,7 @@ import { MetaAd } from "./MetaAd";
 import { Subtitles } from "./Subtitles";
 import { Thumbnail } from "./Thumbnail";
 import { Directions, DirectionA, DirectionB, DirectionC } from "./directions/Directions";
-import { AvatarSheet } from "./dev/AvatarSheet";
+import { AvatarsSheet, IconsSheet, UIKitSheet } from "./dev/AssetSheets";
 import { PortfolioDesk, PortfolioMob } from "./dev/PortfolioPreview";
 
 ensureFonts();
@@ -34,7 +34,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="DirectionC" component={DirectionC} durationInFrames={1} {...common} />
     {/* QA / dev */}
     <Composition id="MetaAdCaptioned" component={MetaAdCaptioned} durationInFrames={TL.frames} {...common} />
-    <Composition id="AvatarSheet" component={AvatarSheet} durationInFrames={1} {...common} />
+    <Composition id="AvatarsSheet" component={AvatarsSheet} durationInFrames={1} fps={TL.fps} width={1700} height={680} />
+    <Composition id="IconsSheet" component={IconsSheet} durationInFrames={1} fps={TL.fps} width={1080} height={880} />
+    <Composition id="UIKitSheet" component={UIKitSheet} durationInFrames={1} fps={TL.fps} width={1080} height={1120} />
     <Composition id="PortfolioDesk" component={PortfolioDesk} durationInFrames={1} fps={TL.fps} width={1200} height={3964} />
     <Composition id="PortfolioMob" component={PortfolioMob} durationInFrames={1} fps={TL.fps} width={390} height={2200} />
   </>

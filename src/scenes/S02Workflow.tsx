@@ -46,7 +46,7 @@ export const WorkflowLayer: React.FC<SceneProps> = ({ t }) => {
           transform: `translateX(${(1 - dw) * -820}px)`, opacity: clamp(dw * 3),
         }}
       >
-        <div style={{ transform: `rotateY(${6 + (1 - dw) * 16}deg) rotateZ(${-1.2}deg)`, transformOrigin: "0% 50%" }}>
+        <div style={{ transform: `rotateY(${6 + (1 - dw) * 16}deg) rotateZ(${-1.2}deg) scale(1.14)`, transformOrigin: "0% 0%" }}>
           <DriveWindow width={690} />
         </div>
       </div>

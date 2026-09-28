@@ -26,8 +26,8 @@ const clusterAngle = (t: number) => 230 * ease.inExpo(clamp(invLerp(S01_SPIN, S0
 
 const Cluster: React.FC<{ t: number; angle: number; alpha?: number }> = ({ t, angle, alpha = 1 }) => {
   const q = clamp(invLerp(S01_SPIN, S01_SPIN + 0.44, t));
-  const sc = 1 - 0.5 * ease.inCubic(q);
-  const fade = 1 - clamp(invLerp(S01_SPIN + 0.3, S01_SPIN + 0.46, t));
+  const sc = 1 + 0.45 * ease.inCubic(q);
+  const fade = 1 - clamp(invLerp(S01_SPIN + 0.2, S01_SPIN + 0.36, t));
   return (
     <div
       style={{

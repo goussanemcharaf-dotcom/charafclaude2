@@ -27,7 +27,7 @@ const mixHex = (a: string, b: string, k: number) => {
 export const StarIntro: React.FC<SceneProps> = ({ t }) => {
   const draw = prog(t, STAR_IN, 0.6, ease.inOutCubic);
   const fill = prog(t, STAR_FILL, 0.16, ease.outCubic);
-  const grow = prog(t, STAR_FILL + 0.05, 0.42, ease.inExpo);
+  const grow = prog(t, STAR_FILL + 0.05, 0.34, ease.inExpo);
   const rot = -16 + (t - STAR_IN) * 7 + wobble(t, 2, 0.7) * 2.5;
   const sx = 1 + wobble(t, 5, 0.9) * 0.035;
   const sy = 1.08 + wobble(t, 9, 0.8) * 0.035;
@@ -67,7 +67,7 @@ export const StarIntro: React.FC<SceneProps> = ({ t }) => {
           words={[{ text: "Website", at: W("Website") }, { text: "Portfolio", at: W("Portfolio") }]}
         />
       </div>
-      <div style={{ position: "absolute", inset: 0, background: bg.violet, opacity: clamp(invLerp(STAR_FILL + 0.24, STAR_FILL + 0.38, t)) }} />
+      <div style={{ position: "absolute", inset: 0, background: bg.violet, opacity: clamp(invLerp(STAR_FILL + 0.33, STAR_FILL + 0.39, t)) }} />
     </Fill>
   );
 };

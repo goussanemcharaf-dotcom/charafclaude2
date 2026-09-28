@@ -16,7 +16,7 @@ import { Fill, SceneProps } from "./shared";
 // S10 — THE CLIENT OPENS IT. "Ton client clique. Et découvre un portfolio…"
 // The link lands in a DM; one tap; the portfolio opens and scrolls.
 
-const PHONE = { x: 320, y: 330, w: 440 };
+const PHONE = { x: 290, y: 296, w: 500 };
 const K = PHONE.w / 430; // frame scale
 const SCREEN_K = ((430 - 26) / 390) * K; // phone design px -> screen px
 const toScreen = (x: number, y: number): [number, number] => [PHONE.x + 13 * K + x * SCREEN_K, PHONE.y + 13 * K + y * SCREEN_K];

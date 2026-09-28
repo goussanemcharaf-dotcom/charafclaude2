@@ -33,16 +33,16 @@ export const CTA: React.FC<{ t: number; text: string; wordTimes: number[]; enter
   const press = t > tapAt && t < tapAt + 0.16 ? 0.9 : 1;
   const glow = 0.5 + 0.5 * Math.sin((t - tapAt) * 3.2);
   return (
-    <div style={{ position: "absolute", left: 70, top: 1010, width: 940, height: 156, transform: `translateY(${(1 - s) * 260}px)`, opacity: clamp(s * 2) }}>
+    <div style={{ position: "absolute", left: 60, top: 1090, width: 960, height: 172, transform: `translateY(${(1 - s) * 260}px)`, opacity: clamp(s * 2) }}>
       <div
         style={{
-          position: "absolute", inset: 0, borderRadius: 78, background: "#FFFFFF", boxShadow: shadow.float,
-          display: "flex", alignItems: "center", padding: "0 20px 0 50px", boxSizing: "border-box",
+          position: "absolute", inset: 0, borderRadius: 86, background: "#FFFFFF", boxShadow: shadow.float,
+          display: "flex", alignItems: "center", padding: "0 26px 0 48px", boxSizing: "border-box",
         }}
       >
-        <div style={{ flex: 1, fontFamily: font.display, fontWeight: 700, fontSize: 56, letterSpacing: "-0.04em", color: color.ink, whiteSpace: "nowrap" }}>
+        <div style={{ flex: 1, fontFamily: font.display, fontWeight: 700, fontSize: 60, letterSpacing: "-0.045em", color: color.ink, whiteSpace: "nowrap" }}>
           {shown}
-          <span style={{ display: "inline-block", width: 4, height: 58, marginLeft: 4, background: color.violet, verticalAlign: "-8px", opacity: caretOn ? 1 : 0 }} />
+          <span style={{ display: "inline-block", width: 4, height: 62, marginLeft: 4, background: color.violet, verticalAlign: "-9px", opacity: caretOn ? 1 : 0 }} />
         </div>
         <div style={{ position: "relative", width: 116, height: 116, flexShrink: 0 }}>
           {tap > 0 && tap < 1 && (
@@ -77,7 +77,7 @@ export const S12CTA: React.FC<SceneProps> = ({ t }) => {
       )}
       {wipe >= 0.999 && (
         <Fill bg={bg.violet}>
-          <div style={{ position: "absolute", left: 80, top: 300, width: 940 }}>
+          <div style={{ position: "absolute", left: 80, top: 404, width: 940 }}>
             <KineticLine t={t} {...lineStyle} words={[{ text: "TON TRAVAIL.", at: LINES_AT[0] }]} />
             <KineticLine t={t} {...lineStyle} style={{ marginTop: 12 }} words={[{ text: "TON STYLE.", at: LINES_AT[1] }]} />
             <KineticLine t={t} {...lineStyle} style={{ marginTop: 12 }} words={[{ text: "TON PORTFOLIO.", at: LINES_AT[2] }]} />

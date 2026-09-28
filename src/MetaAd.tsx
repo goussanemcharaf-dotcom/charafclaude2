@@ -26,7 +26,7 @@ export const SLOTS: Slot[] = [
   // hard cut to white on "Non."
   { id: "s05", from: S.s05_non[0], to: S05_TEXT_OUT + 0.4, C: S05Non, z: 5 },
   // star draws under the outgoing text, fills violet and swallows the frame
-  { id: "s06a", from: S05_TEXT_OUT - 0.01, to: STAR_FILL + 0.4, C: StarIntro, z: 4 },
+  { id: "s06a", from: S05_TEXT_OUT - 0.01, to: STAR_FILL + 0.42, C: StarIntro, z: 4 },
   // S06 build + S07 organised: the same browser, on violet
   { id: "s06b-s07", from: STAR_FILL + 0.3, to: S.s08_ten_links[0], C: PortfolioWorld, z: 3 },
   // hard cut on the beat: ten links -> one link (S08-S09 share one space)

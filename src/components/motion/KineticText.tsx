@@ -78,30 +78,3 @@ export const KineticLine: React.FC<{
     </div>
   );
 };
-
-/** Split a string into words that all appear at `at` + i * stagger. */
-export const staggerWords = (text: string, at: number, stagger = 0.06, style?: React.CSSProperties): KWord[] =>
-  text.split(" ").map((w, i) => ({ text: w, at: at + i * stagger, style }));
-
-/** A block that fades/blurs in and out as a whole (for calmer "after" type). */
-export const SoftReveal: React.FC<{
-  t: number; at: number; dur?: number; outAt?: number; outDur?: number; rise?: number; blur?: number;
-  style?: React.CSSProperties; children: React.ReactNode;
-}> = ({ t, at, dur = 0.7, outAt, outDur = 0.35, rise = 26, blur = 14, style, children }) => {
-  const p = prog(t, at, dur, ease.outExpo);
-  const q = outAt === undefined ? 0 : prog(t, outAt, outDur, ease.inCubic);
-  const o = clamp(invLerp(at, at + dur * 0.5, t)) * (1 - q);
-  if (o <= 0.001) return null;
-  return (
-    <div
-      style={{
-        ...style,
-        opacity: o,
-        transform: `translateY(${(1 - p) * rise - q * rise * 0.6}px)`,
-        filter: (1 - p) * blur + q * blur > 0.3 ? `blur(${(1 - p) * blur + q * blur}px)` : undefined,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
