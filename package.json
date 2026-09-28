@@ -1,0 +1,36 @@
+{
+  "name": "portfolio-meta-ad-fr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium Creator Portfolio — French Meta ad (9:16, 1080x1920). 2D/2.5D only: HTML, CSS, SVG, Remotion, FFmpeg. No 3D pipeline.",
+  "scripts": {
+    "sync": "node utils/sync-public.mjs",
+    "studio": "npm run sync && remotion studio src/index.ts",
+    "still": "npm run sync && node utils/still.mjs",
+    "render:video": "npm run sync && node utils/render.mjs",
+    "audio": "python3 utils/audio/build_audio.py",
+    "export": "bash utils/export.sh",
+    "build": "npm run audio && npm run render:video && npm run export",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/inter-tight": "5.3.0",
+    "@fontsource/instrument-serif": "5.3.0",
+    "@remotion/cli": "4.0.529",
+    "@remotion/fonts": "4.0.529",
+    "@remotion/noise": "4.0.529",
+    "@remotion/paths": "4.0.529",
+    "@remotion/shapes": "4.0.529",
+    "@remotion/transitions": "4.0.529",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.529"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}

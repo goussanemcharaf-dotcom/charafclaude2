@@ -1,0 +1,15 @@
+# dependencies / generated
+node_modules/
+public/
+.remotion/
+*.log
+
+# intermediate renders (final deliverables live in renders/ root)
+renders/_work/
+previews/_scratch/
+
+# derived audio (rebuilt by utils/build_timeline.py / utils/audio)
+audio/voiceover/vo_packed.wav
+
+.DS_Store
+__pycache__/

@@ -1,0 +1,915 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 36.93333333333333,
+ "frames": 1108,
+ "vo": {
+  "file": "audio/voiceover/vo_final.wav",
+  "voice": "ElevenLabs preset 'Julian' via Higgsfield"
+ },
+ "phrases": [
+  {
+   "id": 1,
+   "text": "Si tu es UGC Creator,",
+   "src": [
+    0,
+    1.51
+   ],
+   "start": 0.08,
+   "end": 1.59
+  },
+  {
+   "id": 2,
+   "text": "Content Creator,",
+   "src": [
+    1.63,
+    2.605
+   ],
+   "start": 1.65,
+   "end": 2.625
+  },
+  {
+   "id": 3,
+   "text": "Voice Over Artist ou Influenceur…",
+   "src": [
+    2.725,
+    4.64
+   ],
+   "start": 2.685,
+   "end": 4.6
+  },
+  {
+   "id": 4,
+   "text": "et que tu envoies encore ton travail entre Google Drive, WhatsApp et plusieurs liens…",
+   "src": [
+    4.76,
+    8.4
+   ],
+   "start": 4.66,
+   "end": 8.3
+  },
+  {
+   "id": 5,
+   "text": "Une vidéo ici.",
+   "src": [
+    8.52,
+    9.415
+   ],
+   "start": 8.4,
+   "end": 9.295
+  },
+  {
+   "id": 6,
+   "text": "Un fichier là.",
+   "src": [
+    9.535,
+    10.28
+   ],
+   "start": 9.355,
+   "end": 10.1
+  },
+  {
+   "id": 7,
+   "text": "Un autre lien ailleurs.",
+   "src": [
+    10.4,
+    11.4
+   ],
+   "start": 10.16,
+   "end": 11.16
+  },
+  {
+   "id": 8,
+   "text": "Et ton client doit chercher partout pour comprendre qui tu es et ce que tu fais ?",
+   "src": [
+    11.52,
+    14.57
+   ],
+   "start": 11.22,
+   "end": 14.27
+  },
+  {
+   "id": 9,
+   "text": "Non.",
+   "src": [
+    14.69,
+    15.13
+   ],
+   "start": 14.49,
+   "end": 14.93
+  },
+  {
+   "id": 10,
+   "text": "Ton travail mérite une meilleure présentation.",
+   "src": [
+    15.25,
+    17.255
+   ],
+   "start": 15.65,
+   "end": 17.655
+  },
+  {
+   "id": 11,
+   "text": "Je crée pour toi un Premium Website Portfolio, pensé autour de ton univers.",
+   "src": [
+    17.375,
+    20.97
+   ],
+   "start": 17.935,
+   "end": 21.53
+  },
+  {
+   "id": 12,
+   "text": "Tes projets, tes services, ton style… réunis dans une seule expérience.",
+   "src": [
+    21.09,
+    25.325
+   ],
+   "start": 21.75,
+   "end": 25.985
+  },
+  {
+   "id": 13,
+   "text": "Au lieu d'envoyer dix liens…",
+   "src": [
+    25.445,
+    26.775
+   ],
+   "start": 26.285,
+   "end": 27.615
+  },
+  {
+   "id": 14,
+   "text": "tu envoies un seul lien.",
+   "src": [
+    26.895,
+    28.135
+   ],
+   "start": 27.935,
+   "end": 29.175
+  },
+  {
+   "id": 15,
+   "text": "Ton client clique.",
+   "src": [
+    28.255,
+    28.985
+   ],
+   "start": 29.535,
+   "end": 30.265
+  },
+  {
+   "id": 16,
+   "text": "Et découvre un portfolio professionnel, clair et différent.",
+   "src": [
+    29.105,
+    32.44
+   ],
+   "start": 30.385,
+   "end": 33.72
+  },
+  {
+   "id": 17,
+   "text": "Écris-moi et on commence.",
+   "src": [
+    32.56,
+    34.22
+   ],
+   "start": 34.1,
+   "end": 35.76
+  }
+ ],
+ "words": [
+  {
+   "w": "Si",
+   "phrase": 1,
+   "start": 0.08,
+   "end": 0.22
+  },
+  {
+   "w": "tu",
+   "phrase": 1,
+   "start": 0.22,
+   "end": 0.36
+  },
+  {
+   "w": "es",
+   "phrase": 1,
+   "start": 0.36,
+   "end": 0.48
+  },
+  {
+   "w": "UGC",
+   "phrase": 1,
+   "start": 0.48,
+   "end": 0.94
+  },
+  {
+   "w": "Creator,",
+   "phrase": 1,
+   "start": 0.94,
+   "end": 1.34
+  },
+  {
+   "w": "Content",
+   "phrase": 2,
+   "start": 1.66,
+   "end": 1.92
+  },
+  {
+   "w": "Creator,",
+   "phrase": 2,
+   "start": 1.92,
+   "end": 2.38
+  },
+  {
+   "w": "Voice",
+   "phrase": 3,
+   "start": 2.84,
+   "end": 2.98
+  },
+  {
+   "w": "Over",
+   "phrase": 3,
+   "start": 2.98,
+   "end": 3.2
+  },
+  {
+   "w": "Artist",
+   "phrase": 3,
+   "start": 3.2,
+   "end": 3.56
+  },
+  {
+   "w": "ou",
+   "phrase": 3,
+   "start": 3.56,
+   "end": 3.88
+  },
+  {
+   "w": "Influenceur…",
+   "phrase": 3,
+   "start": 3.88,
+   "end": 4.54
+  },
+  {
+   "w": "et",
+   "phrase": 4,
+   "start": 4.66,
+   "end": 4.76
+  },
+  {
+   "w": "que",
+   "phrase": 4,
+   "start": 4.76,
+   "end": 4.86
+  },
+  {
+   "w": "tu",
+   "phrase": 4,
+   "start": 4.86,
+   "end": 4.96
+  },
+  {
+   "w": "envoies",
+   "phrase": 4,
+   "start": 4.96,
+   "end": 5.22
+  },
+  {
+   "w": "encore",
+   "phrase": 4,
+   "start": 5.22,
+   "end": 5.44
+  },
+  {
+   "w": "ton",
+   "phrase": 4,
+   "start": 5.44,
+   "end": 5.62
+  },
+  {
+   "w": "travail",
+   "phrase": 4,
+   "start": 5.62,
+   "end": 5.94
+  },
+  {
+   "w": "entre",
+   "phrase": 4,
+   "start": 5.94,
+   "end": 6.16
+  },
+  {
+   "w": "Google",
+   "phrase": 4,
+   "start": 6.16,
+   "end": 6.46
+  },
+  {
+   "w": "Drive,",
+   "phrase": 4,
+   "start": 6.46,
+   "end": 6.84
+  },
+  {
+   "w": "WhatsApp",
+   "phrase": 4,
+   "start": 7.08,
+   "end": 7.38
+  },
+  {
+   "w": "et",
+   "phrase": 4,
+   "start": 7.38,
+   "end": 7.68
+  },
+  {
+   "w": "plusieurs",
+   "phrase": 4,
+   "start": 7.68,
+   "end": 7.92
+  },
+  {
+   "w": "liens…",
+   "phrase": 4,
+   "start": 7.92,
+   "end": 8.2
+  },
+  {
+   "w": "Une",
+   "phrase": 5,
+   "start": 8.4,
+   "end": 8.56
+  },
+  {
+   "w": "vidéo",
+   "phrase": 5,
+   "start": 8.56,
+   "end": 8.84
+  },
+  {
+   "w": "ici.",
+   "phrase": 5,
+   "start": 8.84,
+   "end": 9.14
+  },
+  {
+   "w": "Un",
+   "phrase": 6,
+   "start": 9.355,
+   "end": 9.48
+  },
+  {
+   "w": "fichier",
+   "phrase": 6,
+   "start": 9.48,
+   "end": 9.82
+  },
+  {
+   "w": "là.",
+   "phrase": 6,
+   "start": 9.82,
+   "end": 9.98
+  },
+  {
+   "w": "Un",
+   "phrase": 7,
+   "start": 10.16,
+   "end": 10.3
+  },
+  {
+   "w": "autre",
+   "phrase": 7,
+   "start": 10.3,
+   "end": 10.48
+  },
+  {
+   "w": "lien",
+   "phrase": 7,
+   "start": 10.48,
+   "end": 10.7
+  },
+  {
+   "w": "ailleurs.",
+   "phrase": 7,
+   "start": 10.7,
+   "end": 11.08
+  },
+  {
+   "w": "Et",
+   "phrase": 8,
+   "start": 11.22,
+   "end": 11.32
+  },
+  {
+   "w": "ton",
+   "phrase": 8,
+   "start": 11.32,
+   "end": 11.44
+  },
+  {
+   "w": "client",
+   "phrase": 8,
+   "start": 11.44,
+   "end": 11.66
+  },
+  {
+   "w": "doit",
+   "phrase": 8,
+   "start": 11.66,
+   "end": 11.8
+  },
+  {
+   "w": "chercher",
+   "phrase": 8,
+   "start": 11.8,
+   "end": 12.04
+  },
+  {
+   "w": "partout",
+   "phrase": 8,
+   "start": 12.04,
+   "end": 12.36
+  },
+  {
+   "w": "pour",
+   "phrase": 8,
+   "start": 12.36,
+   "end": 12.56
+  },
+  {
+   "w": "comprendre",
+   "phrase": 8,
+   "start": 12.56,
+   "end": 12.92
+  },
+  {
+   "w": "qui",
+   "phrase": 8,
+   "start": 12.92,
+   "end": 13.18
+  },
+  {
+   "w": "tu",
+   "phrase": 8,
+   "start": 13.18,
+   "end": 13.34
+  },
+  {
+   "w": "es",
+   "phrase": 8,
+   "start": 13.34,
+   "end": 13.5
+  },
+  {
+   "w": "et",
+   "phrase": 8,
+   "start": 13.5,
+   "end": 13.68
+  },
+  {
+   "w": "ce",
+   "phrase": 8,
+   "start": 13.68,
+   "end": 13.78
+  },
+  {
+   "w": "que",
+   "phrase": 8,
+   "start": 13.78,
+   "end": 13.88
+  },
+  {
+   "w": "tu",
+   "phrase": 8,
+   "start": 13.88,
+   "end": 14.0
+  },
+  {
+   "w": "fais ?",
+   "phrase": 8,
+   "start": 14.0,
+   "end": 14.16
+  },
+  {
+   "w": "Non.",
+   "phrase": 9,
+   "start": 14.49,
+   "end": 14.78
+  },
+  {
+   "w": "Ton",
+   "phrase": 10,
+   "start": 15.65,
+   "end": 15.78
+  },
+  {
+   "w": "travail",
+   "phrase": 10,
+   "start": 15.78,
+   "end": 16.1
+  },
+  {
+   "w": "mérite",
+   "phrase": 10,
+   "start": 16.1,
+   "end": 16.44
+  },
+  {
+   "w": "une",
+   "phrase": 10,
+   "start": 16.44,
+   "end": 16.56
+  },
+  {
+   "w": "meilleure",
+   "phrase": 10,
+   "start": 16.56,
+   "end": 16.86
+  },
+  {
+   "w": "présentation.",
+   "phrase": 10,
+   "start": 16.86,
+   "end": 17.5
+  },
+  {
+   "w": "Je",
+   "phrase": 11,
+   "start": 17.935,
+   "end": 18.08
+  },
+  {
+   "w": "crée",
+   "phrase": 11,
+   "start": 18.08,
+   "end": 18.26
+  },
+  {
+   "w": "pour",
+   "phrase": 11,
+   "start": 18.26,
+   "end": 18.42
+  },
+  {
+   "w": "toi",
+   "phrase": 11,
+   "start": 18.42,
+   "end": 18.56
+  },
+  {
+   "w": "un",
+   "phrase": 11,
+   "start": 18.56,
+   "end": 18.72
+  },
+  {
+   "w": "Premium",
+   "phrase": 11,
+   "start": 18.72,
+   "end": 19.06
+  },
+  {
+   "w": "Website",
+   "phrase": 11,
+   "start": 19.06,
+   "end": 19.54
+  },
+  {
+   "w": "Portfolio,",
+   "phrase": 11,
+   "start": 19.54,
+   "end": 20.14
+  },
+  {
+   "w": "pensé",
+   "phrase": 11,
+   "start": 20.28,
+   "end": 20.58
+  },
+  {
+   "w": "autour",
+   "phrase": 11,
+   "start": 20.58,
+   "end": 20.8
+  },
+  {
+   "w": "de",
+   "phrase": 11,
+   "start": 20.8,
+   "end": 20.94
+  },
+  {
+   "w": "ton",
+   "phrase": 11,
+   "start": 20.94,
+   "end": 21.08
+  },
+  {
+   "w": "univers.",
+   "phrase": 11,
+   "start": 21.08,
+   "end": 21.4
+  },
+  {
+   "w": "Tes",
+   "phrase": 12,
+   "start": 22.0,
+   "end": 22.14
+  },
+  {
+   "w": "projets,",
+   "phrase": 12,
+   "start": 22.14,
+   "end": 22.5
+  },
+  {
+   "w": "tes",
+   "phrase": 12,
+   "start": 22.72,
+   "end": 22.82
+  },
+  {
+   "w": "services,",
+   "phrase": 12,
+   "start": 22.82,
+   "end": 23.32
+  },
+  {
+   "w": "ton",
+   "phrase": 12,
+   "start": 23.54,
+   "end": 23.66
+  },
+  {
+   "w": "style…",
+   "phrase": 12,
+   "start": 23.66,
+   "end": 24.02
+  },
+  {
+   "w": "réunis",
+   "phrase": 12,
+   "start": 24.2,
+   "end": 24.64
+  },
+  {
+   "w": "dans",
+   "phrase": 12,
+   "start": 24.64,
+   "end": 24.76
+  },
+  {
+   "w": "une",
+   "phrase": 12,
+   "start": 24.76,
+   "end": 25.0
+  },
+  {
+   "w": "seule",
+   "phrase": 12,
+   "start": 25.0,
+   "end": 25.22
+  },
+  {
+   "w": "expérience.",
+   "phrase": 12,
+   "start": 25.22,
+   "end": 25.7
+  },
+  {
+   "w": "Au",
+   "phrase": 13,
+   "start": 26.285,
+   "end": 26.4
+  },
+  {
+   "w": "lieu",
+   "phrase": 13,
+   "start": 26.4,
+   "end": 26.52
+  },
+  {
+   "w": "d'envoyer",
+   "phrase": 13,
+   "start": 26.52,
+   "end": 26.96
+  },
+  {
+   "w": "dix",
+   "phrase": 13,
+   "start": 26.96,
+   "end": 27.24
+  },
+  {
+   "w": "liens…",
+   "phrase": 13,
+   "start": 27.24,
+   "end": 27.52
+  },
+  {
+   "w": "tu",
+   "phrase": 14,
+   "start": 27.96,
+   "end": 28.08
+  },
+  {
+   "w": "envoies",
+   "phrase": 14,
+   "start": 28.08,
+   "end": 28.38
+  },
+  {
+   "w": "un",
+   "phrase": 14,
+   "start": 28.38,
+   "end": 28.58
+  },
+  {
+   "w": "seul",
+   "phrase": 14,
+   "start": 28.58,
+   "end": 28.8
+  },
+  {
+   "w": "lien.",
+   "phrase": 14,
+   "start": 28.8,
+   "end": 29.06
+  },
+  {
+   "w": "Ton",
+   "phrase": 15,
+   "start": 29.535,
+   "end": 29.66
+  },
+  {
+   "w": "client",
+   "phrase": 15,
+   "start": 29.66,
+   "end": 29.92
+  },
+  {
+   "w": "clique.",
+   "phrase": 15,
+   "start": 29.92,
+   "end": 30.26
+  },
+  {
+   "w": "Et",
+   "phrase": 16,
+   "start": 30.385,
+   "end": 30.7
+  },
+  {
+   "w": "découvre",
+   "phrase": 16,
+   "start": 30.7,
+   "end": 31.12
+  },
+  {
+   "w": "un",
+   "phrase": 16,
+   "start": 31.12,
+   "end": 31.28
+  },
+  {
+   "w": "portfolio",
+   "phrase": 16,
+   "start": 31.28,
+   "end": 31.56
+  },
+  {
+   "w": "professionnel,",
+   "phrase": 16,
+   "start": 31.56,
+   "end": 32.4
+  },
+  {
+   "w": "clair",
+   "phrase": 16,
+   "start": 32.4,
+   "end": 32.82
+  },
+  {
+   "w": "et",
+   "phrase": 16,
+   "start": 32.82,
+   "end": 33.18
+  },
+  {
+   "w": "différent.",
+   "phrase": 16,
+   "start": 33.18,
+   "end": 33.56
+  },
+  {
+   "w": "Écris-moi",
+   "phrase": 17,
+   "start": 34.16,
+   "end": 34.7
+  },
+  {
+   "w": "et",
+   "phrase": 17,
+   "start": 34.7,
+   "end": 35.0
+  },
+  {
+   "w": "on",
+   "phrase": 17,
+   "start": 35.0,
+   "end": 35.12
+  },
+  {
+   "w": "commence.",
+   "phrase": 17,
+   "start": 35.12,
+   "end": 35.62
+  }
+ ],
+ "scenes": {
+  "s01_identification": [
+   0.0,
+   5.61
+  ],
+  "s02_workflow": [
+   5.61,
+   8.3
+  ],
+  "s03_chaos": [
+   8.3,
+   11.17
+  ],
+  "s04_confusion": [
+   11.17,
+   14.49
+  ],
+  "s05_non": [
+   14.49,
+   17.685
+  ],
+  "s06_reveal": [
+   17.685,
+   21.65
+  ],
+  "s07_organized": [
+   21.65,
+   26.185
+  ],
+  "s08_ten_links": [
+   26.185,
+   27.885
+  ],
+  "s09_one_link": [
+   27.885,
+   29.435
+  ],
+  "s10_client": [
+   29.435,
+   31.46
+  ],
+  "s11_statement": [
+   31.46,
+   33.8
+  ],
+  "s12_cta": [
+   33.8,
+   36.933
+  ]
+ },
+ "cues": {
+  "ugc": 0.48,
+  "content": 1.66,
+  "voice": 2.84,
+  "influenceur": 3.88,
+  "drive": 6.16,
+  "whatsapp": 7.08,
+  "liens": 7.92,
+  "video": 8.4,
+  "fichier": 9.355,
+  "autre_lien": 10.16,
+  "qui": 12.92,
+  "que_tu_fais": 13.68,
+  "non": 14.49,
+  "non_end": 14.93,
+  "merite": 15.65,
+  "premium": 18.72,
+  "univers": 21.08,
+  "projets": 22.14,
+  "services": 22.82,
+  "style": 23.66,
+  "experience": 25.0,
+  "dix_liens": 26.96,
+  "un_seul": 28.58,
+  "clique": 29.92,
+  "decouvre": 30.7,
+  "professionnel": 31.56,
+  "clair": 32.4,
+  "different": 33.18,
+  "ecris": 34.1,
+  "commence": 35.12
+ }
+}
