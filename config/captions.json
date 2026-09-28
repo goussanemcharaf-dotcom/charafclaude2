@@ -1,0 +1,279 @@
+[
+ {
+  "text": "et que tu envoies encore ton travail",
+  "start": 4.61,
+  "end": 5.87,
+  "words": [
+   {
+    "w": "et",
+    "start": 4.66
+   },
+   {
+    "w": "que",
+    "start": 4.76
+   },
+   {
+    "w": "tu",
+    "start": 4.86
+   },
+   {
+    "w": "envoies",
+    "start": 4.96
+   },
+   {
+    "w": "encore",
+    "start": 5.22
+   },
+   {
+    "w": "ton",
+    "start": 5.44
+   },
+   {
+    "w": "travail",
+    "start": 5.62
+   }
+  ]
+ },
+ {
+  "text": "entre Google Drive, WhatsApp",
+  "start": 5.89,
+  "end": 7.31,
+  "words": [
+   {
+    "w": "entre",
+    "start": 5.94
+   },
+   {
+    "w": "Google",
+    "start": 6.16
+   },
+   {
+    "w": "Drive,",
+    "start": 6.46
+   },
+   {
+    "w": "WhatsApp",
+    "start": 7.08
+   }
+  ]
+ },
+ {
+  "text": "et plusieurs liens…",
+  "start": 7.33,
+  "end": 8.52,
+  "words": [
+   {
+    "w": "et",
+    "start": 7.38
+   },
+   {
+    "w": "plusieurs",
+    "start": 7.68
+   },
+   {
+    "w": "liens…",
+    "start": 7.92
+   }
+  ]
+ },
+ {
+  "text": "Et ton client doit chercher partout",
+  "start": 11.17,
+  "end": 12.29,
+  "words": [
+   {
+    "w": "Et",
+    "start": 11.22
+   },
+   {
+    "w": "ton",
+    "start": 11.32
+   },
+   {
+    "w": "client",
+    "start": 11.44
+   },
+   {
+    "w": "doit",
+    "start": 11.66
+   },
+   {
+    "w": "chercher",
+    "start": 11.8
+   },
+   {
+    "w": "partout",
+    "start": 12.04
+   }
+  ]
+ },
+ {
+  "text": "pour comprendre…",
+  "start": 12.31,
+  "end": 12.88,
+  "words": [
+   {
+    "w": "pour",
+    "start": 12.36
+   },
+   {
+    "w": "comprendre…",
+    "start": 12.56
+   }
+  ]
+ },
+ {
+  "text": "Tes projets, tes services, ton style…",
+  "start": 21.95,
+  "end": 24.13,
+  "words": [
+   {
+    "w": "Tes",
+    "start": 22.0
+   },
+   {
+    "w": "projets,",
+    "start": 22.14
+   },
+   {
+    "w": "tes",
+    "start": 22.72
+   },
+   {
+    "w": "services,",
+    "start": 22.82
+   },
+   {
+    "w": "ton",
+    "start": 23.54
+   },
+   {
+    "w": "style…",
+    "start": 23.66
+   }
+  ]
+ },
+ {
+  "text": "réunis dans une seule expérience.",
+  "start": 24.15,
+  "end": 26.02,
+  "words": [
+   {
+    "w": "réunis",
+    "start": 24.2
+   },
+   {
+    "w": "dans",
+    "start": 24.64
+   },
+   {
+    "w": "une",
+    "start": 24.76
+   },
+   {
+    "w": "seule",
+    "start": 25.0
+   },
+   {
+    "w": "expérience.",
+    "start": 25.22
+   }
+  ]
+ },
+ {
+  "text": "Au lieu d'envoyer dix liens…",
+  "start": 26.235,
+  "end": 27.84,
+  "words": [
+   {
+    "w": "Au",
+    "start": 26.285
+   },
+   {
+    "w": "lieu",
+    "start": 26.4
+   },
+   {
+    "w": "d'envoyer",
+    "start": 26.52
+   },
+   {
+    "w": "dix",
+    "start": 26.96
+   },
+   {
+    "w": "liens…",
+    "start": 27.24
+   }
+  ]
+ },
+ {
+  "text": "tu envoies un seul lien.",
+  "start": 27.91,
+  "end": 29.38,
+  "words": [
+   {
+    "w": "tu",
+    "start": 27.96
+   },
+   {
+    "w": "envoies",
+    "start": 28.08
+   },
+   {
+    "w": "un",
+    "start": 28.38
+   },
+   {
+    "w": "seul",
+    "start": 28.58
+   },
+   {
+    "w": "lien.",
+    "start": 28.8
+   }
+  ]
+ },
+ {
+  "text": "Ton client clique.",
+  "start": 29.485,
+  "end": 30.315,
+  "words": [
+   {
+    "w": "Ton",
+    "start": 29.535
+   },
+   {
+    "w": "client",
+    "start": 29.66
+   },
+   {
+    "w": "clique.",
+    "start": 29.92
+   }
+  ]
+ },
+ {
+  "text": "Et découvre un portfolio…",
+  "start": 30.335,
+  "end": 31.52,
+  "words": [
+   {
+    "w": "Et",
+    "start": 30.385
+   },
+   {
+    "w": "découvre",
+    "start": 30.7
+   },
+   {
+    "w": "un",
+    "start": 31.12
+   },
+   {
+    "w": "portfolio…",
+    "start": 31.28
+   }
+  ]
+ }
+]
