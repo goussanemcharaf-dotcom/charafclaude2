@@ -24,7 +24,7 @@ const toScreen = (x: number, y: number): [number, number] => [PHONE.x + 13 * K +
 const PREVIEW = { x: 390 - 12 - 262, y: 130 + 58 + 8 + 46 + 8, w: 262, h: 238 }; // link preview rect (phone px)
 export const S10_TAP = cue("clique") - 0.02;
 const OPEN_AT = S10_TAP + 0.1;
-export const S11_ZOOM = 31.28;
+export const S11_ZOOM = cue("professionnel") - 0.28; // zoom through the phone just before "professionnel"
 
 export const ClientPhone: React.FC<{ t: number }> = ({ t }) => {
   const msgs: ChatMsg[] = [
@@ -59,7 +59,7 @@ export const ClientPhone: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ position: "absolute", inset: 0, clipPath: `inset(${T}px ${R}px ${B}px ${L}px round ${lerp(16, 0, open)}px)` }}>
           <div style={{ position: "absolute", inset: 0, background: "#F4F1EC" }} />
           <div style={{ transform: `translateY(${-scroll}px)`, opacity: clamp(open * 3) }}>
-            <PortfolioMobile played={clamp(invLerp(30.9, 31.6, t)) * 0.6} />
+            <PortfolioMobile played={clamp(invLerp(cue("decouvre") + 0.2, cue("professionnel") + 0.04, t)) * 0.6} />
           </div>
         </div>
       )}

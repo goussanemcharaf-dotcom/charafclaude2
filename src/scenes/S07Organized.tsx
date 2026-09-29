@@ -19,14 +19,17 @@ const CHROME = 60;
 const FULL_H = DESK.total * K + CHROME; // frame height showing the whole page
 const ZOOM_AT = wordAt(12, "réunis") - 0.04;
 const OUT_AT = 25.94;
+const PENSE = wordAt(11, "pensé");
+const UNIVERS = cue("univers");
+const [PROJETS, SERVICES, STYLE] = [cue("projets"), cue("services"), cue("style")];
 const ART = { top: 520, h: 800 }; // overview artboard on screen
 
 const zoomAt = (t: number) => prog(t, ZOOM_AT, 0.8, ease.inOutCubic);
 
 /** Browser geometry through S06 -> S07. */
 const geometry = (t: number) => {
-  const rise = prog(t, 20.26, 0.55, ease.outExpo);
-  const ex = prog(t, 21.48, 0.55, ease.inOutCubic);
+  const rise = prog(t, PENSE - 0.02, 0.55, ease.outExpo);
+  const ex = prog(t, UNIVERS + 0.4, 0.55, ease.inOutCubic);
   const z = zoomAt(t);
   const vh = lerp(lerp(760, 940, ex), FULL_H, z); // virtual (unscaled) height
   const sh = lerp(lerp(760, 940, ex), ART.h, z); // on-screen height
@@ -34,7 +37,11 @@ const geometry = (t: number) => {
   const w = lerp(940, 1000, ex);
   const top = lerp(lerp(560, 390, ex), ART.top, z) + (1 - rise) * 1500;
   const scroll = lerp(
-    keys(t, [[21.98, 0], [22.34, DESK.work - 40], [22.7, DESK.work - 40], [23.04, DESK.services - 30], [23.48, DESK.services - 30], [23.84, DESK.style - 30]], ease.inOutCubic),
+    keys(t, [
+      [PROJETS - 0.16, 0], [PROJETS + 0.2, DESK.work - 40],
+      [SERVICES - 0.12, DESK.work - 40], [SERVICES + 0.22, DESK.services - 30],
+      [STYLE - 0.18, DESK.services - 30], [STYLE + 0.18, DESK.style - 30],
+    ], ease.inOutCubic),
     0, z,
   );
   return { x: 540 - w / 2, y: top, w, h: vh, s, scroll: scroll, rise };
@@ -46,12 +53,13 @@ const TABS = [
   { label: "Style", at: cue("style") - 0.04 },
 ];
 
+// labels land one after the other once the zoom-out has settled
 const SITEMAP = [
-  { label: "Projets", y: DESK.work + 200, side: -1, at: 24.9 },
-  { label: "Services", y: DESK.services + 250, side: 1, at: 24.98 },
-  { label: "Style", y: DESK.style + 300, side: -1, at: 25.06 },
-  { label: "À propos", y: DESK.about + 200, side: 1, at: 25.14 },
-  { label: "Contact", y: DESK.contact + 200, side: -1, at: 25.22 },
+  { label: "Projets", y: DESK.work + 200, side: -1, at: ZOOM_AT + 0.74 },
+  { label: "Services", y: DESK.services + 250, side: 1, at: ZOOM_AT + 0.82 },
+  { label: "Style", y: DESK.style + 300, side: -1, at: ZOOM_AT + 0.9 },
+  { label: "À propos", y: DESK.about + 200, side: 1, at: ZOOM_AT + 0.98 },
+  { label: "Contact", y: DESK.contact + 200, side: -1, at: ZOOM_AT + 1.06 },
 ];
 
 export const PortfolioWorld: React.FC<SceneProps> = ({ t }) => {
@@ -70,12 +78,12 @@ export const PortfolioWorld: React.FC<SceneProps> = ({ t }) => {
         <KineticLine
           t={t} size={80} color="#FFFFFF"
           words={[{ text: "pensé", at: wordAt(11, "pensé") }, { text: "autour", at: wordAt(11, "autour") }, { text: "de", at: wordAt(11, "de") }]}
-          exit={{ at: 21.46, dur: 0.3, to: "up", distance: 130 }}
+          exit={{ at: UNIVERS + 0.38, dur: 0.3, to: "up", distance: 130 }}
         />
         <KineticLine
           t={t} size={118} color={color.lavender} family={font.serif} weight={400} italic tracking="-0.02em" style={{ marginTop: 8 }}
           words={[{ text: "ton", at: wordAt(11, "ton") }, { text: "univers.", at: wordAt(11, "univers") }]}
-          exit={{ at: 21.5, dur: 0.3, to: "up", distance: 130 }}
+          exit={{ at: UNIVERS + 0.42, dur: 0.3, to: "up", distance: 130 }}
         />
       </div>
       {/* section tabs synced to "Tes projets, tes services, ton style" */}

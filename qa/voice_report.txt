@@ -1,0 +1,40 @@
+VOICE QA — client's own voice (Twin MCP narration) cloned with Higgsfield Seed Audio 1.0
+reference = audio/voiceover/clone/voice_sample_clean.mp3 (isolated narration, 30.7 s of speech, median F0 152.1 Hz)
+metrics: speaker similarity = Resemblyzer d-vector cosine to the reference (same person ~0.80+);
+         F0 = librosa pYIN median; WER = faster-whisper large-v3-turbo French transcript vs the script
+
+file                             similarity   F0 Hz    WER  note
+take_seed_1 (rate 0)                  0.964   151.2   3.6%  fast; « t'es »
+take_seed_2_r18                       0.970   144.4   0.9%  paragraph pauses; used P1-3, P13-16
+take_seed_3_r26                       0.955   152.9   5.5%  too slow, dropped
+take_seed_4_r20                       0.955   156.5   1.8%  used P17
+take_seed_5_r26                       0.964   137.8   1.8%
+take_seed_6_r8                        0.970   155.6   2.7%  used P4-7
+take_seed_7_r12                       0.973   137.8   1.8%  used P8-12
+pickup_open_r8                        0.959   134.7      -  partial take
+pickup_open_r12                       0.957   171.7      -  partial take
+pickup_end_r8                         0.958   133.9      -  partial take
+pickup_end_r12                        0.950   157.4      -  partial take; inserted « et diffère »
+FINAL vo_final.wav (comp)             0.981   150.3   1.8%  spelling variants only (dix->10, pensé->pensez)
+v1 Julian (ElevenLabs preset)         0.815   122.1   0.9%  replaced
+
+COMP (utils/voice/fit_vo.py): phrase, take, natural -> fitted duration, tempo, clip gain
+  P1  take_seed_2_r18.flac    1.58s ->  1.48s (slot  1.48s)  x1.070  F0  230.5 Hz  clip gain +0.6 dB
+  P2  take_seed_2_r18.flac    1.04s ->  0.97s (slot  0.97s)  x1.070  F0  170.7 Hz  clip gain +0.4 dB
+  P3  take_seed_2_r18.flac    2.09s ->  1.95s (slot  1.95s)  x1.070  F0  156.5 Hz  clip gain +0.3 dB
+  P4  take_seed_6_r8.flac     3.90s ->  3.64s (slot  3.64s)  x1.070  F0  143.5 Hz  clip gain +0.6 dB
+  P5  take_seed_6_r8.flac     0.83s ->  0.90s (slot  0.90s)  x0.926  F0  185.6 Hz  clip gain -1.0 dB
+  P6  take_seed_6_r8.flac     0.78s ->  0.74s (slot  0.74s)  x1.041  F0    nan Hz  clip gain +0.7 dB
+  P7  take_seed_6_r8.flac     1.07s ->  1.00s (slot  1.00s)  x1.070  F0  117.6 Hz  clip gain +0.4 dB
+  P8  take_seed_7_r12.flac    3.22s ->  3.05s (slot  3.05s)  x1.054  F0  154.7 Hz  clip gain +0.5 dB
+  P9  take_seed_7_r12.flac    0.42s ->  0.44s (slot  0.44s)  x0.967  F0  110.0 Hz  clip gain -0.4 dB
+  P10 take_seed_7_r12.flac    2.14s ->  2.00s (slot  2.00s)  x1.065  F0  150.8 Hz  clip gain -0.1 dB
+  P11 take_seed_7_r12.flac    4.23s ->  3.60s (slot  3.60s)  x1.177  F0  163.0 Hz  clip gain -0.1 dB
+  P12 take_seed_7_r12.flac    3.70s ->  4.24s (slot  4.24s)  x0.874  F0  155.6 Hz  clip gain -0.0 dB
+  P13 take_seed_2_r18.flac    1.47s ->  1.40s (slot  1.40s)  x1.049  F0  165.8 Hz  clip gain -1.2 dB
+  P14 take_seed_2_r18.flac    1.23s ->  1.17s (slot  1.17s)  x1.049  F0  127.5 Hz  clip gain -0.6 dB
+  P15 take_seed_2_r18.flac    1.07s ->  1.00s (slot  1.00s)  x1.077  F0  128.6 Hz  clip gain +0.5 dB
+  P16 take_seed_2_r18.flac    3.30s ->  3.07s (slot  3.07s)  x1.077  F0  152.9 Hz  clip gain -0.1 dB
+  P17 take_seed_4_r20.flac    1.86s ->  1.66s (slot  1.66s)  x1.122  F0  124.2 Hz  clip gain -0.3 dB
+
+Every phrase start the picture is cut on is unchanged (to the ms) vs the v1 edit; total length 36.933 s (1108 frames).

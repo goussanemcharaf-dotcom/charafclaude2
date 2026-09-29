@@ -168,7 +168,9 @@ def main():
 
     timeline = {
         "fps": FPS, "width": 1080, "height": 1920, "duration": duration, "frames": frames,
-        "vo": {"file": "audio/voiceover/vo_final.wav", "voice": timing.get("source", "")},
+        "vo": {"file": "audio/voiceover/vo_final.wav", "voice": timing.get("source", ""),
+               # lossy-codec TTS source (high-band fill + tone) that the mix has to clean up
+               "codec_cleanup": bool(timing.get("codec_cleanup", False))},
         "phrases": placed, "words": all_words, "scenes": scenes, "cues": cues,
     }
     (ROOT / "config/timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=1))

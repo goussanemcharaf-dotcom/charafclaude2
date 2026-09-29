@@ -1,7 +1,7 @@
 duration            36.933 s
-VO (solo)           -15.75 LUFS
-music under VO      -26.23 LUFS (pre-master), ducking depth 7 dB
-SFX                 -25.23 LUFS (pre-master)
+VO (solo)           -13.75 LUFS
+music under VO      -25.29 LUFS (pre-master), ducking depth 7 dB
+SFX                 -23.25 LUFS (pre-master)
 master integrated   -14.00 LUFS (target -14.0)
 master true peak     -1.30 dBTP (ceiling -1.0)
 silence at 'Non.'   max |x| 0.00e+00 in music+SFX from 14.49s to 15.35s

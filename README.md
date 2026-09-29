@@ -1,6 +1,6 @@
 # « Un seul lien » — Premium Creator Portfolio · French Meta Ad
 
-A 36.9 s vertical ad (1080 × 1920, 30 fps) for a premium website-portfolio service aimed at French-speaking UGC creators, content creators, voice-over artists and influencers. 100 % French. Built entirely in 2D/2.5D code — React + SVG + CSS rendered with [Remotion](https://www.remotion.dev), original synthesized audio in Python, FFmpeg for delivery. No Blender, no 3D pipeline.
+A 36.9 s vertical ad (1080 × 1920, 30 fps) for a premium website-portfolio service aimed at French-speaking UGC creators, content creators, voice-over artists and influencers. 100 % French, voiced by the client in their own voice (cloned with their consent from their own promo narration, then dialogue-edited to the picture). Built entirely in 2D/2.5D code — React + SVG + CSS rendered with [Remotion](https://www.remotion.dev), original synthesized audio in Python, FFmpeg for delivery. No Blender, no 3D pipeline.
 
 > **Ton travail mérite une meilleure présentation.** Au lieu d'envoyer dix liens… tu envoies un seul lien.
 
@@ -20,7 +20,7 @@ All MP4s: H.264 High, yuv420p BT.709, AAC 256 kb/s 48 kHz stereo, −14 LUFS int
 - [`CREATIVE_BRIEF.md`](CREATIVE_BRIEF.md) — target, insight, idea, visual/motion/sound systems, retention strategy
 - [`STORYBOARD.md`](STORYBOARD.md) — 12 scenes: time, voice, text, visual, motion, camera, sound, assets, purpose
 - [`ASSET_MANIFEST.md`](ASSET_MANIFEST.md) — every asset, its source and generation method
-- [`PRODUCTION_NOTES.md`](PRODUCTION_NOTES.md) — pipeline, voice, script cuts, placeholders, compliance, credits
+- [`PRODUCTION_NOTES.md`](PRODUCTION_NOTES.md) — pipeline, voice (isolation, cloning, comp, fit), script cuts, placeholders, compliance, credits
 - [`QA_REPORT.md`](QA_REPORT.md) — self-critique, frame-by-frame QA, fixes, technical checks
 
 ## Build
@@ -50,7 +50,7 @@ src/
   dev/                  preview & asset-sheet compositions
 styles/tokens.ts        colours, fonts, shadows, safe zones
 config/                 timeline.json, captions.json
-utils/                  render/still/export scripts, timeline + captions builders, audio/ (synth, mix, loudness, QA)
+utils/                  render/still/export scripts, timeline + captions builders, audio/ (voice isolation, synth, mix, loudness, QA), voice/ (take QA, comp + fit)
 assets/ audio/ fonts/   sources (images, reference, voice, music, SFX, OFL fonts)
 renders/ previews/ qa/  outputs, review frames, QA material
 ```

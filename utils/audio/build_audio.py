@@ -358,11 +358,13 @@ def peaking(f0, gain_db, q):
 
 
 def vo_eq(v):
-    """Clean the codec's high-band fill + 13.1 kHz tone, add a little presence for phone speakers."""
+    """High-pass, a little presence for phone speakers; for a lossy-codec TTS source (the ElevenLabs
+    take) also clean its high-band fill + 13.1 kHz tone."""
     v = signal.sosfilt(signal.butter(2, 75, "highpass", fs=SR, output="sos"), v)
-    b, a = signal.iirnotch(13095, 12, fs=SR)
-    v = signal.filtfilt(b, a, v)
-    v = signal.sosfiltfilt(signal.butter(8, 11000, "lowpass", fs=SR, output="sos"), v)
+    if TL["vo"].get("codec_cleanup"):
+        b, a = signal.iirnotch(13095, 12, fs=SR)
+        v = signal.filtfilt(b, a, v)
+        v = signal.sosfiltfilt(signal.butter(8, 11000, "lowpass", fs=SR, output="sos"), v)
     v = signal.sosfilt(peaking(3200, 2.0, 1.0), v)
     return v
 

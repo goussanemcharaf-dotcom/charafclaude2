@@ -1,6 +1,6 @@
 # QA Report
 
-**Version reviewed**: v2 (after two QA passes) · 36.93 s · 1108 frames · 1080 × 1920 @ 30 fps
+**Version reviewed**: v3 — re-voiced with the client's own voice (v2 passed two QA passes) · 36.93 s · 1108 frames · 1080 × 1920 @ 30 fps
 **Verdict**: ✅ ready to upload (`renders/02_META_AD.mp4`), with the trade-offs listed at the end.
 
 ## 1. Method
@@ -8,6 +8,7 @@
 2. **Frame-by-frame review of the rendered file**: every frame extracted from the H.264 program, contact sheets every 6 frames (0.2 s) → `qa/sheets/` (7 sheets, 185 thumbnails). Every transition and every VO-synced cue checked against `config/timeline.json`.
 3. **Audio**: BS.1770-4 integrated loudness (own implementation, cross-checked with FFmpeg `ebur128`), 4× oversampled true peak, momentary-loudness curves per stem + master spectrogram → `qa/audio_loudness_spectrogram.png`, `qa/audio_report.txt`.
 4. **Delivery**: `ffprobe` + `ebur128` on every exported file → `qa/export_report.txt`.
+5. **Voice (v3)**: speaker similarity to the real voice, pitch and French ASR on every take and on the final comp → `qa/voice_report.txt`; spectrogram and phrase-edge plots of the comp (cuts, clicks, breaths, level jumps); pitch continuity measured at every take switch; key frames re-checked against the new word times.
 
 ## 2. Self-critique (against the brief and the reference)
 **What works**
@@ -17,17 +18,19 @@
 - **Reference motion language, original execution**: violet/studio alternation, word-by-word type with directional blur, pop-and-cluster bubbles with spin-out, star draw → fill → swallow, bars split, viewfinder brackets, rings behind a rising phone, DM thread — all redrawn in code; nothing copied.
 - **« Non. »** is a true pattern break: hard cut, pure white, one violet point, 0.86 s of digital silence.
 - **Sound** follows the story arc (pressure build → silence → premium groove → filter-down on the ten links → open on « seul » → resolve on « commence »).
+- **The client's own voice** (v3): speaker similarity 0.981 to their real narration (v1's preset voice: 0.815), same median pitch (150 vs 152 Hz), European French, 1.8 % WER. The person who sells the portfolios is the one talking.
 
 **What's weaker (and what was done about it)**
 - The "before" UI (file names, chat, tabs) is small on a phone — it's texture; every beat is carried by large chips/bubbles that are readable at thumb size.
 - 36.9 s is ~2 s over the 30–35 s target (see PRODUCTION_NOTES → Duration; a 30 s cut-down path is documented).
-- Voice is high-quality TTS, not a human read; music is synthesized in code (clean, original, fully synced, but less "produced" than a top library track). Both are swappable: the VO drives the timeline, the stems are separate.
+- The voice is a clone of the client's voice (generated, then dialogue-edited from 4 takes), not a studio session: very close, but a real session would give the most natural breaths and emphasis. `utils/voice/fit_vo.py` takes a human recording as-is (one take) and the picture follows. Music is synthesized in code (clean, original, fully synced, but less "produced" than a top library track); the stems are separate.
 - Photos are 600–800 px sources, never shown above ~1.3× (the S11 portrait is the largest use).
 
 ## 3. Brief compliance
 | Requirement | Status |
 |---|---|
 | 100 % French VO, captions, supers, CTA; no Arabic / Darija | ✅ (English only for job titles/formats + the spoken product name) |
+| Voice = the client's own (their request), consent confirmed | ✅ cloned from their own narration; documented in PRODUCTION_NOTES |
 | No Blender, no 3D pipeline, no GLB/GLTF/OBJ/FBX/Three.js/WebGL, no `/assets/3d` `/blender` `/3d` | ✅ React + SVG + CSS + Remotion + FFmpeg only |
 | Google / WhatsApp not reproduced pixel-for-pixel | ✅ original file browser + chat designs, text-only name tags, no logos |
 | No real private URLs | ✅ `tonnom.com` placeholder + masked `lien-partage/…` links |
@@ -60,6 +63,14 @@
 | 13 | Captions | Captions duplicated on-screen supers | Burned-in captions skip them; SRT sidecar keeps the full transcript |
 | 14 | Audio | VO carried codec fill > 11 kHz + a 13.1 kHz tone (−58 dBFS) | Notch + 11 kHz low-pass (tone ≈ −80 dBFS), +2 dB presence |
 | 15 | Audio | Music bed ~14 LU under the voice; heavy sub; pad aliasing | Rebalanced (≈ 7–10 LU under VO), HPF 34 Hz + low trim, band-limited saw |
+| 16 | Voice (v3) | Client feedback: the v1 voice sounded Québécois and not "marketing" | Re-voiced with the client's own voice: isolated from their promo, cloned (Seed Audio), comped and fitted |
+| 17 | Voice · P1 | The best opening take started with 0.4 s of vocal fry before « Si » | Fry / glitch lead-ins detected (F0 < 85 Hz, no fricative) and trimmed |
+| 18 | Voice · P15–16 | Most takes read « Ton client clique et… découvre » (pause after « et ») | Pauses where the script has none are penalised; P15–16 come from the take that reads two sentences |
+| 19 | Voice · P16 | A pickup said « professionnel et diffère, clair et différent » | Words the script doesn't have are detected from the ASR and rejected |
+| 20 | Voice · joins | Melodic jumps across take switches (up to 4.4 semitones) | The comp scores the pitch step at every join; final comp: 4 switches, all at sentence ends |
+| 21 | Sync · S06/S07/S10 | New read: « projets / services / style » 0.26–0.48 s earlier than v1 | Star fill, page build, scroll, sitemap and phone zoom are now keyed to the spoken words instead of fixed times |
+| 22 | Sync · words | Whisper started « pensé » 0.2 s early (at the start of the pause) | Word onsets snapped to the audio; « pensé » at 20.32 s = measured onset |
+| 23 | Audio | The v1 codec clean-up (11 kHz low-pass) would dull the new voice | Only applied to the v1 source now; the clone gets a match EQ to the real voice instead |
 
 ## 5. Technical checks
 See `qa/export_report.txt` for the raw probe of each file.
@@ -72,12 +83,12 @@ See `qa/export_report.txt` for the raw probe of each file.
 | Loudness (all MP4s) | **−14.0 LUFS** integrated (target −14), LRA 2.1 LU |
 | True peak (all MP4s) | **−1.3 dBTP** after AAC encoding (target ≤ −1 dBTP) |
 | Silence under « Non. » | music + SFX max = 0.0 (digital silence) 14.49 → 15.35 s |
-| A/V sync | VO placed sample-accurately from the same `timeline.json` the picture uses; spot checks: « UGC » pop 0.38 s, « dix » = 10 at 26.96 s, « seul » merge at 28.56 s, typing on « Écris-moi » 34.16 s |
+| A/V sync | VO placed sample-accurately from the same `timeline.json` the picture uses; spot checks (v3): « UGC » pop 0.38 s, « pensé » + page build 20.32 s, « projets / services / style » tabs 21.84 / 22.48 / 23.14 s, « dix » = 10 at 27.03 s, « seul » merge at 28.54 s, tap on « clique » 29.95 s, « Professionnel. » 31.60 s, typing on « Écris-moi » 34.10 s |
 | Safe zones | key text/UI between y = 250 and y = 1500, ≥ 60 px sides; captions bottom at y = 1486 |
 | Fonts | all local, rendered (no fallback glyphs in any sheet; French diacritics, « », …, narrow no-break space OK) |
 | Determinism | verified: two independent renders of frames 627 and 870 are byte-identical (MD5) — seeded randomness, time-based animation |
 
 ## 6. Remaining trade-offs / next steps
 - Replace `tonnom.com`, the persona and the four photos with a real client's portfolio for case-study versions (the data lives in `src/components/portfolio/data.ts`).
-- Optional: human VO session, or the female ElevenLabs voice (« Remy ») — the timeline rebuilds automatically.
+- Optional: a real recording session by the client — run `utils/voice/fit_vo.py` on the take and rebuild; the picture follows the words.
 - Optional 30 s cut: drop the sitemap zoom-out in S07 and trim the end card by 0.8 s.

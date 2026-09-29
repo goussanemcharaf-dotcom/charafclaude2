@@ -1,6 +1,6 @@
 import React from "react";
 import { bg, color, font } from "../../styles/tokens";
-import { wordAt } from "../timeline";
+import { cue, wordAt } from "../timeline";
 import { clamp, ease, invLerp, lerp, prog, wobble } from "../components/motion/anim";
 import { Star } from "../components/motion/Shapes";
 import { KineticLine } from "../components/motion/KineticText";
@@ -13,9 +13,12 @@ import { Fill, SceneProps } from "./shared";
 // autour de ton univers." A soft star draws itself around the promise, fills
 // violet and swallows the frame; the portfolio then assembles itself.
 
-export const STAR_IN = 17.5;
-export const STAR_FILL = 19.9;
 const W = (w: string) => wordAt(11, w);
+export const STAR_IN = 17.5;
+// The star fills and swallows the frame so that it is fully violet as "pensé" starts; the page then
+// builds itself on "pensé autour de ton univers".
+const PENSE = W("pensé");
+export const STAR_FILL = PENSE - 0.38;
 
 const mixHex = (a: string, b: string, k: number) => {
   const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
@@ -72,24 +75,25 @@ export const StarIntro: React.FC<SceneProps> = ({ t }) => {
   );
 };
 
-// Build timeline of the page (grid -> nav -> type -> image -> copy -> rest).
+// Build timeline of the page (grid -> nav -> type -> image -> copy -> rest), on "pensé autour de ton univers".
+const P = (dt: number) => PENSE + dt;
 export const buildAt = (t: number) => ({
   build: {
-    nav: prog(t, 20.56, 0.36, ease.outExpo),
-    heroType: prog(t, 20.68, 0.5, ease.outExpo),
-    heroImage: prog(t, 20.84, 0.55, ease.outExpo),
-    heroCopy: prog(t, 21.02, 0.45, ease.outExpo),
-    work: prog(t, 21.12, 0.6, ease.outExpo),
-    rest: prog(t, 21.2, 0.5, ease.outExpo),
+    nav: prog(t, P(0.28), 0.36, ease.outExpo),
+    heroType: prog(t, P(0.4), 0.5, ease.outExpo),
+    heroImage: prog(t, P(0.56), 0.55, ease.outExpo),
+    heroCopy: prog(t, P(0.74), 0.45, ease.outExpo),
+    work: prog(t, P(0.84), 0.6, ease.outExpo),
+    rest: prog(t, P(0.92), 0.5, ease.outExpo),
   },
   guides: {
-    grid: clamp(invLerp(20.48, 20.66, t)) * (1 - clamp(invLerp(21.3, 21.55, t))),
-    nav: clamp(invLerp(20.58, 20.7, t)) * (1 - clamp(invLerp(21.2, 21.45, t))),
-    type: clamp(invLerp(20.72, 20.84, t)) * (1 - clamp(invLerp(21.3, 21.55, t))),
-    image: clamp(invLerp(20.9, 21.02, t)) * (1 - clamp(invLerp(21.36, 21.6, t))),
+    grid: clamp(invLerp(P(0.2), P(0.38), t)) * (1 - clamp(invLerp(P(1.02), P(1.27), t))),
+    nav: clamp(invLerp(P(0.3), P(0.42), t)) * (1 - clamp(invLerp(P(0.92), P(1.17), t))),
+    type: clamp(invLerp(P(0.44), P(0.56), t)) * (1 - clamp(invLerp(P(1.02), P(1.27), t))),
+    image: clamp(invLerp(P(0.62), P(0.74), t)) * (1 - clamp(invLerp(P(1.08), P(1.32), t))),
     work: 0,
   },
-  urlTyped: clamp(invLerp(20.42, 20.82, t)),
+  urlTyped: clamp(invLerp(P(0.14), P(0.54), t)),
 });
 
 /** The portfolio in its browser, mid-build or scrolled (PortfolioReveal). */
@@ -101,7 +105,7 @@ export const PortfolioReveal: React.FC<{
     <div style={{ position: "absolute", left: x, top: y, transform: `scale(${scale})`, transformOrigin: "50% 0%" }}>
       <BrowserFrame width={w} height={h} url={persona.url} urlTyped={b.urlTyped} pageWidth={DESK.width}>
         <div style={{ transform: `translateY(${-scroll}px)` }}>
-          <PortfolioPage build={b.build} guides={b.guides} voicePlayed={clamp(invLerp(22.4, 23.2, t)) * 0.7} />
+          <PortfolioPage build={b.build} guides={b.guides} voicePlayed={clamp(invLerp(cue("services") - 0.42, cue("services") + 0.38, t)) * 0.7} />
         </div>
       </BrowserFrame>
     </div>

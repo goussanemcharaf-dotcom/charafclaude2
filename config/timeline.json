@@ -6,37 +6,38 @@
  "frames": 1108,
  "vo": {
   "file": "audio/voiceover/vo_final.wav",
-  "voice": "ElevenLabs via Higgsfield text2speech_v2, preset voice 'Julian' (95429266-c0ac-4137-a209-63b8812b0f23), take B, edited (phrase trim, pause squeeze, rubberband tempo)"
+  "voice": "Client's own voice (Twin MCP narration, cloned with the owner's consent): Higgsfield Seed Audio 1.0 with the isolated narration as audio reference; dialogue-edited comp of 6 takes + 4 pickups (see comp)",
+  "codec_cleanup": false
  },
  "phrases": [
   {
    "id": 1,
    "text": "Si tu es UGC Creator,",
    "src": [
-    0,
-    1.51
+    0.0,
+    1.477
    ],
    "start": 0.08,
-   "end": 1.59
+   "end": 1.557
   },
   {
    "id": 2,
    "text": "Content Creator,",
    "src": [
-    1.63,
-    2.605
+    1.597,
+    2.571
    ],
-   "start": 1.65,
-   "end": 2.625
+   "start": 1.617,
+   "end": 2.591
   },
   {
    "id": 3,
    "text": "Voice Over Artist ou Influenceur…",
    "src": [
-    2.725,
+    2.691,
     4.64
    ],
-   "start": 2.685,
+   "start": 2.651,
    "end": 4.6
   },
   {
@@ -134,19 +135,19 @@
    "text": "Au lieu d'envoyer dix liens…",
    "src": [
     25.445,
-    26.775
+    26.843
    ],
    "start": 26.285,
-   "end": 27.615
+   "end": 27.683
   },
   {
    "id": 14,
    "text": "tu envoies un seul lien.",
    "src": [
-    26.895,
+    26.963,
     28.135
    ],
-   "start": 27.935,
+   "start": 28.003,
    "end": 29.175
   },
   {
@@ -154,19 +155,19 @@
    "text": "Ton client clique.",
    "src": [
     28.255,
-    28.985
+    29.252
    ],
    "start": 29.535,
-   "end": 30.265
+   "end": 30.532
   },
   {
    "id": 16,
    "text": "Et découvre un portfolio professionnel, clair et différent.",
    "src": [
-    29.105,
+    29.372,
     32.44
    ],
-   "start": 30.385,
+   "start": 30.652,
    "end": 33.72
   },
   {
@@ -185,73 +186,73 @@
    "w": "Si",
    "phrase": 1,
    "start": 0.08,
-   "end": 0.22
+   "end": 0.239
   },
   {
    "w": "tu",
    "phrase": 1,
-   "start": 0.22,
-   "end": 0.36
+   "start": 0.239,
+   "end": 0.37
   },
   {
    "w": "es",
    "phrase": 1,
-   "start": 0.36,
-   "end": 0.48
+   "start": 0.37,
+   "end": 0.482
   },
   {
    "w": "UGC",
    "phrase": 1,
-   "start": 0.48,
-   "end": 0.94
+   "start": 0.482,
+   "end": 1.005
   },
   {
    "w": "Creator,",
    "phrase": 1,
-   "start": 0.94,
-   "end": 1.34
+   "start": 1.005,
+   "end": 1.417
   },
   {
    "w": "Content",
    "phrase": 2,
-   "start": 1.66,
-   "end": 1.92
+   "start": 1.628,
+   "end": 1.946
   },
   {
    "w": "Creator,",
    "phrase": 2,
-   "start": 1.92,
-   "end": 2.38
+   "start": 1.946,
+   "end": 2.45
   },
   {
    "w": "Voice",
    "phrase": 3,
-   "start": 2.84,
-   "end": 2.98
+   "start": 2.763,
+   "end": 2.931
   },
   {
    "w": "Over",
    "phrase": 3,
-   "start": 2.98,
-   "end": 3.2
+   "start": 2.931,
+   "end": 3.156
   },
   {
    "w": "Artist",
    "phrase": 3,
-   "start": 3.2,
-   "end": 3.56
+   "start": 3.156,
+   "end": 3.567
   },
   {
    "w": "ou",
    "phrase": 3,
-   "start": 3.56,
-   "end": 3.88
+   "start": 3.567,
+   "end": 3.773
   },
   {
    "w": "Influenceur…",
    "phrase": 3,
-   "start": 3.88,
-   "end": 4.54
+   "start": 3.773,
+   "end": 4.483
   },
   {
    "w": "et",
@@ -263,571 +264,571 @@
    "w": "que",
    "phrase": 4,
    "start": 4.76,
-   "end": 4.86
+   "end": 4.853
   },
   {
    "w": "tu",
    "phrase": 4,
-   "start": 4.86,
-   "end": 4.96
+   "start": 4.853,
+   "end": 4.909
   },
   {
    "w": "envoies",
    "phrase": 4,
-   "start": 4.96,
-   "end": 5.22
+   "start": 4.909,
+   "end": 5.189
   },
   {
    "w": "encore",
    "phrase": 4,
-   "start": 5.22,
-   "end": 5.44
+   "start": 5.189,
+   "end": 5.507
   },
   {
    "w": "ton",
    "phrase": 4,
-   "start": 5.44,
-   "end": 5.62
+   "start": 5.507,
+   "end": 5.675
   },
   {
    "w": "travail",
    "phrase": 4,
-   "start": 5.62,
-   "end": 5.94
+   "start": 5.675,
+   "end": 6.03
   },
   {
    "w": "entre",
    "phrase": 4,
-   "start": 5.94,
-   "end": 6.16
+   "start": 6.03,
+   "end": 6.292
   },
   {
    "w": "Google",
    "phrase": 4,
-   "start": 6.16,
-   "end": 6.46
+   "start": 6.292,
+   "end": 6.59
   },
   {
    "w": "Drive,",
    "phrase": 4,
-   "start": 6.46,
-   "end": 6.84
+   "start": 6.59,
+   "end": 6.908
   },
   {
    "w": "WhatsApp",
    "phrase": 4,
-   "start": 7.08,
-   "end": 7.38
+   "start": 7.076,
+   "end": 7.356
   },
   {
    "w": "et",
    "phrase": 4,
-   "start": 7.38,
-   "end": 7.68
+   "start": 7.356,
+   "end": 7.618
   },
   {
    "w": "plusieurs",
    "phrase": 4,
-   "start": 7.68,
-   "end": 7.92
+   "start": 7.618,
+   "end": 7.842
   },
   {
    "w": "liens…",
    "phrase": 4,
-   "start": 7.92,
-   "end": 8.2
+   "start": 7.842,
+   "end": 8.16
   },
   {
    "w": "Une",
    "phrase": 5,
    "start": 8.4,
-   "end": 8.56
+   "end": 8.571
   },
   {
    "w": "vidéo",
    "phrase": 5,
-   "start": 8.56,
-   "end": 8.84
+   "start": 8.571,
+   "end": 8.831
   },
   {
    "w": "ici.",
    "phrase": 5,
-   "start": 8.84,
-   "end": 9.14
+   "start": 8.831,
+   "end": 9.133
   },
   {
    "w": "Un",
    "phrase": 6,
    "start": 9.355,
-   "end": 9.48
+   "end": 9.514
   },
   {
    "w": "fichier",
    "phrase": 6,
-   "start": 9.48,
-   "end": 9.82
+   "start": 9.514,
+   "end": 9.802
   },
   {
    "w": "là.",
    "phrase": 6,
-   "start": 9.82,
-   "end": 9.98
+   "start": 9.802,
+   "end": 9.956
   },
   {
    "w": "Un",
    "phrase": 7,
    "start": 10.16,
-   "end": 10.3
+   "end": 10.272
   },
   {
    "w": "autre",
    "phrase": 7,
-   "start": 10.3,
-   "end": 10.48
+   "start": 10.272,
+   "end": 10.459
   },
   {
    "w": "lien",
    "phrase": 7,
-   "start": 10.48,
-   "end": 10.7
+   "start": 10.459,
+   "end": 10.665
   },
   {
    "w": "ailleurs.",
    "phrase": 7,
-   "start": 10.7,
-   "end": 11.08
+   "start": 10.665,
+   "end": 11.02
   },
   {
    "w": "Et",
    "phrase": 8,
-   "start": 11.22,
+   "start": 11.244,
    "end": 11.32
   },
   {
    "w": "ton",
    "phrase": 8,
    "start": 11.32,
-   "end": 11.44
+   "end": 11.453
   },
   {
    "w": "client",
    "phrase": 8,
-   "start": 11.44,
-   "end": 11.66
+   "start": 11.453,
+   "end": 11.643
   },
   {
    "w": "doit",
    "phrase": 8,
-   "start": 11.66,
-   "end": 11.8
+   "start": 11.643,
+   "end": 11.776
   },
   {
    "w": "chercher",
    "phrase": 8,
-   "start": 11.8,
-   "end": 12.04
+   "start": 11.776,
+   "end": 12.003
   },
   {
    "w": "partout",
    "phrase": 8,
-   "start": 12.04,
-   "end": 12.36
+   "start": 12.003,
+   "end": 12.345
   },
   {
    "w": "pour",
    "phrase": 8,
-   "start": 12.36,
-   "end": 12.56
+   "start": 12.345,
+   "end": 12.534
   },
   {
    "w": "comprendre",
    "phrase": 8,
-   "start": 12.56,
-   "end": 12.92
+   "start": 12.534,
+   "end": 12.895
   },
   {
    "w": "qui",
    "phrase": 8,
-   "start": 12.92,
-   "end": 13.18
+   "start": 12.895,
+   "end": 13.084
   },
   {
    "w": "tu",
    "phrase": 8,
-   "start": 13.18,
-   "end": 13.34
+   "start": 13.084,
+   "end": 13.217
   },
   {
    "w": "es",
    "phrase": 8,
-   "start": 13.34,
-   "end": 13.5
+   "start": 13.217,
+   "end": 13.426
   },
   {
    "w": "et",
    "phrase": 8,
-   "start": 13.5,
-   "end": 13.68
+   "start": 13.426,
+   "end": 13.616
   },
   {
    "w": "ce",
    "phrase": 8,
-   "start": 13.68,
-   "end": 13.78
+   "start": 13.616,
+   "end": 13.691
   },
   {
    "w": "que",
    "phrase": 8,
-   "start": 13.78,
-   "end": 13.88
+   "start": 13.691,
+   "end": 13.786
   },
   {
    "w": "tu",
    "phrase": 8,
-   "start": 13.88,
-   "end": 14.0
+   "start": 13.786,
+   "end": 13.9
   },
   {
    "w": "fais ?",
    "phrase": 8,
-   "start": 14.0,
-   "end": 14.16
+   "start": 13.9,
+   "end": 14.128
   },
   {
    "w": "Non.",
    "phrase": 9,
    "start": 14.49,
-   "end": 14.78
+   "end": 14.775
   },
   {
    "w": "Ton",
    "phrase": 10,
    "start": 15.65,
-   "end": 15.78
+   "end": 15.787
   },
   {
    "w": "travail",
    "phrase": 10,
-   "start": 15.78,
-   "end": 16.1
+   "start": 15.787,
+   "end": 16.087
   },
   {
    "w": "mérite",
    "phrase": 10,
-   "start": 16.1,
-   "end": 16.44
+   "start": 16.087,
+   "end": 16.388
   },
   {
    "w": "une",
    "phrase": 10,
-   "start": 16.44,
-   "end": 16.56
+   "start": 16.388,
+   "end": 16.557
   },
   {
    "w": "meilleure",
    "phrase": 10,
-   "start": 16.56,
-   "end": 16.86
+   "start": 16.557,
+   "end": 16.932
   },
   {
    "w": "présentation.",
    "phrase": 10,
-   "start": 16.86,
-   "end": 17.5
+   "start": 16.932,
+   "end": 17.514
   },
   {
    "w": "Je",
    "phrase": 11,
    "start": 17.935,
-   "end": 18.08
+   "end": 18.072
   },
   {
    "w": "crée",
    "phrase": 11,
-   "start": 18.08,
-   "end": 18.26
+   "start": 18.072,
+   "end": 18.224
   },
   {
    "w": "pour",
    "phrase": 11,
-   "start": 18.26,
-   "end": 18.42
+   "start": 18.224,
+   "end": 18.377
   },
   {
    "w": "toi",
    "phrase": 11,
-   "start": 18.42,
-   "end": 18.56
+   "start": 18.377,
+   "end": 18.581
   },
   {
    "w": "un",
    "phrase": 11,
-   "start": 18.56,
-   "end": 18.72
+   "start": 18.76,
+   "end": 18.853
   },
   {
    "w": "Premium",
    "phrase": 11,
-   "start": 18.72,
-   "end": 19.06
+   "start": 18.853,
+   "end": 19.142
   },
   {
    "w": "Website",
    "phrase": 11,
-   "start": 19.06,
-   "end": 19.54
+   "start": 19.142,
+   "end": 19.618
   },
   {
    "w": "Portfolio,",
    "phrase": 11,
-   "start": 19.54,
-   "end": 20.14
+   "start": 19.618,
+   "end": 20.111
   },
   {
    "w": "pensé",
    "phrase": 11,
-   "start": 20.28,
-   "end": 20.58
+   "start": 20.322,
+   "end": 20.604
   },
   {
    "w": "autour",
    "phrase": 11,
-   "start": 20.58,
-   "end": 20.8
+   "start": 20.604,
+   "end": 20.808
   },
   {
    "w": "de",
    "phrase": 11,
-   "start": 20.8,
-   "end": 20.94
+   "start": 20.808,
+   "end": 20.944
   },
   {
    "w": "ton",
    "phrase": 11,
-   "start": 20.94,
-   "end": 21.08
+   "start": 20.944,
+   "end": 21.063
   },
   {
    "w": "univers.",
    "phrase": 11,
-   "start": 21.08,
-   "end": 21.4
+   "start": 21.063,
+   "end": 21.403
   },
   {
    "w": "Tes",
    "phrase": 12,
-   "start": 22.0,
-   "end": 22.14
+   "start": 21.75,
+   "end": 21.878
   },
   {
    "w": "projets,",
    "phrase": 12,
-   "start": 22.14,
-   "end": 22.5
+   "start": 21.878,
+   "end": 22.29
   },
   {
    "w": "tes",
    "phrase": 12,
-   "start": 22.72,
-   "end": 22.82
+   "start": 22.45,
+   "end": 22.519
   },
   {
    "w": "services,",
    "phrase": 12,
-   "start": 22.82,
-   "end": 23.32
+   "start": 22.519,
+   "end": 22.953
   },
   {
    "w": "ton",
    "phrase": 12,
-   "start": 23.54,
-   "end": 23.66
+   "start": 23.091,
+   "end": 23.182
   },
   {
    "w": "style…",
    "phrase": 12,
-   "start": 23.66,
-   "end": 24.02
+   "start": 23.182,
+   "end": 23.594
   },
   {
    "w": "réunis",
    "phrase": 12,
-   "start": 24.2,
-   "end": 24.64
+   "start": 23.891,
+   "end": 24.212
   },
   {
    "w": "dans",
    "phrase": 12,
-   "start": 24.64,
-   "end": 24.76
+   "start": 24.212,
+   "end": 24.372
   },
   {
    "w": "une",
    "phrase": 12,
-   "start": 24.76,
-   "end": 25.0
+   "start": 24.605,
+   "end": 24.784
   },
   {
    "w": "seule",
    "phrase": 12,
-   "start": 25.0,
-   "end": 25.22
+   "start": 24.784,
+   "end": 25.081
   },
   {
    "w": "expérience.",
    "phrase": 12,
-   "start": 25.22,
-   "end": 25.7
+   "start": 25.081,
+   "end": 25.813
   },
   {
    "w": "Au",
    "phrase": 13,
    "start": 26.285,
-   "end": 26.4
+   "end": 26.396
   },
   {
    "w": "lieu",
    "phrase": 13,
-   "start": 26.4,
-   "end": 26.52
+   "start": 26.396,
+   "end": 26.548
   },
   {
    "w": "d'envoyer",
    "phrase": 13,
-   "start": 26.52,
-   "end": 26.96
+   "start": 26.548,
+   "end": 27.025
   },
   {
    "w": "dix",
    "phrase": 13,
-   "start": 26.96,
-   "end": 27.24
+   "start": 27.025,
+   "end": 27.292
   },
   {
    "w": "liens…",
    "phrase": 13,
-   "start": 27.24,
-   "end": 27.52
+   "start": 27.292,
+   "end": 27.54
   },
   {
    "w": "tu",
    "phrase": 14,
-   "start": 27.96,
-   "end": 28.08
+   "start": 28.003,
+   "end": 28.116
   },
   {
    "w": "envoies",
    "phrase": 14,
-   "start": 28.08,
-   "end": 28.38
+   "start": 28.116,
+   "end": 28.44
   },
   {
    "w": "un",
    "phrase": 14,
-   "start": 28.38,
-   "end": 28.58
+   "start": 28.44,
+   "end": 28.555
   },
   {
    "w": "seul",
    "phrase": 14,
-   "start": 28.58,
-   "end": 28.8
+   "start": 28.555,
+   "end": 28.765
   },
   {
    "w": "lien.",
    "phrase": 14,
-   "start": 28.8,
-   "end": 29.06
+   "start": 28.765,
+   "end": 29.032
   },
   {
    "w": "Ton",
    "phrase": 15,
    "start": 29.535,
-   "end": 29.66
+   "end": 29.668
   },
   {
    "w": "client",
    "phrase": 15,
-   "start": 29.66,
-   "end": 29.92
+   "start": 29.668,
+   "end": 29.965
   },
   {
    "w": "clique.",
    "phrase": 15,
-   "start": 29.92,
-   "end": 30.26
+   "start": 29.965,
+   "end": 30.393
   },
   {
    "w": "Et",
    "phrase": 16,
-   "start": 30.385,
-   "end": 30.7
+   "start": 30.652,
+   "end": 30.757
   },
   {
    "w": "découvre",
    "phrase": 16,
-   "start": 30.7,
-   "end": 31.12
+   "start": 30.757,
+   "end": 31.166
   },
   {
    "w": "un",
    "phrase": 16,
-   "start": 31.12,
-   "end": 31.28
+   "start": 31.166,
+   "end": 31.277
   },
   {
    "w": "portfolio",
    "phrase": 16,
-   "start": 31.28,
-   "end": 31.56
+   "start": 31.277,
+   "end": 31.63
   },
   {
    "w": "professionnel,",
    "phrase": 16,
-   "start": 31.56,
-   "end": 32.4
+   "start": 31.63,
+   "end": 32.447
   },
   {
    "w": "clair",
    "phrase": 16,
-   "start": 32.4,
-   "end": 32.82
+   "start": 32.601,
+   "end": 32.856
   },
   {
    "w": "et",
    "phrase": 16,
-   "start": 32.82,
-   "end": 33.18
+   "start": 33.053,
+   "end": 33.153
   },
   {
    "w": "différent.",
    "phrase": 16,
-   "start": 33.18,
-   "end": 33.56
+   "start": 33.153,
+   "end": 33.581
   },
   {
    "w": "Écris-moi",
    "phrase": 17,
-   "start": 34.16,
-   "end": 34.7
+   "start": 34.1,
+   "end": 34.699
   },
   {
    "w": "et",
    "phrase": 17,
-   "start": 34.7,
-   "end": 35.0
+   "start": 34.699,
+   "end": 35.002
   },
   {
    "w": "on",
    "phrase": 17,
-   "start": 35.0,
-   "end": 35.12
+   "start": 35.002,
+   "end": 35.127
   },
   {
    "w": "commence.",
    "phrase": 17,
-   "start": 35.12,
-   "end": 35.62
+   "start": 35.127,
+   "end": 35.626
   }
  ],
  "scenes": {
@@ -861,18 +862,18 @@
   ],
   "s08_ten_links": [
    26.185,
-   27.885
+   27.953
   ],
   "s09_one_link": [
-   27.885,
+   27.953,
    29.435
   ],
   "s10_client": [
    29.435,
-   31.46
+   31.53
   ],
   "s11_statement": [
-   31.46,
+   31.53,
    33.8
   ],
   "s12_cta": [
@@ -881,35 +882,35 @@
   ]
  },
  "cues": {
-  "ugc": 0.48,
-  "content": 1.66,
-  "voice": 2.84,
-  "influenceur": 3.88,
-  "drive": 6.16,
-  "whatsapp": 7.08,
-  "liens": 7.92,
+  "ugc": 0.482,
+  "content": 1.628,
+  "voice": 2.763,
+  "influenceur": 3.773,
+  "drive": 6.292,
+  "whatsapp": 7.076,
+  "liens": 7.842,
   "video": 8.4,
   "fichier": 9.355,
   "autre_lien": 10.16,
-  "qui": 12.92,
-  "que_tu_fais": 13.68,
+  "qui": 12.895,
+  "que_tu_fais": 13.616,
   "non": 14.49,
   "non_end": 14.93,
   "merite": 15.65,
-  "premium": 18.72,
-  "univers": 21.08,
-  "projets": 22.14,
-  "services": 22.82,
-  "style": 23.66,
-  "experience": 25.0,
-  "dix_liens": 26.96,
-  "un_seul": 28.58,
-  "clique": 29.92,
-  "decouvre": 30.7,
-  "professionnel": 31.56,
-  "clair": 32.4,
-  "different": 33.18,
+  "premium": 18.853,
+  "univers": 21.063,
+  "projets": 21.878,
+  "services": 22.519,
+  "style": 23.182,
+  "experience": 24.784,
+  "dix_liens": 27.025,
+  "un_seul": 28.555,
+  "clique": 29.965,
+  "decouvre": 30.757,
+  "professionnel": 31.63,
+  "clair": 32.601,
+  "different": 33.153,
   "ecris": 34.1,
-  "commence": 35.12
+  "commence": 35.127
  }
 }

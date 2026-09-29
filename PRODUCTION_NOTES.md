@@ -3,7 +3,7 @@
 ## Pipeline (2D / 2.5D only — no Blender, no 3D pipeline)
 
 ```
-voice (TTS) ─► edit (rubberband) ─► timeline.json ─► Remotion scenes (React/SVG/CSS) ─► program_clean.mp4
+voice (clone) ─► comp + fit ─► timeline.json ─► Remotion scenes (React/SVG/CSS) ─► program_clean.mp4
                                          │                    └─► Subtitles layer (ProRes 4444 α)
                                          └─► synthesized music + SFX (numpy/scipy) ─► mix + master (−14 LUFS)
                                                                        FFmpeg ─► 01–04 MP4 + 05 PNG + SRT
@@ -14,6 +14,7 @@ voice (TTS) ─► edit (rubberband) ─► timeline.json ─► Remotion scenes
 ### Build it yourself
 ```bash
 npm install                      # Remotion 4.0.529, React 19, fonts (OFL)
+# (voice already comped: audio/voiceover/vo_packed_timing.json; to redo it, see Voiceover below)
 python3 utils/build_timeline.py  # VO -> audio/voiceover/vo_final.wav + config/timeline.json
 python3 utils/build_captions.py  # config/captions.json + renders/SUBTITLES_FR.srt
 npm run audio                    # music + SFX + mix + master  -> audio/master_mix.wav
@@ -26,14 +27,20 @@ Requirements: Node ≥ 18, Python 3 with numpy/scipy (matplotlib for QA plots), 
 Everything is deterministic (seeded randomness, time-based animation), so a re-render is frame-identical.
 
 ## Tools & versions
-Remotion 4.0.529 · React 19.1 · TypeScript 5.8 · Chromium headless shell (software GL) · FFmpeg 6.1.1 (libx264, AAC) · Python 3.11 + numpy/scipy · faster-whisper (voice QA) · rubberband (tempo) · Higgsfield (TTS + image generation).
+Remotion 4.0.529 · React 19.1 · TypeScript 5.8 · Chromium headless shell (software GL) · FFmpeg 6.1.1 (libx264, AAC) · Python 3.11 + numpy/scipy · onnxruntime + UVR MDX-Net models (voice isolation) · Higgsfield Seed Audio 1.0 (voice cloning) · faster-whisper large-v3-turbo, Resemblyzer, librosa pYIN (voice QA) · Rubber Band R3 via pylibrb (tempo) · Higgsfield Soul 2 (images).
 
-## Voiceover
-- **Voice**: ElevenLabs preset « Julian » (male, French) via Higgsfield `text2speech_v2`. Chosen after scoring French test lines from several ElevenLabs and MiniMax voices with faster-whisper: French language probability, French-vs-English log-probability contrast, and word error rate. Julian had the most natural French (lp_fr −0.257, contrast 0.27) and the best pace. MiniMax voices scored as English-accented (contrast ≈ 0.02) and were dropped; Qwen TTS refused the presets.
-- **Take**: B of two full-script takes (1.8 % WER), edited: phrase trims at −40 dB, internal pauses squeezed to ≤ 0.16 s, per-phrase tempo with pitch/formant preservation (×1.14–1.20 in the fast "chaos" half, ×1.0 on « Non. », ×1.04–1.10 in the calm half). After editing: 0.9 % WER.
-- **Placement**: `utils/build_timeline.py` re-spaces the 17 phrases with designed pauses (tight at first, 0.72 s of silence after « Non. », breathing after) with 4 ms fades.
-- **Clean-up in the mix**: the low-bitrate source carried codec "fill" above 11 kHz and a faint 13.1 kHz tone (−58 dBFS). Fixed with a notch + 11 kHz low-pass (tone now ≈ −80 dBFS), plus HPF 75 Hz and +2 dB at 3.2 kHz for phone-speaker clarity.
-- **Alternative**: a female voice (ElevenLabs « Remy », scored 0 % WER on the test line) can replace Julian: regenerate the take, re-run `build_timeline.py`, then rebuild the audio and captions. The picture follows automatically.
+## Voiceover — the client's own voice
+- **Why**: v1 used the ElevenLabs preset « Julian »; to the client it sounded Québécois and not "marketing". They supplied their own promo (Twin MCP narration, voice over music, no one on screen) and asked for *their* voice. It is their voice and they confirmed they hold the rights; it is cloned for this ad only. The Julian edit is archived in `audio/voiceover/julian/` and still rebuilds (`--ref` / `packed_file`).
+- **Isolation** (`utils/audio/isolate_voice.py`): the narration was separated from its music bed with an ensemble of two UVR MDX-Net vocal models (Kim_Vocal_2 + UVR-MDX-NET-Voc_FT, ONNX on CPU, numpy STFT matching the models' training). The bed ends ~35 dB under the voice; 30.7 s of clean speech → `audio/voiceover/clone/voice_sample_clean.mp3`.
+- **Cloning**: Higgsfield **Seed Audio 1.0** (ByteDance) with that sample as `audio_references`, 48 kHz WAV. Seven full-script takes, six kept, at speech rates 0 / −8 / −12 / −18 / −20 / −26 (the model's rate control is loose, so the spread gives the comp material), and four pickups (the opening sentence and the ending, at −8 / −12). All kept in `audio/voiceover/clone/takes/` with their word timestamps.
+- **Scoring** (`utils/voice/voice_qa.py`): speaker similarity to the real voice (Resemblyzer d-vectors: 0.955–0.973 per take; Julian 0.815), median F0 (real voice 152 Hz), French ASR and WER (faster-whisper large-v3-turbo).
+- **Comp** (`utils/voice/fit_vo.py`), the way a dialogue editor would do it: every phrase is cut from every take at the pause (or at the quietest 10 ms between two words), vocal-fry lead-ins are trimmed, inner pauses are tightened; then one take per phrase is chosen jointly (dynamic programming) on the time-stretch it needs, a clean read (ASR match, no inserted word — one pickup said « professionnel et diffère »), pitch against the real voice and the other takes, cuts through continuous speech, pauses where the script has none (« et… découvre »), and take switches — costlier inside a sentence, plus the melodic jump heard at the join. Result: **4 switches, all at sentence ends**: the opening list (take −18, "Creator" said the English way) → « et que tu envoies… ailleurs. » (−8) → « Et ton client… » to « …une seule expérience. » (−12, with a falling, final « Non. ») → « Au lieu d'envoyer dix liens… » to « …clair et différent. » (−18, the only take that reads « Ton client clique. Et découvre… » as two sentences) → « Écris-moi et on commence. » (−20).
+- **Fit to the picture**: tempo with **Rubber Band R3** (finer engine, short window; pitch and formants kept) — picked over the R2 engine and Praat PSOLA by a round-trip PESQ test on these phrases (3.1–3.6 vs 1.3–1.9 and 1.8–2.8). Tempo ×0.87–1.18. Every phrase start the picture is cut on is where it was to the millisecond; three spans the picture follows only by word cues (the opening list, « Au lieu… un seul lien. », « Ton client clique. Et découvre… ») are fitted as a whole so they keep the voice's own rhythm. Word onsets are snapped to the sound (Whisper starts a word at the end of the pause before it: « pensé » moved from 20.11 to 20.32 s).
+- **Tone**: takes loudness-matched, phrase clip-gain that keeps 40 % of the natural level variation, then a linear-phase **match EQ** 60 % of the way to the long-term spectrum of the real narration (+3 to +5 dB at 6–10 kHz, −1.6 dB around 1 kHz): the clone sounds like the voice as recorded, not like the model's own colour.
+- **Result**: speaker similarity **0.981** to the real voice (better than any single take), median F0 **150 Hz** (real 152 Hz), French WER 1.8 % (spelling variants only: « dix » → « 10 », « pensé » → « pensez »).
+- **Placement**: `utils/build_timeline.py` re-spaces the 17 phrases with the designed pauses (tight at first, 0.72 s of silence after « Non. », breathing after) with 4 ms fades.
+- **In the mix**: HPF 75 Hz and +2 dB at 3.2 kHz for phone speakers. Seed Audio's band stops at ~12 kHz with no tones, so the codec clean-up of the Julian source (notch + 11 kHz low-pass) now only runs for that source (`codec_cleanup` in its timing file).
+- **Redo the comp**: `python3 utils/voice/fit_vo.py --take T1.flac --words T1_words.json [--take … --words …] --label "…"` (words from `voice_qa.py --words-out`), then the build steps above.
 
 ## Script — final (French, 100 %)
 > Si tu es UGC Creator, Content Creator, Voice Over Artist ou Influenceur… et que tu envoies encore ton travail entre Google Drive, WhatsApp et plusieurs liens… Une vidéo ici. Un fichier là. Un autre lien ailleurs. Et ton client doit chercher partout pour comprendre qui tu es et ce que tu fais ? **Non.** **Ton travail mérite une meilleure présentation.** Je crée pour toi un Premium Website Portfolio, pensé autour de ton univers. Tes projets, tes services, ton style… réunis dans une seule expérience. **Au lieu d'envoyer dix liens… tu envoies un seul lien.** Ton client clique. Et découvre un portfolio professionnel, clair et différent. Écris-moi et on commence.
@@ -51,10 +58,11 @@ Remotion 4.0.529 · React 19.1 · TypeScript 5.8 · Chromium headless shell (sof
 The three mandatory lines are intact: **« Non. »**, **« Ton travail mérite une meilleure présentation. »**, **« Au lieu d'envoyer dix liens… tu envoies un seul lien. »**
 
 ## Duration
-36.9 s against a "≈ 30–35 s" target. The mandatory lines + the hook + the CTA at a natural French delivery don't fit in 35 s without sounding rushed (the first half is already sped up to ×1.2). The extra ~2 s is spent where it pays: 0.86 s of silence after « Non. » and a ≥ 1.8 s readable end card. A 30 s cut-down is possible by dropping S07's zoom-out/sitemap (≈ 2 s) and tightening the end card.
+36.9 s against a "≈ 30–35 s" target. The mandatory lines + the hook + the CTA at a natural French delivery don't fit in 35 s without sounding rushed (the first half is already read at a brisk ad pace). The extra ~2 s is spent where it pays: 0.86 s of silence after « Non. » and a ≥ 1.8 s readable end card. A 30 s cut-down is possible by dropping S07's zoom-out/sitemap (≈ 2 s) and tightening the end card.
 
 ## Placeholders & compliance
 - **`tonnom.com`** (= "ton nom .com", "your name .com") is deliberately a placeholder for the buyer's own domain, used in the link pill, browser bar, link preview and `bonjour@tonnom.com`. All other links are masked (`lien-partage/…/x8k2`). No real or private URL appears.
+- **Voice**: the client's own voice, cloned at their request from their own promo narration, with their confirmation that it is their voice and that they hold the rights. Used for this ad only; no one else's voice is imitated.
 - **Persona**: « Inès Morel — UGC Creator & Voice Over, Paris » is fictional (AI-generated photos, invented copy). No real person, client, brand, testimonial, follower count, metric, award or logo appears anywhere. The one image where the generator painted a fake social-media bar (handle + view count) was cropped.
 - **Google Drive / WhatsApp** are *spoken* (as in the brief) and appear only as plain-text tags. Their interfaces are **not reproduced**: the file browser and the chat are original designs following familiar patterns (list + search; bubbles + composer), with their own colours, layouts and icons. No logos, no trademarked glyphs, no original notification sounds.
 - **Language**: all copy, captions, supers and CTA are French; English appears only as job titles / formats that are used as-is in the French creator market (UGC Creator, Voice Over, Reels, TikTok, Media kit) and as the product name « Premium Website Portfolio » (spoken in the script). No Arabic, no Darija.
@@ -77,6 +85,8 @@ Key text and UI sit between y = 250 and y = 1500 (Meta Reels UI overlays: top ~1
 
 ## Generative credits (Higgsfield) used by this production
 Session of 2026-09-28: **9.3 credits** — 10 French voice test lines (0.45 each = 4.5), 2 full-script voiceover takes (2.1 each = 4.2), 5 Soul 2 images (0.12 each = 0.6). Remaining balance after production: 103.2. (The account history also shows 7.95 voiceover credits on 2026-09-27, before this session started.)
+
+Re-voicing, 2026-09-29: **≈ 36 credits** — 7 full-script Seed Audio takes with the voice reference (4.4 each; one, at rate −26 with paragraph breaks, was read too slowly and dropped) and 4 short pickups (≈ 1.3 each). Creating a stored voice profile was refused by the plan's voice limit (nothing charged); cloning per generation with the audio reference does the same job. Balance after: 67.
 
 ## Known trade-offs
 - Photos were transferred downscaled (600×800 hero, 450×800 tiles) because the generation CDN isn't reachable from the render machine; they're never shown above ~1.3× so they stay sharp, but a production site would use the full 2k originals.

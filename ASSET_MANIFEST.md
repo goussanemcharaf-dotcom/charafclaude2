@@ -1,6 +1,6 @@
 # Asset Manifest
 
-Every asset in the film, where it comes from and how it was made. **No stock footage, no stock music, no third-party logos, no 3D.** Everything visual except four photographs is drawn in code (React + SVG + CSS, rendered by Remotion); everything audible except the voice is synthesized in code.
+Every asset in the film, where it comes from and how it was made. **No stock footage, no stock music, no third-party logos, no 3D.** Everything visual except four photographs is drawn in code (React + SVG + CSS, rendered by Remotion); everything audible except the voice is synthesized in code. The voice is the client's own, cloned with their consent.
 
 Status legend: **FINAL** = in the delivered film · **REVIEW** = creative-review material only · **REJECTED** = generated but not used.
 
@@ -58,12 +58,15 @@ Latin subsets include every French glyph used (àâçéèêëîïôûœ « » �
 
 | NAME | PURPOSE | TYPE | SOURCE | GENERATION METHOD | FORMAT | SCENE | STATUS |
 |---|---|---|---|---|---|---|---|
-| `audio/voiceover/vo_packed.opus` | Edited voice take (phrases packed) | Voice | ElevenLabs preset voice « Julian » via Higgsfield `text2speech_v2` (take B) | Chosen from scored takes (faster-whisper French probability + WER); phrase trim, pause squeeze, pitch/formant-preserving tempo (rubberband) | Opus 48 kHz mono | all | FINAL (source) |
-| `audio/voiceover/vo_packed_timing.json` | Phrase + word timings of the edited take | Data | faster-whisper word timestamps | ASR alignment | JSON | — | FINAL |
+| `audio/voiceover/clone/voice_sample_clean.mp3` | The client's narration, isolated from their Twin MCP promo: the cloning reference | Voice | Client upload (their own voice; rights confirmed) | Music removed with a UVR MDX-Net ensemble (Kim_Vocal_2 + UVR-MDX-NET-Voc_FT, ONNX) — `utils/audio/isolate_voice.py` | MP3 256 kb/s mono, 32.5 s | — | SOURCE |
+| `audio/voiceover/clone/takes/*.flac` (+ `*_words.json`) | 6 full-script takes + 4 pickups in the cloned voice, with ASR word timestamps | Voice | Higgsfield **Seed Audio 1.0** with the sample above as audio reference | Speech rates 0 to −26; scored by `utils/voice/voice_qa.py` (speaker similarity 0.955–0.973, WER) | FLAC 48 kHz stereo, as delivered (the comp uses the mono sum) | — | SOURCE |
+| `audio/voiceover/clone/vo_packed_clone.flac` | The comp: 17 phrases from 4 takes, fitted to the picture | Voice | derived | `utils/voice/fit_vo.py`: phrase cuts at pauses, DP take choice, Rubber Band R3 tempo ×0.87–1.18, clip gain, match EQ to the real voice | FLAC 48 kHz mono | all | FINAL (source) |
+| `audio/voiceover/vo_packed_timing.json` | Phrase + word timings of the comp, and which take each phrase comes from | Data | faster-whisper word timestamps, snapped to the audio | `fit_vo.py` | JSON | — | FINAL |
 | `audio/voiceover/vo_final.wav` | Voice placed on the film timeline | Voice | derived | `utils/build_timeline.py` (designed pauses, 4 ms fades) | WAV 24-bit 48 kHz mono | all | FINAL |
+| `audio/voiceover/julian/` | v1 voice: ElevenLabs preset « Julian » (edited take + timings) | Voice | Higgsfield `text2speech_v2` | Kept so v1 still rebuilds | Opus 48 kHz mono | — | REPLACED (the client wanted their own voice) |
 | `audio/music/music_stem.wav` | Original score (after ducking, at mix level) | Music | Original | `utils/audio/synth.py` + `build_audio.py`: additive/FM/subtractive synthesis, 120 BPM D-minor build → silence → 96 BPM Dm9–B♭maj9–Fmaj7–C6/9 groove → Fmaj9 | WAV 24-bit 48 kHz stereo | all but « Non. » | FINAL |
 | `audio/sfx/sfx_stem.wav` | Every sound effect (pops, slams, whooshes, clicks, notification, typing, bells) | SFX | Original | Synthesized from oscillators, noise and filters; placed on picture events | WAV 24-bit 48 kHz stereo | all but « Non. » | FINAL |
-| `audio/master_mix.wav` | Final master | Mix | Original | VO clean-up EQ, 7 dB ducking, BS.1770-4 normalisation to −14 LUFS, 4× oversampled true-peak limiter (−1.3 dBTP) | WAV 24-bit 48 kHz stereo | — | FINAL |
+| `audio/master_mix.wav` | Final master | Mix | Original | VO EQ (HPF + presence), 7 dB ducking, BS.1770-4 normalisation to −14 LUFS, 4× oversampled true-peak limiter (−1.3 dBTP) | WAV 24-bit 48 kHz stereo | — | FINAL |
 
 ## 5. Reference (analysis only — not used in the film)
 
@@ -72,6 +75,7 @@ Latin subsets include every French glyph used (àâçéèêëîïôûœ « » �
 | `assets/reference/s_01.jpg … s_07.jpg` | 2 fps contact sheets of the supplied reference Reel | User upload | REFERENCE |
 | `assets/reference/reference_bubbles_screenshot.png` | The supplied "bubbles" screenshot | User upload | REFERENCE |
 | `assets/reference/reference_audio_spectrogram.png` | Reference sound-design analysis | Derived from the upload | REFERENCE |
+| Twin MCP promo (client upload, not in the repo) | Source of the client's voice; only the isolated narration above is kept | User upload | REFERENCE |
 
 ## 6. Data
 
