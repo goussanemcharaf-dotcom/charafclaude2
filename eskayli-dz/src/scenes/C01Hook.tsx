@@ -39,7 +39,7 @@ const PATH: [number, number][] = [
 
 export const C01Hook: React.FC<{ t: number }> = ({ t }) => {
   const budget = lerp(0.14, 1, ease.outCubic(invLerp(0.0, 1.1, t)));
-  const route = keys(t, [[0.55, 0], [2.15, 0.78], [3.1, 1]], ease.inOutCubic);
+  const route = keys(t, [[0.2, 0], [2.15, 0.78], [3.1, 1]], ease.inOutCubic); // the budget is already flowing
   // camera: macro on the budget field, then pull back to the whole campaign
   const z = keys(t, [[0, 1.95], [1.15, 1.8], [2.45, 1.0]], ease.inOutCubic);
   const fx = BUDGET.x + BUDGET.w / 2, fy = BUDGET.y + BUDGET.h / 2; // focus point
@@ -47,6 +47,8 @@ export const C01Hook: React.FC<{ t: number }> = ({ t }) => {
   const cx = lerp(540, fx, focusMix), cy = lerp(1130, fy, focusMix);
   const cam = `translate(${540 - cx * z}px, ${1130 - cy * z}px) scale(${z})`;
   const out = ease.inCubic(invLerp(HOOK_OUT - 0.1, HOOK_OUT + 0.45, t));
+  const hand = ease.inOutCubic(invLerp(T.publicite - 0.14, T.publicite + 0.24, t));
+  const hookOut = ease.inCubic(invLerp(HOOK_OUT, HOOK_OUT + 0.35, t));
   return (
     <AbsoluteFill>
       {/* the campaign (under the camera) */}
@@ -112,8 +114,16 @@ export const C01Hook: React.FC<{ t: number }> = ({ t }) => {
       </AbsoluteFill>
       {/* headline (screen space) */}
       <div style={{ position: "absolute", left: 60, right: 60, top: 470 }}>
-        <KineticLine t={t} size={40} weight={600} align="left" out={HOOK_OUT} tracking="-0.02em"
-          words={[{ text: "Vous", at: T.investissez - 0.12, dim: true }, { text: "investissez", at: T.investissez, dim: true }]} />
+        {/* frame 0 speaks to the viewer: « Vous investissez » large and white from the very first frame (the feed's
+            first impression), then it hands the focus to « PUBLICITÉ » — it shrinks back to a grey connector */}
+        <div style={{ height: 48, position: "relative", opacity: 1 - hookOut, transform: `translateY(${-40 * hookOut}px)`,
+          filter: hookOut > 0 ? `blur(${hookOut * 10}px)` : undefined }}>
+          <div style={{ position: "absolute", left: 0, bottom: 0, whiteSpace: "nowrap", transformOrigin: "0% 100%", transform: `scale(${lerp(1.75, 1, hand)})`,
+            fontFamily: font.sans, fontSize: 40, fontWeight: 700, letterSpacing: "-0.025em", lineHeight: 1.05,
+            color: hand < 1 ? `rgb(${Math.round(lerp(244, 140, hand))}, ${Math.round(lerp(242, 140, hand))}, ${Math.round(lerp(238, 146, hand))})` : color.mist }}>
+            Vous investissez
+          </div>
+        </div>
         <KineticLine t={t} size={118} align="left" out={HOOK_OUT} style={{ marginTop: 10 }}
           words={[{ text: "PUBLICITÉ", at: T.publicite }]} />
         <KineticLine t={t} size={70} align="left" out={HOOK_OUT} style={{ marginTop: 6 }}
