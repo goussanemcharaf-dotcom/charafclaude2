@@ -5,7 +5,7 @@
 
 ## 1. Method
 1. **Design stills** while building (`node utils/still.mjs`), reviewed as labelled contact sheets per scene.
-2. **Frame-by-frame review of the rendered file**: every frame extracted from the H.264 program, contact sheets every 6 frames (0.2 s) → `qa/sheets/` (7 sheets, 185 thumbnails). Every transition and every VO-synced cue checked against `config/timeline.json`.
+2. **Frame-by-frame review of the rendered file**: every frame extracted from the H.264 program, contact sheets every 6 frames (0.2 s) → `qa/sheets/` (7 sheets, 185 thumbnails; redone on the v3 export). Every transition and every VO-synced cue checked against `config/timeline.json`; the exported audio is aligned with the master to the sample (cross-correlation offset 0 ms).
 3. **Audio**: BS.1770-4 integrated loudness (own implementation, cross-checked with FFmpeg `ebur128`), 4× oversampled true peak, momentary-loudness curves per stem + master spectrogram → `qa/audio_loudness_spectrogram.png`, `qa/audio_report.txt`.
 4. **Delivery**: `ffprobe` + `ebur128` on every exported file → `qa/export_report.txt`.
 5. **Voice (v3)**: speaker similarity to the real voice, pitch and French ASR on every take and on the final comp → `qa/voice_report.txt`; spectrogram and phrase-edge plots of the comp (cuts, clicks, breaths, level jumps); pitch continuity measured at every take switch; key frames re-checked against the new word times.
@@ -78,10 +78,10 @@ See `qa/export_report.txt` for the raw probe of each file.
 | Check | Result |
 |---|---|
 | Resolution / frame rate / frames | 1080 × 1920 · 30/1 · 1108 frames · 36.933 s |
-| Video | H.264 High, yuv420p, BT.709 tagged, GOP 60, `+faststart` · 01 = 21.3 MB, 02 = 15.4 MB, 03 = 15.1 MB, 04 = 21.8 MB |
+| Video | H.264 High, yuv420p, BT.709 tagged, GOP 60, `+faststart` · 01 = 21.2 MB, 02 = 15.3 MB, 03 = 15.0 MB, 04 = 21.6 MB |
 | Audio | AAC-LC 256 kb/s, 48 kHz stereo |
-| Loudness (all MP4s) | **−14.0 LUFS** integrated (target −14), LRA 2.1 LU |
-| True peak (all MP4s) | **−1.3 dBTP** after AAC encoding (target ≤ −1 dBTP) |
+| Loudness (all MP4s) | **−14.0 LUFS** integrated (target −14), LRA 1.9 LU |
+| True peak (all MP4s) | **−1.4 dBTP** after AAC encoding (target ≤ −1 dBTP) |
 | Silence under « Non. » | music + SFX max = 0.0 (digital silence) 14.49 → 15.35 s |
 | A/V sync | VO placed sample-accurately from the same `timeline.json` the picture uses; spot checks (v3): « UGC » pop 0.38 s, « pensé » + page build 20.32 s, « projets / services / style » tabs 21.84 / 22.48 / 23.14 s, « dix » = 10 at 27.03 s, « seul » merge at 28.54 s, tap on « clique » 29.95 s, « Professionnel. » 31.60 s, typing on « Écris-moi » 34.10 s |
 | Safe zones | key text/UI between y = 250 and y = 1500, ≥ 60 px sides; captions bottom at y = 1486 |
