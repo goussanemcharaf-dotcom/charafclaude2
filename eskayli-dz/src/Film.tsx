@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
-import { FPS, bgSystem } from "./lib/tokens";
+import { FPS, bgSystem, color, font } from "./lib/tokens";
 import { clamp, invLerp, keys } from "./lib/anim";
 import { at } from "./timeline";
 import { Grain, Grid, Vignette } from "./components/base";
@@ -42,7 +42,7 @@ export const Film: React.FC = () => {
   const grid = clamp(invLerp(DIVE_AT - 3.4, DIVE_AT - 2.4, t)) * 0.9 * (1 - 0.7 * quiet);
   const paper = (t >= BRAND_IN && t < SYSTEM_BACK) || t >= FINAL_AT;
   return (
-    <AbsoluteFill style={{ background: bgSystem, overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: bgSystem, overflow: "hidden", color: color.paper, fontFamily: font.sans }}>
       <Grid o={grid} />
       {SLOTS.filter((s) => t >= s.from && t < s.to).map((s) => (
         <AbsoluteFill key={s.id}>

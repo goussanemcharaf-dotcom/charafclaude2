@@ -28,14 +28,14 @@ export const C05Eskayli: React.FC<{ t: number }> = ({ t }) => {
   const dotFly = ease.inOutCubic(invLerp(T.chez + 0.1, T.eskayli + 0.2, t));
   const label = prog(t, T.strategie - 0.1, 0.6);
   const links = clamp(invLerp(T.autour - 0.1, T.business + 0.3, t));
-  const out = ease.inCubic(invLerp(ESKAYLI_OUT - 0.2, ESKAYLI_OUT + 0.35, t));
+  const out = ease.inCubic(invLerp(ESKAYLI_OUT - 0.12, ESKAYLI_OUT + 0.18, t)); // quick push-up into 06
   const rot = (T.chez - DIVE_AT) * 2.2;
   const flash = clamp(1 - Math.abs(t - (T.chez + 0.5)) / 0.3);
   // dot target: the i of the wordmark (measured from the Wordmark geometry at size 170)
   const dotX = MARK.x + 205, dotY = MARK.y - 72;
   const fromX = CORE.x, fromY = CORE.y;
   return (
-    <AbsoluteFill style={{ opacity: 1 - out, transform: `scale(${1 - 0.05 * out})` }}>
+    <AbsoluteFill style={{ opacity: 1 - out, transform: `translateY(${-90 * out}px) scale(${1 - 0.03 * out})` }}>
       {/* grid guides flash when the system locks */}
       <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: flash * 0.8 }}>
         {GRID.map((g, i) => <line key={i} x1={0} x2={1080} y1={g.y} y2={g.y} stroke={color.signal} strokeWidth={1} opacity={0.35} />)}

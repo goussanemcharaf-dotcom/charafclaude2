@@ -58,10 +58,12 @@ One **signal** — a small orange point of light, the budget — travels through
 ## 7. Transitions (concept → concept, never slide → slide)
 business core → client idéal (a satellite expands into a profile) → audience (the profile multiplies into a segment) → campaign (the segment docks into the campaign board) → creative (the ad slot opens) → tests (the creative splits in three) → prospect (the winning ad receives a reply) → conversation (the reply opens a thread) → client (the thread resolves into a confirmed order / appointment) → brand (the signal becomes the dot of the mark).
 
+*As built* (see `03_STORYBOARD_SHOTLIST.md`): the naive chips crack and the new system snaps into their place (03); COMPRENDRE opens into the business core (03→04); the satellites snap into Eskayli's grid as the signal becomes the *i*-dot (04→05); the camera travels down one column of four modules (06); the launch panel docks above the tests (07); the budget signal drops down one page of four business events (08); a good ad's views converge into « VUES. », the camera flies through it into the funnel and CLIENT lands in the opportunity grid (09); a hard cut to paper where the logo's second tone pops the *i*-dot (10).
+
 ## 8. Sound identity
 - Tempo 100 BPM (a calm, confident read sits on it); the score grows in four stages: **pulse** (sub heartbeat + ticks) → **structure** (clean kick, muted bass) → **system** (full groove, arpeggio, claps) → **conversion** (the fullest bar, chord stabs) → **resolve** (pad + the sonic logo).
-- Sonic logo: a clean two-note signal (a rising fifth) — heard softly when the signal first appears, fully on « Eskayli DZ ».
-- SFX: soft UI ticks on data, fine clicks on locks, low refined impacts on the four big moments, short airy moves on camera travels, one full silence on « L'objectif ? ».
+- Sonic logo: a clean two-note signal (a rising fifth, E5 → B5) — heard softly when the first order is confirmed (08), in full on the hard cut to the brand, its second tone landing with the *i*-dot just before the voice says « Eskayli DZ » (10), and softly after « projet ». It is never laid over a spoken word.
+- SFX: soft UI ticks on data, fine clicks on locks, low refined impacts on the four big moments, short airy moves on camera travels, a tape-stop when the naive workflow breaks, one **absolute** silence on « L'objectif ? ».
 - Voice first: the music is ducked by band under the voice; master −14 LUFS, ≤ −1 dBTP.
 
 ## 9. Safe zones & other ratios

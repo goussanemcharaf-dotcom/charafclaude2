@@ -8,7 +8,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const pub = join(root, "public");
 rmSync(pub, { recursive: true, force: true });
 mkdirSync(pub, { recursive: true });
-for (const dir of ["fonts", "assets/images"]) {
+for (const dir of ["fonts", "assets/images", "assets/grain"]) {
   const src = join(root, dir);
   if (existsSync(src)) cpSync(src, join(pub, dir), { recursive: true });
 }

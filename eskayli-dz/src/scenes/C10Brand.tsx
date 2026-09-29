@@ -6,6 +6,7 @@ import { at, ph } from "../timeline";
 import { KineticLine } from "../components/Kinetic";
 import { Wordmark } from "../components/Wordmark";
 import { SignalGlyph } from "../components/Signal";
+import { IconChat, IconCheckCircle, IconFlask, IconLayers, IconMegaphone, IconUser } from "../components/Icons";
 
 // 10 — BRAND & CTA. Hard cut to paper: the wordmark, then Meta Ads · Stratégie · Création ·
 // Performance on the beat. The system returns, organised, under the question. Then the final,
@@ -29,15 +30,17 @@ const FOUR = [
   { k: "PERFORMANCE", at: T.performance },
 ];
 const MAP = [
-  { k: "CAMPAGNE", x: 230, y: 1060 }, { k: "CRÉATIVES", x: 540, y: 1060 }, { k: "TESTS", x: 850, y: 1060 },
-  { k: "CLIENTS", x: 230, y: 1300, hot: true }, { k: "CONVERSATIONS", x: 540, y: 1300 }, { k: "PROSPECTS", x: 850, y: 1300 },
+  { k: "CAMPAGNE", x: 196, y: 1150, icon: IconMegaphone }, { k: "CRÉATIVES", x: 540, y: 1150, icon: IconLayers }, { k: "TESTS", x: 884, y: 1150, icon: IconFlask },
+  { k: "CLIENTS", x: 196, y: 1370, hot: true, icon: IconCheckCircle }, { k: "CONVERSATIONS", x: 540, y: 1370, icon: IconChat }, { k: "PROSPECTS", x: 884, y: 1370, icon: IconUser },
 ];
+const WORD_Y = (i: number) => 1010 + i * 106;
 
 export const C10Brand: React.FC<{ t: number }> = ({ t }) => {
   const paper1 = t < SYSTEM_BACK;
   const final = t >= FINAL_AT;
-  const mark = ease.outExpo(invLerp(T.eskayli - 0.1, T.eskayli + 0.6, t));
-  const dotPop = ease.outBackSoft(invLerp(T.eskayli + 0.25, T.eskayli + 0.6, t));
+  // the wordmark lands on the hard cut with the sonic logo; the i-dot pops on its second tone
+  const mark = ease.outExpo(invLerp(BRAND_IN, BRAND_IN + 0.7, t));
+  const dotPop = ease.outBackSoft(invLerp(BRAND_IN - 0.02, BRAND_IN + 0.33, t));
   if (paper1) {
     return (
       <AbsoluteFill style={{ background: color.paper }}>
@@ -46,10 +49,17 @@ export const C10Brand: React.FC<{ t: number }> = ({ t }) => {
         </div>
         {FOUR.map((w, i) => {
           const p = prog(t, w.at - 0.08, 0.45);
+          const next = i < FOUR.length - 1 ? FOUR[i + 1].at - 0.08 : Infinity;
+          const on = prog(t, w.at - 0.08, 0.3) * (1 - prog(t, next, 0.2)) * (1 - prog(t, T.p27end + 0.1, 0.3));
           return (
-            <div key={w.k} style={{ position: "absolute", left: 0, right: 0, top: 1000 + i * 100, textAlign: "center", opacity: p,
-              transform: `translateY(${(1 - p) * 24}px)`, fontFamily: font.sans, fontWeight: 800, fontSize: 70, letterSpacing: "-0.03em", color: INK }}>
-              {w.k}
+            <div key={w.k} style={{ position: "absolute", left: 0, right: 0, top: WORD_Y(i), textAlign: "center", opacity: p,
+              transform: `translateY(${(1 - p) * 24}px)`, fontFamily: font.sans, fontWeight: 800, fontSize: 76, letterSpacing: "-0.03em",
+              color: t < next || t > T.p27end ? INK : "rgba(11,11,12,0.38)" }}>
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <span style={{ position: "absolute", left: -44, top: "50%", width: 18, height: 18, marginTop: -9, borderRadius: 9, background: color.signal,
+                  opacity: on, transform: `scale(${0.4 + 0.6 * on})` }} />
+                {w.k}
+              </span>
             </div>
           );
         })}
@@ -81,7 +91,9 @@ export const C10Brand: React.FC<{ t: number }> = ({ t }) => {
           <KineticLine t={t} size={44} weight={600} align="left" tracking="-0.02em" style={{ marginTop: 10 }}
             words={[{ text: "un", at: at(28, "un"), dim: true }, { text: "véritable", at: T.veritable, dim: true }]} />
           <KineticLine t={t} size={80} align="left" style={{ marginTop: 6 }}
-            words={[{ text: "CANAL", at: T.canal, accent: true }, { text: "D’ACQUISITION ?", at: T.acquisition, accent: true }]} />
+            words={[{ text: "CANAL", at: T.canal, accent: true }, { text: "D’ACQUISITION", at: T.acquisition, accent: true }]} />
+          <KineticLine t={t} size={44} weight={600} align="left" tracking="-0.02em" style={{ marginTop: 10 }}
+            words={[{ text: "pour", at: at(28, "pour"), dim: true }, { text: "votre", at: at(28, "votre"), dim: true }, { text: "business ?", at: T.business }]} />
         </div>
         <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", opacity: prog(t, SYSTEM_BACK, 0.5) }}>
           <path d={d} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={3} />
@@ -91,11 +103,15 @@ export const C10Brand: React.FC<{ t: number }> = ({ t }) => {
         {MAP.map((m, i) => {
           const p = prog(t, SYSTEM_BACK + 0.1 + i * 0.08, 0.5);
           const lit = route >= [0, 0.18, 0.36, 1, 0.82, 0.64][i];
+          const hot = m.hot && lit;
+          const Ic = m.icon;
           return (
-            <div key={m.k} style={{ position: "absolute", left: m.x, top: m.y, transform: `translate(-50%, -50%) scale(${0.9 + 0.1 * p})`, opacity: p,
-              padding: "20px 22px", borderRadius: 20, whiteSpace: "nowrap", fontFamily: font.sans, fontWeight: 750, fontSize: 27, letterSpacing: "0.03em",
-              background: m.hot && lit ? color.signal : color.panel2, color: m.hot && lit ? "#170800" : lit ? color.paper : color.mist,
-              border: `1.5px solid ${lit ? (m.hot ? color.signal : color.line2) : color.line}` }}>{m.k}</div>
+            <div key={m.k} style={{ position: "absolute", left: m.x, top: m.y, transform: `translate(-50%, -50%) scale(${(0.9 + 0.1 * p) * (hot ? 1.08 : 1)})`, opacity: p,
+              display: "flex", alignItems: "center", gap: 12, padding: "20px 22px", borderRadius: 22, whiteSpace: "nowrap", fontFamily: font.sans, fontWeight: 750,
+              fontSize: 26, letterSpacing: "0.03em", background: hot ? color.signal : color.panel2, color: hot ? "#170800" : lit ? color.paper : color.mist,
+              border: `1.5px solid ${lit ? (m.hot ? color.signal : color.line2) : color.line}`, boxShadow: hot ? "0 0 0 10px rgba(255,90,31,0.12)" : undefined }}>
+              <Ic s={30} c={hot ? "#170800" : lit ? color.signal : color.mist} w={1.8} />{m.k}
+            </div>
           );
         })}
       </AbsoluteFill>

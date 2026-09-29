@@ -5,10 +5,13 @@
   "description": "ESKAYLI DZ — Meta Ads acquisition film (9:16, 100 % French). React + SVG + CSS rendered with Remotion, synthesized score and sound design in Python, FFmpeg delivery. Uses the repository root's node_modules.",
   "scripts": {
     "sync": "node utils/sync-public.mjs",
+    "timeline": "python3 utils/build_timeline.py",
+    "captions": "python3 utils/build_captions.py",
+    "textures": "python3 utils/make_grain.py",
     "studio": "npm run sync && remotion studio src/index.ts",
     "still": "npm run sync && node utils/still.mjs",
     "render:video": "npm run sync && node utils/render.mjs",
-    "audio": "python3 utils/audio/build_audio.py",
+    "audio": "python3 utils/audio/build_audio.py && python3 utils/audio/mix_intelligibility.py",
     "export": "bash utils/export.sh",
     "typecheck": "tsc --noEmit -p ."
   }

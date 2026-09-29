@@ -21,12 +21,18 @@ export const SYSTEM_OUT = T.next - 0.2;
 const MOD_H = 560;
 const modY = (i: number) => 700 + i * (MOD_H + 110); // world y of module i (top)
 const CUES = [T.nous, T.le, T.la, T.le2];
+const CAM = (i: number) => -(modY(i) + MOD_H / 2 - 1000);
+const CAM_KEYS: [number, number][] = [
+  [SYSTEM_IN, CAM(0)], [T.angle + 0.45, CAM(0)], [T.le, CAM(1)],
+  [T.message + 0.62, CAM(1)], [T.la + 0.02, CAM(2)],
+  [T.creative + 0.66, CAM(2)], [T.le2, CAM(3)],
+];
 
 const Header: React.FC<{ i: number; title: string; note: string; on: number }> = ({ i, title, note, on }) => (
   <div style={{ display: "flex", alignItems: "baseline", gap: 20, marginBottom: 26 }}>
     <Mono size={24} c={on > 0.5 ? color.signal : color.mist}>{`0${i + 1}`}</Mono>
     <span style={{ fontFamily: font.sans, fontWeight: 800, fontSize: 64, letterSpacing: "-0.03em", color: color.paper }}>{title}</span>
-    <Mono size={18} style={{ marginLeft: "auto" }}>{note}</Mono>
+    <Mono size={22} style={{ marginLeft: "auto" }}>{note}</Mono>
   </div>
 );
 
@@ -58,20 +64,22 @@ const Dots: React.FC<{ t: number; t0: number }> = ({ t, t0 }) => {
 };
 
 export const C06System: React.FC<{ t: number }> = ({ t }) => {
-  // camera travels down the column: module i centred when its line starts
-  const camY = keys(t, CUES.flatMap((c, i) => [[c - 0.3, -(modY(i) + MOD_H / 2 - 1000)], [c + 0.35, -(modY(i) + MOD_H / 2 - 1000)]] as [number, number][]),
-    ease.inOutCubic);
-  const vel = Math.abs(keys(t, CUES.flatMap((c, i) => [[c - 0.3, modY(i)], [c + 0.35, modY(i)]] as [number, number][]), ease.inOutCubic)
-    - keys(t - 1 / 30, CUES.flatMap((c, i) => [[c - 0.3, modY(i)], [c + 0.35, modY(i)]] as [number, number][]), ease.inOutCubic));
-  const blur = Math.min(6, Math.max(0, vel - 12) * 0.15);
-  const inP = prog(t, SYSTEM_IN, 0.6);
-  const out = ease.inCubic(invLerp(SYSTEM_OUT - 0.15, SYSTEM_OUT + 0.35, t));
+  // camera holds on each module through its key word (so the pick lands on screen), then whips to
+  // the next one in ~0.35 s with velocity blur
+  const cam = (tt: number) => keys(tt, CAM_KEYS, ease.inOutCubic);
+  const camY = cam(t);
+  const vel = Math.abs(cam(t) - cam(t - 1 / 30));
+  const blur = Math.min(7, Math.max(0, vel - 14) * 0.12);
+  const camPos = (-camY + 1000 - MOD_H / 2 - 700) / (MOD_H + 110); // fractional module index in view
+  const focus = (i: number) => lerp(0.22, 1, 1 - clamp(Math.abs(camPos - i) * 1.3));
+  const inP = prog(t, SYSTEM_IN + 0.15, 0.45); // rises in as 05 leaves (no double exposure)
+  const out = ease.inCubic(invLerp(SYSTEM_OUT - 0.3, SYSTEM_OUT - 0.02, t));
   const on = (i: number) => (t > CUES[i] - 0.1 ? 1 : 0);
   const angleSel = prog(t, T.angle - 0.05, 0.35);
-  const strike = clamp(invLerp(T.message - 0.1, T.message + 0.35, t));
+  const strike = clamp(invLerp(T.le + 0.02, T.le + 0.32, t));
   const creativeSel = prog(t, T.creative - 0.05, 0.35);
   return (
-    <AbsoluteFill style={{ opacity: inP * (1 - out) }}>
+    <AbsoluteFill style={{ opacity: inP * (1 - out), transform: `translateY(${(1 - inP) * 90 - out * 90}px)` }}>
       <AbsoluteFill style={{ transform: `translateY(${camY}px)`, filter: blur > 0.3 ? `blur(${blur}px)` : undefined }}>
         {/* the route down the column */}
         <svg width={1080} height={4000} style={{ position: "absolute", left: 0, top: 0 }}>
@@ -80,7 +88,7 @@ export const C06System: React.FC<{ t: number }> = ({ t }) => {
           {[0, 1, 2, 3].map((i) => <circle key={i} cx={80} cy={modY(i) + 40} r={9} fill={on(i) ? color.signal : color.panel3} />)}
         </svg>
         {/* 01 angle */}
-        <div style={{ position: "absolute", left: 130, top: modY(0), width: 890 }}>
+        <div style={{ position: "absolute", left: 130, top: modY(0), width: 890, opacity: focus(0) }}>
           <Header i={0} title="L’angle" note="Pourquoi acheter ?" on={on(0)} />
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
             {ANGLES.map((a, i) => {
@@ -101,7 +109,7 @@ export const C06System: React.FC<{ t: number }> = ({ t }) => {
           </div>
         </div>
         {/* 02 message */}
-        <div style={{ position: "absolute", left: 130, top: modY(1), width: 890 }}>
+        <div style={{ position: "absolute", left: 130, top: modY(1), width: 890, opacity: focus(1) }}>
           <Header i={1} title="Le message" note="Ce que le client comprend" on={on(1)} />
           <Panel w={890} pad={36}>
             <Mono size={18}>Brouillon</Mono>
@@ -112,12 +120,12 @@ export const C06System: React.FC<{ t: number }> = ({ t }) => {
             <div style={{ height: 1, background: color.line, margin: "26px 0" }} />
             <Mono size={18} c={color.signal}>Version finale</Mono>
             <div style={{ fontSize: 44, fontWeight: 750, letterSpacing: "-0.02em", marginTop: 10, lineHeight: 1.15, minHeight: 104 }}>
-              <TypeOn t={t} at={T.message + 0.3} cps={34} caret text={"Ce que vos clients cherchent,\ndit simplement."} />
+              <TypeOn t={t} at={T.le + 0.36} cps={64} caret text={"Ce que vos clients cherchent,\ndit simplement."} />
             </div>
           </Panel>
         </div>
         {/* 03 creative */}
-        <div style={{ position: "absolute", left: 130, top: modY(2), width: 890 }}>
+        <div style={{ position: "absolute", left: 130, top: modY(2), width: 890, opacity: focus(2) }}>
           <Header i={2} title="La créative" note="Trois variantes" on={on(2)} />
           <div style={{ display: "flex", gap: 20 }}>
             {[CREATIVES.food, CREATIVES.estate, CREATIVES.beauty].map((c, i) => {
@@ -132,7 +140,7 @@ export const C06System: React.FC<{ t: number }> = ({ t }) => {
           </div>
         </div>
         {/* 04 targeting */}
-        <div style={{ position: "absolute", left: 130, top: modY(3), width: 890 }}>
+        <div style={{ position: "absolute", left: 130, top: modY(3), width: 890, opacity: focus(3) }}>
           <Header i={3} title="Le ciblage" note="La bonne audience" on={on(3)} />
           <div style={{ display: "flex", gap: 12, marginBottom: 18, flexWrap: "wrap" }}>
             {["Âge", "Ville", "Centres d’intérêt", "Comportements"].map((f, i) => {

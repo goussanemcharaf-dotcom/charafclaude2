@@ -1,50 +1,36 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { color, font } from "../lib/tokens";
 import { clamp } from "../lib/anim";
 
-/** Hairline 12-column grid of the "system" world. `o` = overall opacity; `flash` lights one column band. */
-export const Grid: React.FC<{ o?: number; cols?: number; rows?: number; flash?: { col: number; a: number } }> = ({
-  o = 1, cols = 12, rows = 20, flash,
-}) => (
-  <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: o }}>
-    <defs>
-      <radialGradient id="gridFade" cx="50%" cy="46%" r="62%">
-        <stop offset="0%" stopColor="#fff" stopOpacity="1" />
-        <stop offset="70%" stopColor="#fff" stopOpacity="0.55" />
-        <stop offset="100%" stopColor="#fff" stopOpacity="0" />
-      </radialGradient>
-      <mask id="gridMask">
-        <rect width={1080} height={1920} fill="url(#gridFade)" />
-      </mask>
-    </defs>
-    <g mask="url(#gridMask)" stroke="rgba(255,255,255,0.075)" strokeWidth={1}>
-      {Array.from({ length: cols + 1 }, (_, i) => {
-        const x = 60 + (i * 960) / cols;
-        return <line key={`c${i}`} x1={x} y1={0} x2={x} y2={1920} />;
-      })}
-      {Array.from({ length: rows + 1 }, (_, i) => {
-        const y = (i * 1920) / rows;
-        return <line key={`r${i}`} x1={0} y1={y} x2={1080} y2={y} />;
-      })}
-    </g>
-    {flash && flash.a > 0 && (
-      <rect x={60 + (flash.col * 960) / cols} y={0} width={960 / cols} height={1920} fill={color.signal} opacity={0.06 * flash.a} />
-    )}
-  </svg>
-);
-
-/** Deterministic film grain (noise world). */
-export const Grain: React.FC<{ t: number; o?: number }> = ({ t, o = 0.08 }) => {
-  const seed = Math.floor(t * 24) % 16;
+/** Hairline 12-column grid of the "system" world (pre-drawn, radially faded — utils/make_grain.py).
+ *  `o` = overall opacity; `flash` lights one column band. */
+export const Grid: React.FC<{ o?: number; flash?: { col: number; a: number } }> = ({ o = 1, flash }) => {
+  if (o <= 0.001) return null;
   return (
-    <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: o, mixBlendMode: "screen" }}>
-      <filter id={`grain${seed}`}>
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={seed} stitchTiles="stitch" />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <rect width={1080} height={1920} filter={`url(#grain${seed})`} />
-    </svg>
+    <AbsoluteFill style={{ opacity: o, pointerEvents: "none" }}>
+      <Img src={staticFile("assets/grain/grid_1080x1920.png")} style={{ width: 1080, height: 1920 }} />
+      {flash && flash.a > 0 && (
+        <div style={{ position: "absolute", left: 60 + flash.col * 80, top: 0, width: 80, height: 1920, background: color.signal, opacity: 0.06 * flash.a }} />
+      )}
+    </AbsoluteFill>
+  );
+};
+
+/** Film grain of the noise world. The lift it gives the blacks is a flat layer (free to encode); only a light,
+ *  coarse grain rides on it — one noise tile at 2×, re-offset 24 times a second — so the texture survives Meta's
+ *  re-encode instead of turning into compression noise. */
+export const Grain: React.FC<{ t: number; o?: number }> = ({ t, o = 0.08 }) => {
+  if (o <= 0.001) return null;
+  const k = Math.floor(t * 24);
+  const x = (k * 197) % 1024, y = (k * 331 + 101) % 1024;
+  return (
+    <>
+      <AbsoluteFill style={{ opacity: o * 0.62, mixBlendMode: "screen", background: "rgb(128,128,128)", pointerEvents: "none" }} />
+      <AbsoluteFill style={{ opacity: o * 0.45, mixBlendMode: "screen", pointerEvents: "none",
+        backgroundImage: `url(${staticFile("assets/grain/grain_512.png")})`, backgroundRepeat: "repeat", backgroundSize: "1024px 1024px",
+        backgroundPosition: `${x}px ${y}px` }} />
+    </>
   );
 };
 

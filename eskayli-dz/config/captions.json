@@ -1,0 +1,112 @@
+[
+ {
+  "start": 31.347,
+  "end": 32.117,
+  "words": [
+   {
+    "w": "nous",
+    "start": 31.407,
+    "kind": "dim"
+   },
+   {
+    "w": "construisons",
+    "start": 31.627,
+    "kind": "key"
+   }
+  ]
+ },
+ {
+  "start": 32.147,
+  "end": 33.637,
+  "words": [
+   {
+    "w": "votre",
+    "start": 32.207,
+    "kind": "dim"
+   },
+   {
+    "w": "stratégie",
+    "start": 32.507,
+    "kind": "accent"
+   },
+   {
+    "w": "Meta",
+    "start": 33.207,
+    "kind": "key"
+   },
+   {
+    "w": "Ads",
+    "start": 33.567,
+    "kind": "key"
+   }
+  ]
+ },
+ {
+  "start": 33.667,
+  "end": 34.967,
+  "words": [
+   {
+    "w": "autour",
+    "start": 33.727,
+    "kind": "dim"
+   },
+   {
+    "w": "de",
+    "start": 33.967,
+    "kind": "dim"
+   },
+   {
+    "w": "votre",
+    "start": 34.127,
+    "kind": "dim"
+   },
+   {
+    "w": "business.",
+    "start": 34.267,
+    "kind": "key"
+   }
+  ]
+ },
+ {
+  "start": 41.854,
+  "end": 43.202,
+  "words": [
+   {
+    "w": "Puis",
+    "start": 41.914,
+    "kind": "dim"
+   },
+   {
+    "w": "nous",
+    "start": 42.532,
+    "kind": "dim"
+   },
+   {
+    "w": "lançons,",
+    "start": 42.532,
+    "kind": "accent"
+   }
+  ]
+ },
+ {
+  "start": 43.232,
+  "end": 44.932,
+  "words": [
+   {
+    "w": "testons",
+    "start": 43.292,
+    "kind": "key"
+   },
+   {
+    "w": "et",
+    "start": 43.881,
+    "kind": "dim"
+   },
+   {
+    "w": "optimisons",
+    "start": 43.972,
+    "kind": "accent"
+   }
+  ]
+ }
+]
