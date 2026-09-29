@@ -6,7 +6,7 @@
  "frames": 1108,
  "vo": {
   "file": "audio/voiceover/vo_final.wav",
-  "voice": "ElevenLabs preset 'Julian' via Higgsfield"
+  "voice": "ElevenLabs via Higgsfield text2speech_v2, preset voice 'Julian' (95429266-c0ac-4137-a209-63b8812b0f23), take B, edited (phrase trim, pause squeeze, rubberband tempo)"
  },
  "phrases": [
   {

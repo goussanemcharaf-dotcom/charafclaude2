@@ -1,7 +1,8 @@
 """Build the master timeline from the edited voiceover.
 
-Reads audio/voiceover/vo_packed.opus + vo_packed_timing.json (phrases packed with
-0.12 s gaps), re-spaces the phrases with the designed pauses below, and writes:
+Reads audio/voiceover/vo_packed_timing.json and the packed take it points to
+("packed_file"; phrases packed with 0.12 s gaps), re-spaces the phrases with the
+designed pauses below, and writes:
   - audio/voiceover/vo_final.wav   (48 kHz mono, VO on the final timeline)
   - config/timeline.json           (phrases, words, scenes: the single source of
                                     truth for animation, subtitles and SFX sync)
@@ -73,23 +74,31 @@ def merge_tokens(words):
 
 def main():
     timing = json.loads((ROOT / "audio/voiceover/vo_packed_timing.json").read_text())
-    vo = load_audio(ROOT / "audio/voiceover/vo_packed.opus")
+    vo = load_audio(ROOT / timing.get("packed_file", "audio/voiceover/vo_packed.opus"))
     phrases, words = timing["phrases"], timing["words"]
     assert len(phrases) == len(PHRASES) == len(GAPS) + 1
 
-    # Assign every ASR word to the phrase nearest its midpoint (robust to the
-    # few tens of ms of boundary slop in word timestamps).
-    def nearest(mid):
-        return min(range(len(phrases)), key=lambda k: max(phrases[k][1] - mid, 0, mid - phrases[k][2]))
     by_phrase = [[] for _ in phrases]
-    for w in words:
-        by_phrase[nearest((w[1] + w[2]) / 2)].append(w)
+    if timing.get("tokens_mapped"):
+        # words already map 1:1 onto the script tokens, in order (utils/voice/fit_vo.py)
+        i = 0
+        for k, text in enumerate(PHRASES):
+            n = len(text.split(" "))
+            by_phrase[k] = words[i:i + n]
+            i += n
+    else:
+        # Assign every ASR word to the phrase nearest its midpoint (robust to the
+        # few tens of ms of boundary slop in word timestamps).
+        def nearest(mid):
+            return min(range(len(phrases)), key=lambda k: max(phrases[k][1] - mid, 0, mid - phrases[k][2]))
+        for w in words:
+            by_phrase[nearest((w[1] + w[2]) / 2)].append(w)
 
     t = LEAD_IN
     placed, all_words = [], []
     for k, (pid, s, e) in enumerate(phrases):
         dur = e - s
-        pw = merge_tokens(by_phrase[k])
+        pw = by_phrase[k] if timing.get("tokens_mapped") else merge_tokens(by_phrase[k])
         tokens = PHRASES[k].split(" ")
         if len(tokens) != len(pw):
             raise SystemExit(f"phrase {pid}: {len(tokens)} tokens vs {len(pw)} ASR words: {tokens} / {pw}")
@@ -159,7 +168,7 @@ def main():
 
     timeline = {
         "fps": FPS, "width": 1080, "height": 1920, "duration": duration, "frames": frames,
-        "vo": {"file": "audio/voiceover/vo_final.wav", "voice": "ElevenLabs preset 'Julian' via Higgsfield"},
+        "vo": {"file": "audio/voiceover/vo_final.wav", "voice": timing.get("source", "")},
         "phrases": placed, "words": all_words, "scenes": scenes, "cues": cues,
     }
     (ROOT / "config/timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=1))
