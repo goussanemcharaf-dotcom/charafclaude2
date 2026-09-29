@@ -11,6 +11,8 @@
 | « L'objectif ? » silence | digital silence in music + SFX | ✅ max \|x\| = 0 from 47.45 to 48.78 s |
 | Subtitle file | complete transcript, ≤ 2 lines × 42 chars | ✅ 36 cues |
 | Encode robustness | nothing that Meta's re-encode turns into noise | ✅ after the delivery pass the grain is a flat lift + light coarse grain (high-frequency noise 1.73 → 0.66 levels) |
+| File sizes | light enough to upload and to version | ✅ Meta 9:16 32.7 MB (3.0 Mb/s video, CRF 17), master 90 MB (CRF 13), 4:5 26.7 MB, 1:1 23.6 MB |
+| Chunk joins | no flash or jump where the 240-frame chunks meet | ✅ frame-to-frame difference at each of the 9 joins equals the difference inside the chunk |
 
 ## 2. Self-critique loop (brief § 29) — asked after the first full render
 | Question | Verdict | What was reworked because of it |
@@ -26,8 +28,9 @@
 | **Conversion** — does the CTA feel natural? | Yes: a question, then one calm action, « PARLONS DE VOTRE PROJET. », with the signal as its full stop; no fake urgency | the index dot, the rule and the sonic logo after « projet » make it the resolved end of the film |
 
 ## 3. Frame-by-frame visual QA
-Method: stills at every key word during the build, then the full render at 2 fps (160 frames, `qa/sheets/`) and the final
-deliverables at 1 fps; the 4:5 and 1:1 crops were checked the same way.
+Method: stills at every key word during the build, then the full render at 2 fps (160 frames), then the final
+deliverables — `qa/sheets/eskayli_9x16_p1.jpg`, `_p2.jpg` (1 frame / s, captions burned in), `eskayli_4x5.jpg` and
+`eskayli_1x1.jpg` (1 frame / 2 s): nothing critical is cut in either crop (the 1:1 keeps ≥ 20 px above the highest headline).
 
 Issues found and fixed (in order):
 1. C03 naive chain too small to read on a phone → rebuilt as four large rows with props and a cursor.

@@ -1,0 +1,109 @@
+ESKAYLI DZ — EXPORT REPORT — 2026-09-29T21:10Z
+
+== 01_ESKAYLI_META_9x16.mp4  (32M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=3014252
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=263483
+   duration=79.633333
+   bit_rate=3286171
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 02_ESKAYLI_MASTER_9x16.mp4  (86M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=8729676
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=313624
+   duration=79.633333
+   bit_rate=9051749
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 03_ESKAYLI_CLEAN_9x16.mp4  (32M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1920
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=2994072
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=263483
+   duration=79.633333
+   bit_rate=3265993
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 04_ESKAYLI_4x5.mp4  (26M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1350
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=2408586
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=263483
+   duration=79.633333
+   bit_rate=2680510
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 05_ESKAYLI_1x1.mp4  (23M)
+   codec_name=h264
+   profile=High
+   width=1080
+   height=1080
+   pix_fmt=yuv420p
+   r_frame_rate=30/1
+   bit_rate=2094244
+   codec_name=aac
+   profile=LC
+   sample_rate=48000
+   channels=2
+   r_frame_rate=0/0
+   bit_rate=263483
+   duration=79.633333
+   bit_rate=2366178
+       I:         -14.0 LUFS
+       LRA:         2.1 LU
+       Peak:       -1.3 dBFS
+
+== 06_ESKAYLI_COVER.png  1080,1920
+
+== 06_ESKAYLI_COVER_1x1.png  1080,1080
+
+== 06_ESKAYLI_COVER_4x5.png  1080,1350
+
+== ESKAYLI_SOUS-TITRES_FR.srt  36 cues

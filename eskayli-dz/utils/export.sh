@@ -22,7 +22,7 @@ mkdir -p "$OUT" qa
 
 COMMON_V=(-c:v libx264 -profile:v high -pix_fmt yuv420p -r 30 -g 60 -bf 2
   -color_primaries bt709 -color_trc bt709 -colorspace bt709 -movflags +faststart)
-MASTER_Q=(-preset slow -crf 12 -level:v 4.2)
+MASTER_Q=(-preset slow -crf 13 -level:v 4.2)   # visually lossless; stays under 100 MB for git
 META_Q=(-preset slow -crf 17 -maxrate 14M -bufsize 28M -level:v 4.2)
 AUDIO=(-c:a aac -b:a 256k -ar 48000 -ac 2)
 SUBBED='[0:v][1:v]overlay=0:0:format=auto:shortest=1,format=yuv420p'
