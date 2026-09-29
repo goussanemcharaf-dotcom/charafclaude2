@@ -63,9 +63,9 @@ export const UIKitSheet: React.FC = () => (
     <div style={{ display: "flex", gap: 30, alignItems: "flex-start" }}>
       <VideoCard src={img.coffee()} duration="0:45" label="Reel_cafe_v2_OK.mov" width={280} height={360} />
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-        <Notification title="Nouveau message" body="Client : « C'est lequel, le bon fichier ? »" width={600} />
+        <Notification title="Nouveau message" body="Client : « C’est lequel, le bon fichier ? »" width={600} />
         <div style={{ width: 390, transform: "scale(1.5)", transformOrigin: "0 0", height: 180 }}>
-          <MessageBubble>Tu peux m'envoyer ton travail ?</MessageBubble>
+          <MessageBubble>Tu peux m’envoyer ton travail ?</MessageBubble>
           <div style={{ height: 8 }} />
           <MessageBubble out pad={8}><VoiceMessage duration="0:32" /></MessageBubble>
         </div>

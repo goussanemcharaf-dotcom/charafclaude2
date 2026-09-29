@@ -6,6 +6,7 @@
 voice (clone) ─► comp + fit ─► timeline.json ─► Remotion scenes (React/SVG/CSS) ─► program_clean.mp4
                                          │                    └─► Subtitles layer (ProRes 4444 α)
                                          └─► synthesized music + SFX (numpy/scipy) ─► mix + master (−14 LUFS)
+                                                    └─► config/music.json (beat grid, drops) ─► energy layer in the picture
                                                                        FFmpeg ─► 01–04 MP4 + 05 PNG + SRT
 ```
 
@@ -17,7 +18,7 @@ npm install                      # Remotion 4.0.529, React 19, fonts (OFL)
 # (voice already comped: audio/voiceover/vo_packed_timing.json; to redo it, see Voiceover below)
 python3 utils/build_timeline.py  # VO -> audio/voiceover/vo_final.wav + config/timeline.json
 python3 utils/build_captions.py  # config/captions.json + renders/SUBTITLES_FR.srt
-npm run audio                    # music + SFX + mix + master  -> audio/master_mix.wav
+npm run audio                    # music + SFX + mix + master  -> audio/master_mix.wav + config/music.json (render after this)
 npm run render:video             # renders/_work/program_clean.mp4 + subtitles_alpha.mov
 npm run export                   # renders/01…05 + qa/export_report.txt
 npm run studio                   # live preview (Remotion Studio)
@@ -43,7 +44,7 @@ Remotion 4.0.529 · React 19.1 · TypeScript 5.8 · Chromium headless shell (sof
 - **Redo the comp**: `python3 utils/voice/fit_vo.py --take T1.flac --words T1_words.json [--take … --words …] --label "…"` (words from `voice_qa.py --words-out`), then the build steps above.
 
 ## Script — final (French, 100 %)
-> Si tu es UGC Creator, Content Creator, Voice Over Artist ou Influenceur… et que tu envoies encore ton travail entre Google Drive, WhatsApp et plusieurs liens… Une vidéo ici. Un fichier là. Un autre lien ailleurs. Et ton client doit chercher partout pour comprendre qui tu es et ce que tu fais ? **Non.** **Ton travail mérite une meilleure présentation.** Je crée pour toi un Premium Website Portfolio, pensé autour de ton univers. Tes projets, tes services, ton style… réunis dans une seule expérience. **Au lieu d'envoyer dix liens… tu envoies un seul lien.** Ton client clique. Et découvre un portfolio professionnel, clair et différent. Écris-moi et on commence.
+> Si tu es UGC Creator, Content Creator, Voice Over Artist ou Influenceur… et que tu envoies encore ton travail entre Google Drive, WhatsApp et plusieurs liens… Une vidéo ici. Un fichier là. Un autre lien ailleurs. Et ton client doit chercher partout pour comprendre qui tu es et ce que tu fais ? **Non.** **Ton travail mérite une meilleure présentation.** Je crée pour toi un Premium Website Portfolio, pensé autour de ton univers. Tes projets, tes services, ton style… réunis dans une seule expérience. **Au lieu d’envoyer dix liens… tu envoies un seul lien.** Ton client clique. Et découvre un portfolio professionnel, clair et différent. Écris-moi et on commence.
 
 ### Compression applied (brief §06 allows it; priority Hook › Problem › Non › Solution › Portfolio › 10→1 › CTA)
 | Removed / trimmed | Why |
@@ -55,7 +56,18 @@ Remotion 4.0.529 · React 19.1 · TypeScript 5.8 · Chromium headless shell (sof
 | « immédiatement » | pace |
 | « Fais enfin présenter ton travail à la hauteur de ce qu'il mérite. » | S11 becomes a voice-less-in-spirit "let the design breathe" moment over « professionnel, clair et différent » |
 
-The three mandatory lines are intact: **« Non. »**, **« Ton travail mérite une meilleure présentation. »**, **« Au lieu d'envoyer dix liens… tu envoies un seul lien. »**
+The three mandatory lines are intact: **« Non. »**, **« Ton travail mérite une meilleure présentation. »**, **« Au lieu d’envoyer dix liens… tu envoies un seul lien. »**
+
+## Sound & energy (v4)
+- **Arc**: hook hit on frame 0 with the beat already running → chaos build (120 BPM, D minor) → dead stop on « Non. » (0.86 s of digital silence) → swell → two-bar build under the promise → half a beat of silence → **drop 1 on « pensé »** as the frame turns violet → 117 BPM house groove in F → the groove stops dead on the ten links → count-up build → half a beat of silence → **drop 2 on « seul »** → groove → the send tap ends on F major.
+- **Tempo from the voice**: `utils/audio/build_audio.py` sets part B's beat to (drop 2 − drop 1) / 16, both drops being voice cues, so the two biggest picture events are downbeats (117.03 BPM with this voice). Change the voice and the music re-fits itself.
+- **Groove**: four-on-the-floor kick, claps on 2 and 4, 16th hats with an open hat on the offbeat, shaker; offbeat house bass (octave on the last offbeat); Fmaj9 – C6/9 – Dm9 – B♭maj9 pads and chord stabs, sidechain-pumped by the kick (7 dB); sparse sparkle arp. Drum bus: parallel compression + light saturation.
+- **New sound effects**: sub drops, noise risers (gated), downlifter, shimmer (seeded bell clusters), chord stabs, toms, shaker, glitch stutters; all 194 sound effects (and the 943 musical events) are placed from a voice cue, a scene constant or the beat grid — including S06/S07, which were still on v1 times in v3.
+- **Voice over the music**: VO EQ + 3:1 compression; the music is ducked by band (9 dB in 220 Hz–5.2 kHz, 3.5 dB below, 4.5 dB above) and sits ~4.5 LU under the voice before ducking (v3: 6.5). Intelligibility check: faster-whisper word error rate on the final mix = on the dry voice (1.8 %).
+- **Picture sync**: the audio build writes `config/music.json` (beat grid, 68 kicks, 6 hits, 2 builds, 3 glitches); `src/music.ts` + `src/components/motion/FX.tsx` turn it into camera punches (every kick), zoom creep (builds), shake + flash + shockwave rings + brand-star bursts (drops, CTA, send tap), RGB-split glitches (chaos only) and glints (link pill, send button). The captions layer is not affected.
+
+## Spelling & French typography (v4)
+Every on-screen string (scenes, portfolio, UI, captions, SRT) was re-read: typographic apostrophe (’), narrow no-break space before « ? », no-break space before « : » and inside « », and the portfolio copy is now French only (« marques de beauté, de cuisine et de mode », « Reel · Cuisine », « Photos d’ambiance », « Français natif · voix posée »). English stays only for the job titles and formats the brief allows (UGC Creator, Voice Over, Reels, TikTok, Media kit, unboxing) and the product name.
 
 ## Duration
 36.9 s against a "≈ 30–35 s" target. The mandatory lines + the hook + the CTA at a natural French delivery don't fit in 35 s without sounding rushed (the first half is already read at a brisk ad pace). The extra ~2 s is spent where it pays: 0.86 s of silence after « Non. » and a ≥ 1.8 s readable end card. A 30 s cut-down is possible by dropping S07's zoom-out/sitemap (≈ 2 s) and tightening the end card.

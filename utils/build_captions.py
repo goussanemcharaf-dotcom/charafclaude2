@@ -22,7 +22,7 @@ CHUNKS = [
     (8, 6, 8, "pour comprendre…"),  # "qui tu es / ce que tu fais ?" = on-screen bubbles (cap below)
     (12, 0, 6, None),    # Tes projets, tes services, ton style…
     (12, 6, 11, None),   # réunis dans une seule expérience.
-    (13, 0, 5, None),    # Au lieu d'envoyer dix liens…
+    (13, 0, 5, None),    # Au lieu d’envoyer dix liens…
     (14, 0, 5, None),    # tu envoies un seul lien.
     (15, 0, 3, None),    # Ton client clique.
     (16, 0, 4, "Et découvre un portfolio…"),  # the three adjectives = on-screen pills
@@ -46,7 +46,7 @@ def wrap(text, width=38):
     if len(text) <= width:
         return text
     words = text.split(" ")
-    glue = {"tu", "un", "une", "de", "le", "la", "ton", "ta", "tes", "ce", "qui", "que", "et", "au", "d'envoyer"}
+    glue = {"tu", "un", "une", "de", "le", "la", "ton", "ta", "tes", "ce", "qui", "que", "et", "au", "d’envoyer"}
     lead = {"et", "pour", "qui", "dans", "ou", "entre", "que", "réunis"}
     best, cut = None, 1
     for i in range(1, len(words)):

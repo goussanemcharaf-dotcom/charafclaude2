@@ -66,14 +66,15 @@ All fonts are local (OFL), loaded before render.
 - **« Non. » = stillness**: hard cut, no motion, no music.
 - **After = long, precise, calm**: expo-out settles, slow push-ins, a page that builds itself on a 12-column grid, a scroll that lands exactly on each spoken word.
 - Transitions are motivated by the story: bars split (identity → workspace), hard cut (chaos → « Non. »), star draw/fill/swallow (promise → product), whip (overview → ten links), merge (10 → 1), zoom-through (phone → statement), star wipe (statement → CTA).
+- **Energy layer, locked to the music** (`config/music.json`): a camera punch on every kick, a slow zoom creep through each build, and on the four big moments only (the two drops, the CTA, the send tap) a short shake, a flash, thin shockwave rings and a burst of brand stars. RGB-split glitches are reserved for the chaos (the "digital mess"). A glint crosses the link pill and the send button. Used sparingly, so the drops feel like events.
 
 ## SOUND SYSTEM
 Original, fully synthesized (no library music, no OS notification sounds):
-- **Before** (120 BPM, D minor): pumping sub, plucked arpeggio, four-on-the-floor, clap, accelerating snare roll and a riser that build pressure with the chaos.
+- **Before** (120 BPM, D minor): a hook hit on frame 0 and the beat from the first second; pumping sub, plucked arpeggio, four-on-the-floor, claps, shaker, accelerating snare roll and a riser that build pressure with the chaos.
 - **« Non. »**: absolute digital silence under the voice (0.86 s).
-- **After** (96 BPM, half-time): warm pad swell under « Ton travail mérite… », then a premium groove (Dm9 – B♭maj9 – Fmaj7 – C6/9) with FM e-piano; filtered down during the ten links, opening on « seul »; resolves to Fmaj9 on « commence ».
+- **After** (117 BPM, F major): warm pad swell under « Ton travail mérite… », a two-bar build under the promise, half a beat of silence, then **drop 1 on « pensé »**: a premium house groove (Fmaj9 – C6/9 – Dm9 – B♭maj9, four-on-the-floor, offbeat bass, chord stabs, sidechain pump). The tempo is computed from the voice so that **drop 2**, the ten links becoming one on « seul », lands exactly 16 beats later: the groove stops dead on the ten links, a count-up build, then the drop. The send tap ends on F major.
 - SFX on every visual event: pops, slams, whooshes, clicks, a soft original two-note notification, typing, a bell on the merge and on the CTA.
-- Voice first: music ducked 7 dB under the voice; master −14 LUFS integrated, true peak −1.3 dBTP.
+- Voice first: the voice is compressed (3:1) and the music is ducked by frequency band (9 dB in the voice's mids, 3.5–4.5 dB in the lows and highs), so the groove keeps its weight while every word stays clear (ASR word error rate on the final mix = on the dry voice); master −14 LUFS integrated, true peak ≤ −1.3 dBTP.
 
 ## PORTFOLIO STRATEGY
 Show the product doing the job, not a mock-up of "a website":

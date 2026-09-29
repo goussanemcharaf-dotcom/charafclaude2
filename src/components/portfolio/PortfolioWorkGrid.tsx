@@ -60,7 +60,7 @@ export const PortfolioVoice: React.FC<{ build?: Build; played?: number }> = ({ b
       </div>
       <div style={{ width: 230, flexShrink: 0 }}>
         <div style={{ fontFamily: pf.sans, fontSize: 23, fontWeight: 500, color: pf.ink }}>Démo voix off</div>
-        <div style={{ fontFamily: pf.mono, fontSize: 14, color: pf.mute, marginTop: 6 }}>Français natif · posée</div>
+        <div style={{ fontFamily: pf.mono, fontSize: 14, color: pf.mute, marginTop: 6 }}>Français natif · voix posée</div>
       </div>
       <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 4, height: 60 }}>
         {Array.from({ length: bars }, (_, i) => {

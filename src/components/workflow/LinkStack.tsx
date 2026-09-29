@@ -2,6 +2,8 @@ import React from "react";
 import { color, font, shadow } from "../../../styles/tokens";
 import { clamp, ease, invLerp, lerp, prog, springy, wobble } from "../motion/anim";
 import { MotionBlur } from "../motion/MotionBlur";
+import { LightSweep } from "../motion/FX";
+import { beatPulse } from "../../music";
 import { IconLink, IconSend } from "../ui/Icons";
 import { LinkCard } from "./Cards";
 
@@ -100,11 +102,12 @@ export const LinkCollapse: React.FC<{ t: number; T: LinkTimes; domain: string }>
         <MotionBlur y={fly * 50}>
           <div
             style={{
-              width: 680, height: 140, borderRadius: 70, background: color.violet, boxShadow: shadow.float,
+              position: "relative", width: 680, height: 140, borderRadius: 70, background: color.violet, boxShadow: shadow.float,
               display: "flex", alignItems: "center", gap: 26, padding: "0 20px 0 20px", boxSizing: "border-box",
-              transform: `scale(${0.6 + 0.4 * s})`,
+              transform: `scale(${(0.6 + 0.4 * s) * (1 + 0.03 * beatPulse(t))})`,
             }}
           >
+            <LightSweep t={t} at={T.merge + 0.2} radius={70} />
             <div style={{ width: 100, height: 100, borderRadius: 50, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
               <IconLink size={52} color={color.violet} stroke={2.4} />
             </div>

@@ -8,7 +8,7 @@ import { persona } from "../components/portfolio/data";
 import { LinkCollapse } from "../components/workflow/LinkStack";
 import { Fill, SceneProps } from "./shared";
 
-// S08 — TEN LINKS. "Au lieu d'envoyer dix liens…" Ten links land one by one;
+// S08 — TEN LINKS. "Au lieu d’envoyer dix liens…" Ten links land one by one;
 // the counter hits 10 exactly on "dix".
 // S09 — ONE LINK. "…tu envoies un seul lien." They align, collapse and merge
 // into one clean link, which is sent.

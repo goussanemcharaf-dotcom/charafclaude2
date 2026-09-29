@@ -38,6 +38,7 @@ Vector, resolution-independent, transparent unless noted. Inspired by familiar i
 | `LinkStack`, `LinkCollapse` | 10 links → 1 link (pill `tonnom.com`) | React/CSS | Original | Scatter → deck → collapse → merge | Yes | S08, S09 | FINAL |
 | `Star`, `Brackets`, `Rings`, `DrawLine` | Reference-inspired graphic devices, redrawn | SVG | Original | Superellipse star (n = 0.62), viewfinder corners, flowing rings, dotted zigzag | Yes | S04, S06, S07, S10, S12 | FINAL |
 | `KineticLine`, `MotionBlur`, `Slam` | Kinetic type, directional blur, slams | React + SVG filter | Original | `feGaussianBlur` with separate x/y deviation, velocity-matched | Yes | all | FINAL |
+| Energy layer (`src/components/motion/FX.tsx`: `Camera`, `Flash`, `Shockwaves`, `Burst`, `GlitchFilter`, `LightSweep`) | Beat punches, zoom creep, shake, flashes, shockwave rings, brand-star particles, RGB-split glitch, glints — all driven by `config/music.json` | React + SVG (+ SVG filter) | Original | Seeded, time-based (deterministic); brand star path; `feDisplacementMap` + channel offsets for the glitch | Yes | all (drops, CTA, chaos) | FINAL |
 | `CTA` | Message composer typing the CTA | React/CSS | Original | Per-word typing synced to the VO | Pill | S12 | FINAL |
 | `Thumbnail` → `renders/05_THUMBNAIL.png` | Cover frame | Composition | Original | Remotion still | Opaque | — | FINAL |
 | Direction boards A/B/C → `previews/directions_board.png` | Creative review | Composition | Original | Remotion still (3240×1920) | Opaque | — | REVIEW |
@@ -64,9 +65,9 @@ Latin subsets include every French glyph used (àâçéèêëîïôûœ « » �
 | `audio/voiceover/vo_packed_timing.json` | Phrase + word timings of the comp, and which take each phrase comes from | Data | faster-whisper word timestamps, snapped to the audio | `fit_vo.py` | JSON | — | FINAL |
 | `audio/voiceover/vo_final.wav` | Voice placed on the film timeline | Voice | derived | `utils/build_timeline.py` (designed pauses, 4 ms fades) | WAV 24-bit 48 kHz mono | all | FINAL |
 | `audio/voiceover/julian/` | v1 voice: ElevenLabs preset « Julian » (edited take + timings) | Voice | Higgsfield `text2speech_v2` | Kept so v1 still rebuilds | Opus 48 kHz mono | — | REPLACED (the client wanted their own voice) |
-| `audio/music/music_stem.wav` | Original score (after ducking, at mix level) | Music | Original | `utils/audio/synth.py` + `build_audio.py`: additive/FM/subtractive synthesis, 120 BPM D-minor build → silence → 96 BPM Dm9–B♭maj9–Fmaj7–C6/9 groove → Fmaj9 | WAV 24-bit 48 kHz stereo | all but « Non. » | FINAL |
+| `audio/music/music_stem.wav` | Original score (after ducking, at mix level) | Music | Original | `utils/audio/synth.py` + `build_audio.py`: additive/FM/subtractive synthesis, 120 BPM D-minor build → silence → build → drop → 117 BPM F-major house groove (tempo computed from the voice) → breakdown → drop → F major | WAV 24-bit 48 kHz stereo | all but « Non. » | FINAL |
 | `audio/sfx/sfx_stem.wav` | Every sound effect (pops, slams, whooshes, clicks, notification, typing, bells) | SFX | Original | Synthesized from oscillators, noise and filters; placed on picture events | WAV 24-bit 48 kHz stereo | all but « Non. » | FINAL |
-| `audio/master_mix.wav` | Final master | Mix | Original | VO EQ (HPF + presence), 7 dB ducking, BS.1770-4 normalisation to −14 LUFS, 4× oversampled true-peak limiter (−1.3 dBTP) | WAV 24-bit 48 kHz stereo | — | FINAL |
+| `audio/master_mix.wav` | Final master | Mix | Original | VO EQ + 3:1 compression, band-split ducking of the music, drum-bus parallel compression, BS.1770-4 normalisation to −14 LUFS, 4× oversampled true-peak limiter (−1.3 dBTP) | WAV 24-bit 48 kHz stereo | — | FINAL |
 
 ## 5. Reference (analysis only — not used in the film)
 
@@ -82,4 +83,5 @@ Latin subsets include every French glyph used (àâçéèêëîïôûœ « » �
 | NAME | PURPOSE |
 |---|---|
 | `config/timeline.json` | Single source of truth: phrases, words, scene windows, cues (all animation + SFX sync) |
+| `config/music.json` | Written by the audio build: beat grid, kicks, drops, builds, glitches — what the picture's energy layer reacts to |
 | `config/captions.json`, `renders/SUBTITLES_FR.srt` | Caption cues (designed captions + sidecar) |

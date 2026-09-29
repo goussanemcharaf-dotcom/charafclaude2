@@ -36,7 +36,7 @@ export const img = {
 export type Project = { key: "skincare" | "coffee" | "voice"; title: string; meta: string; duration: string; pos?: string };
 export const projects: Project[] = [
   { key: "skincare", title: "Routine sérum", meta: "UGC · Beauté", duration: "0:32", pos: "50% 40%" },
-  { key: "coffee", title: "Pause café", meta: "Reel · Food", duration: "0:18", pos: "50% 45%" },
+  { key: "coffee", title: "Pause café", meta: "Reel · Cuisine", duration: "0:18", pos: "50% 45%" },
   { key: "voice", title: "Spot radio", meta: "Voix off · Pub", duration: "0:45", pos: "50% 55%" },
 ];
 
@@ -44,7 +44,7 @@ export const services = [
   { n: "01", title: "Vidéos UGC", text: "Témoignages, unboxing et démonstrations produit." },
   { n: "02", title: "Voix off", text: "Publicité, narration et tutoriels, en français natif." },
   { n: "03", title: "Reels & TikTok", text: "Formats courts tournés, montés et sous-titrés." },
-  { n: "04", title: "Photo produit", text: "Visuels lifestyle pour vos réseaux et votre site." },
+  { n: "04", title: "Photo produit", text: "Photos d’ambiance pour vos réseaux et votre site." },
 ];
 
 // Desktop page (authored at 1200 px wide): section offsets in page px, used to

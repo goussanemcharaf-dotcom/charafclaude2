@@ -1,6 +1,6 @@
 # QA Report
 
-**Version reviewed**: v3 — re-voiced with the client's own voice (v2 passed two QA passes) · 36.93 s · 1108 frames · 1080 × 1920 @ 30 fps
+**Version reviewed**: v4 — energy pass (new soundtrack with two drops, music-synced effects, bigger captions, spelling/typography pass) on the v3 voice · 36.93 s · 1108 frames · 1080 × 1920 @ 30 fps
 **Verdict**: ✅ ready to upload (`renders/02_META_AD.mp4`), with the trade-offs listed at the end.
 
 ## 1. Method
@@ -9,6 +9,7 @@
 3. **Audio**: BS.1770-4 integrated loudness (own implementation, cross-checked with FFmpeg `ebur128`), 4× oversampled true peak, momentary-loudness curves per stem + master spectrogram → `qa/audio_loudness_spectrogram.png`, `qa/audio_report.txt`.
 4. **Delivery**: `ffprobe` + `ebur128` on every exported file → `qa/export_report.txt`.
 5. **Voice (v3)**: speaker similarity to the real voice, pitch and French ASR on every take and on the final comp → `qa/voice_report.txt`; spectrogram and phrase-edge plots of the comp (cuts, clicks, breaths, level jumps); pitch continuity measured at every take switch; key frames re-checked against the new word times.
+6. **Energy pass (v4)**: stills of every effect moment (hook, glitches, both drops, CTA, send tap) before the full render; audio loudness plot per stem; the final mix transcribed by faster-whisper to prove the denser music masks no word; every on-screen string re-read for spelling and French typography.
 
 ## 2. Self-critique (against the brief and the reference)
 **What works**
@@ -18,6 +19,7 @@
 - **Reference motion language, original execution**: violet/studio alternation, word-by-word type with directional blur, pop-and-cluster bubbles with spin-out, star draw → fill → swallow, bars split, viewfinder brackets, rings behind a rising phone, DM thread — all redrawn in code; nothing copied.
 - **« Non. »** is a true pattern break: hard cut, pure white, one violet point, 0.86 s of digital silence.
 - **Sound** follows the story arc (pressure build → silence → premium groove → filter-down on the ten links → open on « seul » → resolve on « commence »).
+- **Energy** (v4): the beat runs from the first second; two real drops — « pensé » (the frame turns violet) and « seul » (ten links become one) — each after a build and half a beat of silence, with a flash, shockwave rings and a burst of brand stars; a camera punch on every kick of the groove; the CTA's send button pulses with the beat and glints before the tap.
 - **The client's own voice** (v3): speaker similarity 0.981 to their real narration (v1's preset voice: 0.815), same median pitch (150 vs 152 Hz), European French, 1.8 % WER. The person who sells the portfolios is the one talking.
 
 **What's weaker (and what was done about it)**
@@ -35,7 +37,7 @@
 | Google / WhatsApp not reproduced pixel-for-pixel | ✅ original file browser + chat designs, text-only name tags, no logos |
 | No real private URLs | ✅ `tonnom.com` placeholder + masked `lien-partage/…` links |
 | No fake testimonials / reviews / followers / revenue / awards / clients / stats / logos | ✅ (a generated image carrying a fake handle + view count was cropped) |
-| No stock footage, no generic AI website, no cheap transitions | ✅ every transition is story-motivated |
+| No stock footage, no generic AI website, no cheap transitions | ✅ every transition is story-motivated; the v4 effects fire on four moments only (two drops, CTA, send), glitches only in the chaos |
 | First 3 s identify the target; question « Comment présentes-tu ton travail… ? » | ✅ roles at 0.4–3.9 s; question lands at 4.8 s (right after « Influenceur », on the voice's own question) |
 | « Non. » = hard cut to pure white + violet point + silence | ✅ frame 435 (14.50 s); music + SFX = 0.00 from 14.49 to 15.35 s |
 | Mandatory lines kept (« Non. », « Au lieu d'envoyer dix liens… tu envoies un seul lien. », « Ton travail mérite une meilleure présentation. ») | ✅ |
@@ -71,6 +73,13 @@
 | 21 | Sync · S06/S07/S10 | New read: « projets / services / style » 0.26–0.48 s earlier than v1 | Star fill, page build, scroll, sitemap and phone zoom are now keyed to the spoken words instead of fixed times |
 | 22 | Sync · words | Whisper started « pensé » 0.2 s early (at the start of the pause) | Word onsets snapped to the audio; « pensé » at 20.32 s = measured onset |
 | 23 | Audio | The v1 codec clean-up (11 kHz low-pass) would dull the new voice | Only applied to the v1 source now; the clone gets a match EQ to the real voice instead |
+| 24 | Audio · energy (v4) | No drums before 5.5 s; after « Non. » a laid-back 96 BPM groove with no real drop | Beat from 0.5 s; build → half-beat gap → drop 1 on « pensé »; 117 BPM house groove; breakdown on the ten links → build → drop 2 on « seul » (tempo computed so both drops are downbeats) |
+| 25 | Audio · sync | After the re-voice, S06/S07 sound effects were still on v1 times (scroll swishes 0.26–0.48 s late) | Every sound effect now derives from a voice cue, a scene constant or the beat grid |
+| 26 | Audio · voice | A denser, louder bed could mask words | VO 3:1 compression + band-split ducking (9 dB in the voice's mids); ASR word error rate on the final mix = on the dry voice (1.8 %) |
+| 27 | Audio · silence | The zero-phase band split rang into the « Non. » silence (5 × 10⁻⁴) | Gate re-applied after the ducking: exact zero again |
+| 28 | VFX · glitch | The RGB split showed coloured columns at the frame edges | Smaller displacement and a 6.5 % zoom of the scene during the 4 glitch frames |
+| 29 | Captions | 52 px, weight 650 | 58 px, weight 780, the spoken word pops (sound-off viewers) |
+| 30 | Spelling / typography | Straight apostrophes; plain spaces before « ? » « : » and inside « »; anglicisms in the portfolio copy (« food », « lifestyle ») | Typographic apostrophes and French no-break spaces everywhere; French copy (see PRODUCTION_NOTES) |
 
 ## 5. Technical checks
 See `qa/export_report.txt` for the raw probe of each file.

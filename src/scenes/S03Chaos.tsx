@@ -50,8 +50,8 @@ export const CHAOS_ITEMS = (): Item[] => [
 ];
 
 const NOTIFS = [
-  { at: 8.78, x: 260, title: "Nouveau message", body: "Client : « C'est lequel, le bon fichier ? »" },
-  { at: 10.34, x: 200, title: "Lien expiré", body: "Ce lien de partage n'est plus disponible." },
+  { at: 8.78, x: 260, title: "Nouveau message", body: "Client : « C’est lequel, le bon fichier ? »" },
+  { at: 10.34, x: 200, title: "Lien expiré", body: "Ce lien de partage n’est plus disponible." },
 ];
 
 const LABELS = [

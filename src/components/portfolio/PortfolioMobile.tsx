@@ -26,7 +26,7 @@ export const PortfolioMobile: React.FC<{ heroZoom?: number; played?: number }> =
           Inès <span style={{ fontStyle: "italic" }}>Morel</span>
         </div>
         <div style={{ fontFamily: pf.sans, fontSize: 16, lineHeight: 1.45, color: pf.inkSoft, marginTop: 14 }}>
-          Vidéos UGC et voix off naturelles pour les marques beauté, food et lifestyle.
+          Vidéos UGC et voix off naturelles pour les marques de beauté, de cuisine et de mode.
         </div>
         <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 7, background: pf.ink, color: pf.paper, borderRadius: 999, padding: "12px 18px", fontFamily: pf.sans, fontSize: 14.5, fontWeight: 500 }}>

@@ -33,10 +33,10 @@ export const WorkflowLayer: React.FC<SceneProps> = ({ t }) => {
   const ph = prog(t, cue("whatsapp") - 0.3, 0.6, ease.outExpo);
   const chatAt = cue("whatsapp") - 0.22;
   const msgs: ChatMsg[] = [
-    { at: chatAt, out: false, h: 58, node: <MessageBubble>Tu peux m'envoyer ton travail ?</MessageBubble> },
+    { at: chatAt, out: false, h: 58, node: <MessageBubble>Tu peux m’envoyer ton travail ?</MessageBubble> },
     { at: chatAt + 0.28, out: true, h: 168, node: <MessageBubble out pad={5}><VideoAttachment src={img.coffee()} duration="0:45" width={236} height={156} /></MessageBubble> },
     { at: chatAt + 0.52, out: true, h: 54, node: <MessageBubble out pad={8}><VoiceMessage duration="0:32" played={0} width={214} /></MessageBubble> },
-    { at: cue("liens") - 0.2, out: true, h: 72, node: <MessageBubble out><LinkLine label="Le reste est ici :" url="lien-partage/…/x8k2" /></MessageBubble> },
+    { at: cue("liens") - 0.2, out: true, h: 72, node: <MessageBubble out><LinkLine label="Le reste est ici :" url="lien-partage/…/x8k2" /></MessageBubble> },
   ];
   return (
     <>

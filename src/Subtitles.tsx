@@ -24,20 +24,28 @@ export const CaptionBlock: React.FC<{ cue: Cue; t: number }> = ({ cue, t }) => {
     >
       <div
         style={{
-          maxWidth: 900, padding: "18px 30px 20px", borderRadius: 30, background: "rgba(11,11,18,0.78)",
-          textAlign: "center", fontFamily: font.display, fontWeight: 650, fontSize: 52, lineHeight: 1.18,
-          letterSpacing: "-0.02em", color: "#fff", boxShadow: "0 18px 40px -18px rgba(0,0,0,0.5)",
+          maxWidth: 920, padding: "18px 32px 22px", borderRadius: 32, background: "rgba(11,11,18,0.82)",
+          textAlign: "center", fontFamily: font.display, fontWeight: 780, fontSize: 58, lineHeight: 1.16,
+          letterSpacing: "-0.025em", color: "#fff", boxShadow: "0 18px 40px -18px rgba(0,0,0,0.5)",
         }}
       >
         {cue.words.map((w, i) => {
           const next = cue.words[i + 1]?.start ?? cue.end;
           const active = t >= w.start && t < next;
           const said = t >= w.start;
+          const pop = ease.outBack(clamp(invLerp(w.start, w.start + 0.16, t)));
           return (
-            <span key={i} style={{ color: active ? color.lavender : "#fff", opacity: said ? 1 : 0.55 }}>
-              {w.w}
+            <React.Fragment key={i}>
+              <span
+                style={{
+                  display: "inline-block", color: active ? color.lavender : "#fff", opacity: said ? 1 : 0.5,
+                  transform: active ? `translateY(${(1 - pop) * 6}px) scale(${1 + 0.07 * pop})` : undefined,
+                }}
+              >
+                {w.w}
+              </span>
               {i < cue.words.length - 1 ? " " : ""}
-            </span>
+            </React.Fragment>
           );
         })}
       </div>

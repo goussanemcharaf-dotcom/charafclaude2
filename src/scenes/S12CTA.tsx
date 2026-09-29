@@ -5,6 +5,8 @@ import { clamp, ease, invLerp, prog, springy } from "../components/motion/anim";
 import { KineticLine } from "../components/motion/KineticText";
 import { Star } from "../components/motion/Shapes";
 import { IconLink, IconSend } from "../components/ui/Icons";
+import { LightSweep } from "../components/motion/FX";
+import { beatPulse } from "../music";
 import { Fill, SceneProps } from "./shared";
 
 // S12 — CTA (violet world). "TON TRAVAIL. TON STYLE. TON PORTFOLIO. UN SEUL
@@ -32,6 +34,7 @@ export const CTA: React.FC<{ t: number; text: string; wordTimes: number[]; enter
   const tap = clamp(invLerp(tapAt, tapAt + 0.5, t));
   const press = t > tapAt && t < tapAt + 0.16 ? 0.9 : 1;
   const glow = 0.5 + 0.5 * Math.sin((t - tapAt) * 3.2);
+  const beat = t < tapAt ? beatPulse(t) : 0; // the send button breathes with the kick until it's tapped
   return (
     <div style={{ position: "absolute", left: 60, top: 1090, width: 960, height: 172, transform: `translateY(${(1 - s) * 260}px)`, opacity: clamp(s * 2) }}>
       <div
@@ -50,11 +53,13 @@ export const CTA: React.FC<{ t: number; text: string; wordTimes: number[]; enter
           )}
           <div
             style={{
-              width: 116, height: 116, borderRadius: 58, background: color.violet, display: "flex", alignItems: "center", justifyContent: "center",
-              transform: `scale(${press})`, boxShadow: t > tapAt ? `0 0 ${24 + glow * 26}px rgba(148,102,255,${0.35 + glow * 0.3})` : undefined,
+              position: "relative", width: 116, height: 116, borderRadius: 58, background: color.violet, display: "flex", alignItems: "center", justifyContent: "center",
+              transform: `scale(${press * (1 + 0.08 * beat)})`,
+              boxShadow: t > tapAt ? `0 0 ${24 + glow * 26}px rgba(148,102,255,${0.35 + glow * 0.3})` : `0 0 ${10 + 30 * beat}px rgba(148,102,255,${0.25 + 0.4 * beat})`,
             }}
           >
             <IconSend size={56} color="#fff" stroke={2.3} />
+            <LightSweep t={t} at={tapAt - 0.7} dur={0.5} radius={58} />
           </div>
         </div>
       </div>
@@ -85,7 +90,7 @@ export const S12CTA: React.FC<SceneProps> = ({ t }) => {
               <div
                 style={{
                   marginTop: 30, display: "inline-flex", alignItems: "center", gap: 22, padding: "18px 40px 18px 22px", borderRadius: 999,
-                  background: "#FFFFFF", transform: `translateX(${(1 - pill) * -200}px) scale(${0.8 + 0.2 * pill})`, transformOrigin: "0% 50%",
+                  background: "#FFFFFF", transform: `translateX(${(1 - pill) * -200}px) scale(${(0.8 + 0.2 * pill) * (1 + 0.025 * beatPulse(t))})`, transformOrigin: "0% 50%",
                   opacity: clamp(invLerp(LINES_AT[3], LINES_AT[3] + 0.08, t)), boxShadow: shadow.float,
                 }}
               >

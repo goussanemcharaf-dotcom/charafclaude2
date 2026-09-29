@@ -279,6 +279,83 @@ def thud(level=1.0, f=95):
     return x * level
 
 
+def sub_drop(dur=1.2, f0=110, f1=32, level=1.0):
+    """808-style falling sine boom for drops (felt on phones through its harmonics)."""
+    t = tt(dur)
+    f = f1 + (f0 - f1) * np.exp(-t * 5.5)
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR)
+    x = soft_clip(x * 1.8, 2.2) * np.exp(-t * 2.4) * (1 - np.exp(-t * 600))
+    return x * level
+
+
+def shimmer(dur=1.6, level=1.0, notes=(84, 88, 91, 96, 100, 103), n=14, spread=0.35):
+    """Sparkle: a cluster of short high FM bells scattered over `spread` s (pentatonic, seeded)."""
+    x = np.zeros(int(round((dur + spread) * SR)))
+    for k in range(n):
+        m = notes[int(_rng.integers(0, len(notes)))]
+        b = bell(m, dur * _rng.uniform(0.5, 1.0), _rng.uniform(0.4, 1.0), ratio=3.0, index=1.2)
+        i = int(_rng.uniform(0, spread) ** 1.6 / spread ** 0.6 * SR)
+        x[i:i + len(b)] += b[: len(x) - i]
+    return hp(x, 1800) * level * 0.5
+
+
+def noise_riser(dur=2.0, f0=600, f1=9000, level=1.0, gate=0.0):
+    """White-noise riser: band-pass sweeping up, swelling in; optional 16th tremolo gate (0..1)."""
+    n = int(round(dur * SR))
+    k = np.arange(n) / n
+    out = np.zeros(n)
+    x = noise(n)
+    block = 1024
+    for i in range(0, n, block):
+        fc = f0 * (f1 / f0) ** k[min(i + block // 2, n - 1)]
+        out[i:i + block] = bp(x[max(0, i - 2048):i + block], fc * 0.6, fc * 1.6)[-min(block, n - i):]
+    env = k ** 2.4
+    if gate:
+        g = 0.5 + 0.5 * np.sign(np.sin(2 * np.pi * (4 + 12 * k ** 2) * np.arange(n) / SR))
+        env = env * (1 - gate + gate * g)
+    return out * env * level
+
+
+def downlifter(dur=1.0, level=1.0):
+    """Falling filtered noise + pitch: the release after a hit / into a breakdown."""
+    t = tt(dur)
+    k = t / dur
+    tone = np.sin(2 * np.pi * np.cumsum(900 * (0.12 / 0.9) ** k) / SR) * 0.3
+    nz = lp(noise(len(t)), 5000) * 0.6
+    return (tone + nz) * (1 - k) ** 2.2 * (1 - np.exp(-t * 300)) * level
+
+
+def stab(midis, dur=0.28, level=1.0, bright=1.0):
+    """Short chord stab (house piano/organ-ish): detuned saws, fast filter decay."""
+    t = tt(dur)
+    x = np.zeros(len(t))
+    for m in midis:
+        f = mtof(m)
+        x += saw(f, t, 0.0, 5000) + saw(f, t, 0.004, 5000) * 0.7
+    x /= max(1, len(midis))
+    y = np.zeros_like(x)
+    # decaying low-pass sweep, block-wise
+    for i in range(0, len(x), 512):
+        fc = 600 + 5200 * bright * np.exp(-(i / SR) * 14)
+        y[i:i + 512] = lp(x[max(0, i - 1024):i + 512], fc)[-min(512, len(x) - i):]
+    env = (1 - np.exp(-t * 900)) * np.exp(-t * 9)
+    return y * env * level
+
+
+def shaker(level=1.0):
+    t = tt(0.07)
+    return bp(noise(len(t)), 5000, 11000) * (1 - np.exp(-t * 400)) * np.exp(-t * 55) * 0.5 * level
+
+
+def tom(m=45, dur=0.32, level=1.0):
+    t = tt(dur)
+    f0 = mtof(m)
+    f = f0 * (1 + 0.6 * np.exp(-t * 30))
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 11)
+    x += bp(noise(len(t)), 300, 3000) * np.exp(-t * 60) * 0.3
+    return soft_clip(x * level, 1.3)
+
+
 def reverb_ir(rt60=1.8, dur=2.4, predelay=0.012):
     n = int(dur * SR)
     t = np.arange(n) / SR

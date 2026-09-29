@@ -32,7 +32,7 @@ PHRASES = [
     "Ton travail mérite une meilleure présentation.",
     "Je crée pour toi un Premium Website Portfolio, pensé autour de ton univers.",
     "Tes projets, tes services, ton style… réunis dans une seule expérience.",
-    "Au lieu d'envoyer dix liens…",
+    "Au lieu d’envoyer dix liens…",
     "tu envoies un seul lien.",
     "Ton client clique.",
     "Et découvre un portfolio professionnel, clair et différent.",

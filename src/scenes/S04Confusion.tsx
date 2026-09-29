@@ -126,7 +126,7 @@ export const ConfusionLayer: React.FC<SceneProps> = ({ t }) => {
             <div style={{ fontSize: 40, fontWeight: 800, color: color.ink, letterSpacing: "-0.02em", display: "flex", alignItems: "center", gap: 10 }}>
               Accès refusé <IconAlert size={34} color={color.notifRed} />
             </div>
-            <div style={{ fontSize: 26, color: color.mute, marginTop: 6 }}>Demande l'autorisation au propriétaire.</div>
+            <div style={{ fontSize: 26, color: color.mute, marginTop: 6 }}>Demande l’autorisation au propriétaire.</div>
           </div>
         </div>
       )}

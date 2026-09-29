@@ -26,7 +26,7 @@ export const PortfolioHero: React.FC<{ build?: Build; imageScale?: number }> = (
           color: pf.inkSoft, letterSpacing: "-0.01em", ...rise(pc, 24),
         }}
       >
-        Je crée des vidéos UGC et des voix off naturelles pour les marques beauté, food et lifestyle.
+        Je crée des vidéos UGC et des voix off naturelles pour les marques de beauté, de cuisine et de mode.
       </div>
       <div style={{ position: "absolute", left: 64, top: 596, display: "flex", gap: 14, ...rise(Math.max(0, pc * 1.3 - 0.3), 24) }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, background: pf.ink, color: pf.paper, borderRadius: 999, padding: "16px 26px", fontFamily: pf.sans, fontSize: 18, fontWeight: 500 }}>

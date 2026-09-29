@@ -28,8 +28,8 @@ export const S11_ZOOM = cue("professionnel") - 0.28; // zoom through the phone j
 
 export const ClientPhone: React.FC<{ t: number }> = ({ t }) => {
   const msgs: ChatMsg[] = [
-    { at: 28.9, out: false, h: 58, node: <MessageBubble theme="dm">Tu as un portfolio ?</MessageBubble> },
-    { at: 29.56, out: true, h: 46, node: <MessageBubble theme="dm" out>Oui, tout est ici :</MessageBubble> },
+    { at: 28.9, out: false, h: 58, node: <MessageBubble theme="dm">Tu as un portfolio ?</MessageBubble> },
+    { at: 29.56, out: true, h: 46, node: <MessageBubble theme="dm" out>Oui, tout est ici :</MessageBubble> },
     {
       at: 29.66, out: true, h: PREVIEW.h,
       node: (
