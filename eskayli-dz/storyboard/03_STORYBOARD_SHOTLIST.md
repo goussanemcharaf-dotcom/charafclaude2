@@ -1,0 +1,47 @@
+# ESKAYLI DZ — Storyboard & Shot List
+
+79.6 s · 1080 × 1920 · 30 fps. Every time below is the voice's own word timestamp (`config/timeline.json`); the picture, subtitles and sound are keyed to it.
+Critical content stays in **y 440–1480** (valid for 9:16, 4:5 and 1:1); the Reels UI zones are left to atmosphere.
+
+| # | Time | Narration | Visual | Camera / motion | Typography | Transition out | Sound | Assets |
+|---|---|---|---|---|---|---|---|---|
+| **01 HOOK** | | | | | | | | |
+| 1.1 | 0.00–1.20 | « Vous investissez… » | Macro on a fictional campaign manager: the budget field fills, the orange **signal** leaves it | Push-in held on the budget field, shallow depth (far UI blurred) | connector « Vous investissez » (small, grey) | pull-back | sub pulse from frame 0, soft signal tone, UI ticks | `CampaignBoard`, `Signal` |
+| 1.2 | 1.20–3.49 | « …dans la publicité sur Facebook ou Instagram… » | The whole campaign: tree (Campagne › Ensemble › Publicités), ad preview, objective, audience, placements. The signal runs Campagne → Ensemble → Publicité, then leaves the frame into grain: *where does it go?* | Pull-back 1.6 → 1.0, slow drift | **PUBLICITÉ / FACEBOOK / & INSTAGRAM** word per beat | UI recedes (depth blur) | pulse + ticks, a filtered riser starts | `AdPost` (fictional creative) |
+| **02 QUESTION** | | | | | | | | |
+| 2.1 | 3.49–5.70 | « Mais est-ce que votre budget vous apporte… » | Clean flow: **BUDGET → PUBLICITÉ → ?** — the destination is an empty dashed ring | Lateral track left → right with the signal | « Votre **BUDGET** » · « vous apporte vraiment » (two-beat reveal) | — | pulse, a low tension drone | `Flow` nodes |
+| 2.2 | 5.70–7.56 | « …vraiment des clients ? » + 0.95 s pause | The empty ring unfolds into a ladder VUES · CLICS · PROSPECTS · **CLIENTS** — views and clicks tick, clients stays empty (concept only, no numbers) | Hold; the signal hovers at « clients » | « des **CLIENTS** ? » (orange) | the ladder collapses | the drone holds, music drops to the pulse in the pause | `Ladder` |
+| **03 PROBLEM** | | | | | | | | |
+| 3.1 | 7.56–10.40 | « Lancer une campagne Meta Ads, » | A launch card « Campagne Meta Ads » | slow push | « Lancer une campagne **META ADS** » | — | clean rhythm starts (simple, a little naive) | `LaunchCard` |
+| 3.2 | 10.40–15.90 | « ce n'est pas simplement créer une vidéo, choisir un bouton et appuyer sur « Publier ». » | The naive workflow builds on the words: **CRÉER** (a video card) → a button picker (cursor picks « En savoir plus ») → **PUBLIER** pressed → **ATTENDRE** (a spinner that never resolves) | the cursor drives the eye; lateral track | chips in grey | the chain cracks | a click on « Publier », the loop stutters and stops dead | `Workflow` |
+| 3.3 | 15.90–19.60 | « Avant de dépenser votre budget publicitaire, » | The old chain splits and falls away; the new system **snaps onto the grid**: COMPRENDRE → STRATÉGIE → CRÉER → TESTER → OPTIMISER (hairline guides flash at each lock) | top-down, grid appears | system chips in paper, the flow line in orange | push into COMPRENDRE | 5 precise locks (clicks), a clean kick enters | `Workflow` |
+| **04 BUSINESS INTELLIGENCE** | | | | | | | | |
+| 4.1 | 19.60–21.90 | « …il faut comprendre votre business. » | COMPRENDRE opens into the **business core**: a precise object (rings, mono label « VOTRE BUSINESS ») with a dashed orbit | push-in through the chip, then slow orbit | « comprendre votre **BUSINESS** » | — | a low pad opens; muted bass | `BusinessCore` |
+| 4.2 | 21.90–26.20 | « Votre offre. Votre marché. Votre client idéal. » | Satellites light on their word: **OFFRE** (offer architecture: produit · prix · promesse), **MARCHÉ** (market rings: Alger · Oran · Constantine…), **CLIENT IDÉAL** expands into a structured audience profile (silhouette, âge, ville, intérêts, comportement) | slow rotation; the profile comes forward (rack focus) | satellite labels in mono | profile returns to its orbit | one clean tone per satellite (a rising scale) | `Satellite`, `ProfileCard` |
+| 4.3 | 26.20–29.66 | « Ses besoins, ses frustrations et ses motivations. » | **BESOINS** → intent signals · **FRUSTRATIONS** → pain points · **MOTIVATIONS** → purchase triggers (small tags spring from each) | slow push | tags in grey, triggers in orange | everything snaps | three tones, a riser | `SignalTags` |
+| **05 ESKAYLI ENTERS** | | | | | | | | |
+| 5.1 | 29.66–31.40 | « Chez Eskayli DZ, » | The orbit snaps into an ordered grid; **ESKAYLI DZ** lands at the centre and the signal becomes the dot of its *i* | hard hold, then micro push | wordmark 150 px | — | impact + the sonic logo (a rising fifth), the groove steps up | `Wordmark` |
+| 5.2 | 31.40–35.20 | « …nous construisons votre stratégie Meta Ads autour de votre business. » | **STRATÉGIE META ADS** under the mark; the six insights align around it as a strategy map | slow pull-back | mono label + orange rule | the map becomes a column | confident groove | `StrategyMap` |
+| **06 THE META ADS SYSTEM** | | | | | | | | |
+| 6.1 | 35.20–37.10 | « Nous travaillons le bon angle. » | **01 ANGLE** — four concepts compete (Gain de temps · Qualité · Prix clair · Proximité); the signal picks one | camera travels down one column of four modules | module index 01–04 in mono | route continues down | data ticks, a pluck per module | `Module` |
+| 6.2 | 37.10–38.50 | « Le bon message. » | **02 MESSAGE** — a claim is struck out, a customer-centred line is written | continue down | — | — | typing ticks | |
+| 6.3 | 38.50–40.00 | « La bonne créative. » | **03 CRÉATIVE** — three ad variations (restaurant, immobilier, beauté), one chosen | continue down | — | — | | `AdPost` ×3 |
+| 6.4 | 40.00–41.66 | « Le bon ciblage. » | **04 CIBLAGE** — a population of dots is filtered (âge, ville, intérêts, comportements) into one orange segment | continue down | filter chips | — | filter sweep | `Audience` |
+| **07 TESTING & OPTIMISATION** | | | | | | | | |
+| 7.1 | 41.66–43.20 | « Puis nous lançons, » | « Lancer la campagne » toggles to **Active**; the signal splits into three lanes | push | — | — | launch impact | `Toggle` |
+| 7.2 | 43.20–43.90 | « testons » | **TEST A · TEST B · TEST C** (accroche, créative, message) run side by side | track | lane labels | — | three pulses | `TestLab` |
+| 7.3 | 43.90–44.80 | « et optimisons » | B and C stop, A is kept; the loop TEST → ANALYSE → APPRENDRE → OPTIMISER turns once → **RELANCE** | top-down | loop words | cleaner system | a clean resolve | |
+| 7.4 | 44.80–47.52 | « vos campagnes Facebook & Instagram Ads. » | The kept campaign shows its placements: **FACEBOOK ADS · INSTAGRAM ADS** light up | hold | placement chips | the frame empties | the groove at full energy | |
+| **08 OUTCOME** | | | | | | | | |
+| 8.1 | 47.52–49.60 | « L'objectif ? » + 0.95 s | Visual silence: near-black, one signal, « L'objectif ? » | still | 64 px, centred | — | **everything stops** except a low drone | — |
+| 8.2 | 49.60–51.78 | « Transformer votre budget publicitaire en : » | The signal drops down a vertical spine from a BUDGET chip | camera follows down | — | — | a short build | `Spine` |
+| 8.3 | 51.78–57.33 | « Attention. Prospects. Conversations. Clients. » | Four real business events on the spine: **ATTENTION** (a feed stops on the ad) → **PROSPECTS** (« Nouvelle demande », qualified) → **CONVERSATIONS** (a professional exchange) → **CLIENTS** (« Commande confirmée ✓ »). Then the four connect into one flow | camera tracks down each stage, then pulls back over the whole flow | stage labels 72 px, orange on « Clients » | pull-back | the strongest point: an impact on each stage, full groove | `EventCards` |
+| **09 THE BIG IDEA** | | | | | | | | |
+| 9.1 | 57.33–61.10 | « Parce qu'une bonne publicité ne doit pas seulement générer des vues. » | **VUES** with a rising line — then deliberately left behind | slow push | « seulement des **VUES** » | depth push | the groove thins | `Views` |
+| 9.2 | 61.10–62.70 | « Elle doit créer de véritables… » | Flight *through* VUES → INTÉRÊT → PROSPECT → CONVERSATION → CLIENT (planes at depth) | fast push through planes, motion blur | plane words | — | tunnel riser | `Tunnel` |
+| 9.3 | 62.70–64.85 | « …opportunités commerciales. » | The ecosystem: demande qualifiée · rendez-vous · commande · relation client, as one elegant pipeline | pull-back reveal | « OPPORTUNITÉS **COMMERCIALES** » | hard cut | the riser opens into a chord | `Pipeline` |
+| **10 BRAND & CTA** | | | | | | | | |
+| 10.1 | 64.85–66.70 | « Eskayli DZ. » | **Hard cut to paper**: the wordmark alone, the orange signal as the dot of the *i* | still | wordmark 170 px | — | the sonic logo, full | `Wordmark` |
+| 10.2 | 66.70–70.90 | « Meta Ads. Stratégie. Création. Performance. » | The four words, one per beat | still | Geist 700, one per line | cut to dark | four soft hits | |
+| 10.3 | 70.90–75.60 | « Vous voulez faire de Facebook et Instagram un véritable canal d'acquisition pour votre business ? » | The system returns, organised: campaign → tests → flow → clients, all on the grid, calm | top-down pull-back | « un véritable **CANAL D'ACQUISITION** » | — | pad, the pulse returns softly | `SystemMap` |
+| 10.4 | 75.60–79.63 | « Parlons de votre projet. » | Final screen: ESKAYLI DZ · META ADS • STRATÉGIE • CRÉATION • PERFORMANCE · the question · **PARLONS DE VOTRE PROJET.** in a quiet capsule with the signal | still, the signal breathes | CTA 84 px | end | a final chord and the logo tone | `CTA` |

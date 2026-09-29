@@ -1,0 +1,1171 @@
+{
+ "voice": "The user's own voice, cloned with their consent (Higgsfield Seed Audio 1.0, same reference as « Un seul lien » v5)",
+ "file": "voice/vo_final.wav",
+ "duration": 79.607,
+ "phrases": [
+  {
+   "id": 1,
+   "section": "hook",
+   "text": "Vous investissez dans la publicité sur Facebook ou Instagram…",
+   "start": 0.12,
+   "end": 3.401,
+   "take": "s1_b"
+  },
+  {
+   "id": 2,
+   "section": "question",
+   "text": "Mais est-ce que votre budget vous apporte vraiment des clients ?",
+   "start": 3.741,
+   "end": 6.964,
+   "take": "s1q_b"
+  },
+  {
+   "id": 3,
+   "section": "problem",
+   "text": "Lancer une campagne Meta Ads, ce n’est pas simplement créer une vidéo, choisir un bouton et appuyer sur « Publier ».",
+   "start": 7.914,
+   "end": 16.261,
+   "take": "s2_b"
+  },
+  {
+   "id": 4,
+   "section": "business",
+   "text": "Avant de dépenser votre budget publicitaire, il faut comprendre votre business.",
+   "start": 16.811,
+   "end": 21.597,
+   "take": "s3_a"
+  },
+  {
+   "id": 5,
+   "section": "business",
+   "text": "Votre offre.",
+   "start": 21.997,
+   "end": 22.801,
+   "take": "s3_a"
+  },
+  {
+   "id": 6,
+   "section": "business",
+   "text": "Votre marché.",
+   "start": 23.021,
+   "end": 24.04,
+   "take": "s3_a"
+  },
+  {
+   "id": 7,
+   "section": "business",
+   "text": "Votre client idéal.",
+   "start": 24.26,
+   "end": 25.919,
+   "take": "s3_a"
+  },
+  {
+   "id": 8,
+   "section": "business",
+   "text": "Ses besoins, ses frustrations et ses motivations.",
+   "start": 26.219,
+   "end": 29.458,
+   "take": "s3_a"
+  },
+  {
+   "id": 9,
+   "section": "eskayli",
+   "text": "Chez Eskayli DZ, nous construisons votre stratégie Meta Ads autour de votre business.",
+   "start": 30.008,
+   "end": 34.952,
+   "take": "s4_c"
+  },
+  {
+   "id": 10,
+   "section": "system",
+   "text": "Nous travaillons le bon angle.",
+   "start": 35.402,
+   "end": 36.991,
+   "take": "s4_a"
+  },
+  {
+   "id": 11,
+   "section": "system",
+   "text": "Le bon message.",
+   "start": 37.211,
+   "end": 38.38,
+   "take": "s4_a"
+  },
+  {
+   "id": 12,
+   "section": "system",
+   "text": "La bonne créative.",
+   "start": 38.6,
+   "end": 39.882,
+   "take": "s4_a"
+  },
+  {
+   "id": 13,
+   "section": "system",
+   "text": "Le bon ciblage.",
+   "start": 40.102,
+   "end": 41.414,
+   "take": "s4_b"
+  },
+  {
+   "id": 14,
+   "section": "testing",
+   "text": "Puis nous lançons, testons et optimisons vos campagnes Facebook & Instagram Ads.",
+   "start": 41.914,
+   "end": 47.272,
+   "take": "s5_c"
+  },
+  {
+   "id": 15,
+   "section": "outcome",
+   "text": "L’objectif ?",
+   "start": 47.872,
+   "end": 48.732,
+   "take": "s6_a"
+  },
+  {
+   "id": 16,
+   "section": "outcome",
+   "text": "Transformer votre budget publicitaire en :",
+   "start": 49.682,
+   "end": 51.783,
+   "take": "s6_c"
+  },
+  {
+   "id": 17,
+   "section": "outcome",
+   "text": "Attention.",
+   "start": 51.783,
+   "end": 52.553,
+   "take": "s6_c"
+  },
+  {
+   "id": 18,
+   "section": "outcome",
+   "text": "Prospects.",
+   "start": 53.103,
+   "end": 53.991,
+   "take": "s6_c"
+  },
+  {
+   "id": 19,
+   "section": "outcome",
+   "text": "Conversations.",
+   "start": 54.541,
+   "end": 55.549,
+   "take": "s6_c"
+  },
+  {
+   "id": 20,
+   "section": "outcome",
+   "text": "Clients.",
+   "start": 56.149,
+   "end": 56.828,
+   "take": "s6_c"
+  },
+  {
+   "id": 21,
+   "section": "idea",
+   "text": "Parce qu’une bonne publicité ne doit pas seulement générer des vues.",
+   "start": 57.628,
+   "end": 60.803,
+   "take": "s7_b"
+  },
+  {
+   "id": 22,
+   "section": "idea",
+   "text": "Elle doit créer de véritables opportunités commerciales.",
+   "start": 61.123,
+   "end": 64.401,
+   "take": "s7_b"
+  },
+  {
+   "id": 23,
+   "section": "brand",
+   "text": "Eskayli DZ.",
+   "start": 65.151,
+   "end": 66.319,
+   "take": "s8_b"
+  },
+  {
+   "id": 24,
+   "section": "brand",
+   "text": "Meta Ads.",
+   "start": 66.719,
+   "end": 67.654,
+   "take": "s8_b"
+  },
+  {
+   "id": 25,
+   "section": "brand",
+   "text": "Stratégie.",
+   "start": 67.794,
+   "end": 68.782,
+   "take": "s8_b"
+  },
+  {
+   "id": 26,
+   "section": "brand",
+   "text": "Création.",
+   "start": 68.922,
+   "end": 69.706,
+   "take": "s8_c"
+  },
+  {
+   "id": 27,
+   "section": "brand",
+   "text": "Performance.",
+   "start": 69.846,
+   "end": 70.709,
+   "take": "s8_c"
+  },
+  {
+   "id": 28,
+   "section": "cta",
+   "text": "Vous voulez faire de Facebook et Instagram un véritable canal d’acquisition pour votre business ?",
+   "start": 71.259,
+   "end": 75.36,
+   "take": "s8_c"
+  },
+  {
+   "id": 29,
+   "section": "cta",
+   "text": "Parlons de votre projet.",
+   "start": 75.86,
+   "end": 77.207,
+   "take": "s8_a"
+  }
+ ],
+ "words": [
+  {
+   "w": "Vous",
+   "phrase": 1,
+   "start": 0.12,
+   "end": 0.266
+  },
+  {
+   "w": "investissez",
+   "phrase": 1,
+   "start": 0.266,
+   "end": 0.946
+  },
+  {
+   "w": "dans",
+   "phrase": 1,
+   "start": 0.946,
+   "end": 1.086
+  },
+  {
+   "w": "la",
+   "phrase": 1,
+   "start": 1.086,
+   "end": 1.206
+  },
+  {
+   "w": "publicité",
+   "phrase": 1,
+   "start": 1.206,
+   "end": 1.806
+  },
+  {
+   "w": "sur",
+   "phrase": 1,
+   "start": 1.806,
+   "end": 1.986
+  },
+  {
+   "w": "Facebook",
+   "phrase": 1,
+   "start": 1.986,
+   "end": 2.366
+  },
+  {
+   "w": "ou",
+   "phrase": 1,
+   "start": 2.366,
+   "end": 2.606
+  },
+  {
+   "w": "Instagram…",
+   "phrase": 1,
+   "start": 2.606,
+   "end": 3.026
+  },
+  {
+   "w": "Mais",
+   "phrase": 2,
+   "start": 3.741,
+   "end": 3.824
+  },
+  {
+   "w": "est-ce",
+   "phrase": 2,
+   "start": 3.824,
+   "end": 4.164
+  },
+  {
+   "w": "que",
+   "phrase": 2,
+   "start": 4.164,
+   "end": 4.244
+  },
+  {
+   "w": "votre",
+   "phrase": 2,
+   "start": 4.244,
+   "end": 4.444
+  },
+  {
+   "w": "budget",
+   "phrase": 2,
+   "start": 4.444,
+   "end": 4.944
+  },
+  {
+   "w": "vous",
+   "phrase": 2,
+   "start": 4.944,
+   "end": 5.364
+  },
+  {
+   "w": "apporte",
+   "phrase": 2,
+   "start": 5.364,
+   "end": 5.744
+  },
+  {
+   "w": "vraiment",
+   "phrase": 2,
+   "start": 5.744,
+   "end": 6.164
+  },
+  {
+   "w": "des",
+   "phrase": 2,
+   "start": 6.164,
+   "end": 6.384
+  },
+  {
+   "w": "clients ?",
+   "phrase": 2,
+   "start": 6.384,
+   "end": 6.784
+  },
+  {
+   "w": "Lancer",
+   "phrase": 3,
+   "start": 7.914,
+   "end": 8.456
+  },
+  {
+   "w": "une",
+   "phrase": 3,
+   "start": 8.456,
+   "end": 8.736
+  },
+  {
+   "w": "campagne",
+   "phrase": 3,
+   "start": 8.736,
+   "end": 9.216
+  },
+  {
+   "w": "Meta",
+   "phrase": 3,
+   "start": 9.216,
+   "end": 9.736
+  },
+  {
+   "w": "Ads,",
+   "phrase": 3,
+   "start": 9.736,
+   "end": 10.056
+  },
+  {
+   "w": "ce",
+   "phrase": 3,
+   "start": 10.451,
+   "end": 10.576
+  },
+  {
+   "w": "n’est",
+   "phrase": 3,
+   "start": 10.576,
+   "end": 10.756
+  },
+  {
+   "w": "pas",
+   "phrase": 3,
+   "start": 10.756,
+   "end": 10.916
+  },
+  {
+   "w": "simplement",
+   "phrase": 3,
+   "start": 10.916,
+   "end": 11.396
+  },
+  {
+   "w": "créer",
+   "phrase": 3,
+   "start": 11.396,
+   "end": 11.776
+  },
+  {
+   "w": "une",
+   "phrase": 3,
+   "start": 11.776,
+   "end": 12.096
+  },
+  {
+   "w": "vidéo,",
+   "phrase": 3,
+   "start": 12.096,
+   "end": 12.516
+  },
+  {
+   "w": "choisir",
+   "phrase": 3,
+   "start": 13.016,
+   "end": 13.496
+  },
+  {
+   "w": "un",
+   "phrase": 3,
+   "start": 13.496,
+   "end": 13.596
+  },
+  {
+   "w": "bouton",
+   "phrase": 3,
+   "start": 13.596,
+   "end": 14.036
+  },
+  {
+   "w": "et",
+   "phrase": 3,
+   "start": 14.036,
+   "end": 14.536
+  },
+  {
+   "w": "appuyer",
+   "phrase": 3,
+   "start": 14.536,
+   "end": 15.056
+  },
+  {
+   "w": "sur",
+   "phrase": 3,
+   "start": 15.234,
+   "end": 15.496
+  },
+  {
+   "w": "« Publier ».",
+   "phrase": 3,
+   "start": 15.496,
+   "end": 15.996
+  },
+  {
+   "w": "Avant",
+   "phrase": 4,
+   "start": 16.811,
+   "end": 17.137
+  },
+  {
+   "w": "de",
+   "phrase": 4,
+   "start": 17.137,
+   "end": 17.297
+  },
+  {
+   "w": "dépenser",
+   "phrase": 4,
+   "start": 17.297,
+   "end": 17.717
+  },
+  {
+   "w": "votre",
+   "phrase": 4,
+   "start": 17.717,
+   "end": 17.957
+  },
+  {
+   "w": "budget",
+   "phrase": 4,
+   "start": 17.957,
+   "end": 18.437
+  },
+  {
+   "w": "publicitaire,",
+   "phrase": 4,
+   "start": 18.437,
+   "end": 19.197
+  },
+  {
+   "w": "il",
+   "phrase": 4,
+   "start": 19.637,
+   "end": 19.657
+  },
+  {
+   "w": "faut",
+   "phrase": 4,
+   "start": 19.657,
+   "end": 19.797
+  },
+  {
+   "w": "comprendre",
+   "phrase": 4,
+   "start": 19.797,
+   "end": 20.337
+  },
+  {
+   "w": "votre",
+   "phrase": 4,
+   "start": 20.337,
+   "end": 20.737
+  },
+  {
+   "w": "business.",
+   "phrase": 4,
+   "start": 20.737,
+   "end": 21.237
+  },
+  {
+   "w": "Votre",
+   "phrase": 5,
+   "start": 21.997,
+   "end": 22.262
+  },
+  {
+   "w": "offre.",
+   "phrase": 5,
+   "start": 22.262,
+   "end": 22.702
+  },
+  {
+   "w": "Votre",
+   "phrase": 6,
+   "start": 23.021,
+   "end": 23.34
+  },
+  {
+   "w": "marché.",
+   "phrase": 6,
+   "start": 23.34,
+   "end": 23.86
+  },
+  {
+   "w": "Votre",
+   "phrase": 7,
+   "start": 24.38,
+   "end": 24.56
+  },
+  {
+   "w": "client",
+   "phrase": 7,
+   "start": 24.56,
+   "end": 25.02
+  },
+  {
+   "w": "idéal.",
+   "phrase": 7,
+   "start": 25.234,
+   "end": 25.78
+  },
+  {
+   "w": "Ses",
+   "phrase": 8,
+   "start": 26.219,
+   "end": 26.428
+  },
+  {
+   "w": "besoins,",
+   "phrase": 8,
+   "start": 26.428,
+   "end": 26.968
+  },
+  {
+   "w": "ses",
+   "phrase": 8,
+   "start": 27.268,
+   "end": 27.368
+  },
+  {
+   "w": "frustrations",
+   "phrase": 8,
+   "start": 27.368,
+   "end": 28.008
+  },
+  {
+   "w": "et",
+   "phrase": 8,
+   "start": 28.008,
+   "end": 28.388
+  },
+  {
+   "w": "ses",
+   "phrase": 8,
+   "start": 28.388,
+   "end": 28.548
+  },
+  {
+   "w": "motivations.",
+   "phrase": 8,
+   "start": 28.548,
+   "end": 29.028
+  },
+  {
+   "w": "Chez",
+   "phrase": 9,
+   "start": 30.008,
+   "end": 30.307
+  },
+  {
+   "w": "Eskayli",
+   "phrase": 9,
+   "start": 30.307,
+   "end": 30.807
+  },
+  {
+   "w": "DZ,",
+   "phrase": 9,
+   "start": 30.807,
+   "end": 31.167
+  },
+  {
+   "w": "nous",
+   "phrase": 9,
+   "start": 31.407,
+   "end": 31.627
+  },
+  {
+   "w": "construisons",
+   "phrase": 9,
+   "start": 31.627,
+   "end": 32.207
+  },
+  {
+   "w": "votre",
+   "phrase": 9,
+   "start": 32.207,
+   "end": 32.507
+  },
+  {
+   "w": "stratégie",
+   "phrase": 9,
+   "start": 32.507,
+   "end": 33.207
+  },
+  {
+   "w": "Meta",
+   "phrase": 9,
+   "start": 33.207,
+   "end": 33.567
+  },
+  {
+   "w": "Ads",
+   "phrase": 9,
+   "start": 33.567,
+   "end": 33.727
+  },
+  {
+   "w": "autour",
+   "phrase": 9,
+   "start": 33.727,
+   "end": 33.967
+  },
+  {
+   "w": "de",
+   "phrase": 9,
+   "start": 33.967,
+   "end": 34.127
+  },
+  {
+   "w": "votre",
+   "phrase": 9,
+   "start": 34.127,
+   "end": 34.267
+  },
+  {
+   "w": "business.",
+   "phrase": 9,
+   "start": 34.267,
+   "end": 34.667
+  },
+  {
+   "w": "Nous",
+   "phrase": 10,
+   "start": 35.402,
+   "end": 35.568
+  },
+  {
+   "w": "travaillons",
+   "phrase": 10,
+   "start": 35.568,
+   "end": 36.088
+  },
+  {
+   "w": "le",
+   "phrase": 10,
+   "start": 36.088,
+   "end": 36.228
+  },
+  {
+   "w": "bon",
+   "phrase": 10,
+   "start": 36.228,
+   "end": 36.408
+  },
+  {
+   "w": "angle.",
+   "phrase": 10,
+   "start": 36.408,
+   "end": 36.828
+  },
+  {
+   "w": "Le",
+   "phrase": 11,
+   "start": 37.211,
+   "end": 37.435
+  },
+  {
+   "w": "bon",
+   "phrase": 11,
+   "start": 37.435,
+   "end": 37.635
+  },
+  {
+   "w": "message.",
+   "phrase": 11,
+   "start": 37.635,
+   "end": 38.015
+  },
+  {
+   "w": "La",
+   "phrase": 12,
+   "start": 38.6,
+   "end": 38.79
+  },
+  {
+   "w": "bonne",
+   "phrase": 12,
+   "start": 38.79,
+   "end": 39.03
+  },
+  {
+   "w": "créative.",
+   "phrase": 12,
+   "start": 39.03,
+   "end": 39.73
+  },
+  {
+   "w": "Le",
+   "phrase": 13,
+   "start": 40.102,
+   "end": 40.304
+  },
+  {
+   "w": "bon",
+   "phrase": 13,
+   "start": 40.304,
+   "end": 40.524
+  },
+  {
+   "w": "ciblage.",
+   "phrase": 13,
+   "start": 40.524,
+   "end": 41.204
+  },
+  {
+   "w": "Puis",
+   "phrase": 14,
+   "start": 41.914,
+   "end": 42.152
+  },
+  {
+   "w": "nous",
+   "phrase": 14,
+   "start": 42.532,
+   "end": 42.552
+  },
+  {
+   "w": "lançons,",
+   "phrase": 14,
+   "start": 42.532,
+   "end": 43.052
+  },
+  {
+   "w": "testons",
+   "phrase": 14,
+   "start": 43.292,
+   "end": 43.712
+  },
+  {
+   "w": "et",
+   "phrase": 14,
+   "start": 43.881,
+   "end": 43.972
+  },
+  {
+   "w": "optimisons",
+   "phrase": 14,
+   "start": 43.972,
+   "end": 44.632
+  },
+  {
+   "w": "vos",
+   "phrase": 14,
+   "start": 44.867,
+   "end": 44.992
+  },
+  {
+   "w": "campagnes",
+   "phrase": 14,
+   "start": 44.992,
+   "end": 45.452
+  },
+  {
+   "w": "Facebook",
+   "phrase": 14,
+   "start": 45.574,
+   "end": 45.932
+  },
+  {
+   "w": "&",
+   "phrase": 14,
+   "start": 45.932,
+   "end": 46.272
+  },
+  {
+   "w": "Instagram",
+   "phrase": 14,
+   "start": 46.272,
+   "end": 46.672
+  },
+  {
+   "w": "Ads.",
+   "phrase": 14,
+   "start": 46.672,
+   "end": 47.092
+  },
+  {
+   "w": "L’objectif ?",
+   "phrase": 15,
+   "start": 47.872,
+   "end": 48.634
+  },
+  {
+   "w": "Transformer",
+   "phrase": 16,
+   "start": 49.682,
+   "end": 50.193
+  },
+  {
+   "w": "votre",
+   "phrase": 16,
+   "start": 50.193,
+   "end": 50.413
+  },
+  {
+   "w": "budget",
+   "phrase": 16,
+   "start": 50.413,
+   "end": 50.773
+  },
+  {
+   "w": "publicitaire",
+   "phrase": 16,
+   "start": 50.773,
+   "end": 51.393
+  },
+  {
+   "w": "en :",
+   "phrase": 16,
+   "start": 51.393,
+   "end": 51.733
+  },
+  {
+   "w": "Attention.",
+   "phrase": 17,
+   "start": 51.783,
+   "end": 52.203
+  },
+  {
+   "w": "Prospects.",
+   "phrase": 18,
+   "start": 53.103,
+   "end": 53.601
+  },
+  {
+   "w": "Conversations.",
+   "phrase": 19,
+   "start": 54.541,
+   "end": 55.199
+  },
+  {
+   "w": "Clients.",
+   "phrase": 20,
+   "start": 56.149,
+   "end": 56.528
+  },
+  {
+   "w": "Parce",
+   "phrase": 21,
+   "start": 57.628,
+   "end": 57.803
+  },
+  {
+   "w": "qu’une",
+   "phrase": 21,
+   "start": 57.803,
+   "end": 58.043
+  },
+  {
+   "w": "bonne",
+   "phrase": 21,
+   "start": 58.043,
+   "end": 58.263
+  },
+  {
+   "w": "publicité",
+   "phrase": 21,
+   "start": 58.263,
+   "end": 58.843
+  },
+  {
+   "w": "ne",
+   "phrase": 21,
+   "start": 58.843,
+   "end": 58.983
+  },
+  {
+   "w": "doit",
+   "phrase": 21,
+   "start": 58.983,
+   "end": 59.163
+  },
+  {
+   "w": "pas",
+   "phrase": 21,
+   "start": 59.163,
+   "end": 59.363
+  },
+  {
+   "w": "seulement",
+   "phrase": 21,
+   "start": 59.363,
+   "end": 59.663
+  },
+  {
+   "w": "générer",
+   "phrase": 21,
+   "start": 59.663,
+   "end": 60.103
+  },
+  {
+   "w": "des",
+   "phrase": 21,
+   "start": 60.103,
+   "end": 60.243
+  },
+  {
+   "w": "vues.",
+   "phrase": 21,
+   "start": 60.243,
+   "end": 60.623
+  },
+  {
+   "w": "Elle",
+   "phrase": 22,
+   "start": 61.193,
+   "end": 61.253
+  },
+  {
+   "w": "doit",
+   "phrase": 22,
+   "start": 61.253,
+   "end": 61.413
+  },
+  {
+   "w": "créer",
+   "phrase": 22,
+   "start": 61.413,
+   "end": 61.673
+  },
+  {
+   "w": "de",
+   "phrase": 22,
+   "start": 61.673,
+   "end": 61.853
+  },
+  {
+   "w": "véritables",
+   "phrase": 22,
+   "start": 61.853,
+   "end": 62.513
+  },
+  {
+   "w": "opportunités",
+   "phrase": 22,
+   "start": 62.669,
+   "end": 63.393
+  },
+  {
+   "w": "commerciales.",
+   "phrase": 22,
+   "start": 63.672,
+   "end": 64.373
+  },
+  {
+   "w": "Eskayli",
+   "phrase": 23,
+   "start": 65.151,
+   "end": 65.694
+  },
+  {
+   "w": "DZ.",
+   "phrase": 23,
+   "start": 65.694,
+   "end": 66.054
+  },
+  {
+   "w": "Meta",
+   "phrase": 24,
+   "start": 66.719,
+   "end": 67.194
+  },
+  {
+   "w": "Ads.",
+   "phrase": 24,
+   "start": 67.194,
+   "end": 67.474
+  },
+  {
+   "w": "Stratégie.",
+   "phrase": 25,
+   "start": 67.794,
+   "end": 68.623
+  },
+  {
+   "w": "Création.",
+   "phrase": 26,
+   "start": 68.966,
+   "end": 69.526
+  },
+  {
+   "w": "Performance.",
+   "phrase": 27,
+   "start": 69.846,
+   "end": 70.364
+  },
+  {
+   "w": "Vous",
+   "phrase": 28,
+   "start": 71.27,
+   "end": 71.45
+  },
+  {
+   "w": "voulez",
+   "phrase": 28,
+   "start": 71.45,
+   "end": 71.63
+  },
+  {
+   "w": "faire",
+   "phrase": 28,
+   "start": 71.63,
+   "end": 71.79
+  },
+  {
+   "w": "de",
+   "phrase": 28,
+   "start": 71.79,
+   "end": 71.91
+  },
+  {
+   "w": "Facebook",
+   "phrase": 28,
+   "start": 71.91,
+   "end": 72.23
+  },
+  {
+   "w": "et",
+   "phrase": 28,
+   "start": 72.23,
+   "end": 72.41
+  },
+  {
+   "w": "Instagram",
+   "phrase": 28,
+   "start": 72.41,
+   "end": 72.77
+  },
+  {
+   "w": "un",
+   "phrase": 28,
+   "start": 72.77,
+   "end": 73.07
+  },
+  {
+   "w": "véritable",
+   "phrase": 28,
+   "start": 73.07,
+   "end": 73.43
+  },
+  {
+   "w": "canal",
+   "phrase": 28,
+   "start": 73.43,
+   "end": 73.83
+  },
+  {
+   "w": "d’acquisition",
+   "phrase": 28,
+   "start": 73.83,
+   "end": 74.39
+  },
+  {
+   "w": "pour",
+   "phrase": 28,
+   "start": 74.39,
+   "end": 74.57
+  },
+  {
+   "w": "votre",
+   "phrase": 28,
+   "start": 74.57,
+   "end": 74.77
+  },
+  {
+   "w": "business ?",
+   "phrase": 28,
+   "start": 74.77,
+   "end": 75.15
+  },
+  {
+   "w": "Parlons",
+   "phrase": 29,
+   "start": 75.86,
+   "end": 76.287
+  },
+  {
+   "w": "de",
+   "phrase": 29,
+   "start": 76.287,
+   "end": 76.387
+  },
+  {
+   "w": "votre",
+   "phrase": 29,
+   "start": 76.387,
+   "end": 76.567
+  },
+  {
+   "w": "projet.",
+   "phrase": 29,
+   "start": 76.567,
+   "end": 76.987
+  }
+ ]
+}

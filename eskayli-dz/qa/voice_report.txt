@@ -1,0 +1,44 @@
+VOICE COMP — ESKAYLI DZ (26 takes, 29 phrases); reference F0 152.1 Hz
+
+takes: s1_a sim 0.966, s1_b sim 0.949, s1_c sim 0.973, s1q_a sim 0.937, s1q_b sim 0.950, s2_a sim 0.959, s2_b sim 0.941, s2_c sim 0.965, s3_a sim 0.971, s3_b sim 0.945, s3_c sim 0.958, s4_a sim 0.957, s4_b sim 0.943, s4_c sim 0.968, s5_a sim 0.923, s5_b sim 0.927, s5_c sim 0.955, s6_a sim 0.952, s6_b sim 0.925, s6_c sim 0.953, s7_a sim 0.962, s7_b sim 0.928, s7_c sim 0.953, s8_a sim 0.930, s8_b sim 0.972, s8_c sim 0.944
+
+phrase  chosen  cost   read voice  pace prosody cuts | z(pitch,range,loud,effort) | others
+P1   s1_b    0.58  0.03  0.03  0.01   0.51  0.0 | +0.7 -0.1 -0.0 -0.7 | s1_a:1.19  s1_c:1.66   Vous investissez dans la publicité sur F
+P2   s1q_b   0.52  0.01  0.04  0.02   0.45  0.0 | -0.7 +1.5 +0.0 +0.3 | s1_a:21.58  s1_b:20.27  s1_c:22.07  s1q_a:2.31   Mais est-ce que votre budget vous apport
+P3   s2_b    1.75  0.04  0.10  0.00   0.80  0.8 | -1.1 +0.1 +1.2 +0.6 | s2_a:4.09  s2_c:22.17   Lancer une campagne Meta Ads, ce n’est p
+P4   s3_a    1.18  0.00  0.00  0.03   1.15  0.0 | +1.4 -0.7 -0.6 +0.6 | s3_b:1.50  s3_c:0.74   Avant de dépenser votre budget publicita
+P5   s3_a    0.99  0.00  0.14  0.00   0.85  0.0 | -1.0 -1.0 -0.2 +1.0 | s3_b:1.36  s3_c:2.61   Votre offre.
+P6   s3_a    1.21  0.00  0.00  0.01   1.19  0.0 | +1.2 -0.6 -0.1 -1.4 | s3_b:0.53  s3_c:3.82   Votre marché.
+P7   s3_a    0.63  0.00  0.07  0.01   0.55  0.0 | -0.2 -1.3 +0.2 +0.1 | s3_b:1.38  s3_c:1.76   Votre client idéal.
+P8   s3_a    1.61  0.01  0.01  0.00   0.79  0.8 | +0.1 +1.2 +1.2 -0.4 | s3_b:21.85  s3_c:21.54   Ses besoins, ses frustrations et ses mot
+P9   s4_c    0.95  0.16  0.05  0.05   0.68  0.0 | -1.2 +0.8 +1.1 -0.7 |    Chez Eskayli DZ, nous construisons votre
+P10  s4_a    1.19  0.00  0.02  0.00   1.17  0.0 | +1.2 -1.3 -0.1 +1.1 |    Nous travaillons le bon angle.
+P11  s4_a    0.97  0.00  0.19  0.02   0.76  0.0 | -0.4 +0.3 -1.3 +0.6 | s4_b:0.93  s4_c:5.74   Le bon message.
+P12  s4_a    0.62  0.00  0.14  0.00   0.48  0.0 | -0.9 -0.7 -0.1 +0.7 | s4_b:1.79  s4_c:2.98   La bonne créative.
+P13  s4_b    0.89  0.00  0.26  0.00   0.63  0.0 | +1.0 +1.2 +1.1 +0.4 | s4_a:2.18  s4_c:1.06   Le bon ciblage.
+P14  s5_c    0.81  0.01  0.00  0.00   0.79  0.0 | +0.7 -1.1 +0.9 +0.9 | s5_a:2.34  s5_b:2.40   Puis nous lançons, testons et optimisons
+P15  s6_a    1.44  0.22  0.02  0.12   1.09  0.0 | +1.4 -1.0 +0.9 +0.2 |    L’objectif ?
+P16  s6_c    3.16  0.00  0.00  0.01   1.14  2.0 | -1.4 -0.4 +1.4 -0.7 |    Transformer votre budget publicitaire en
+P17  s6_c    3.98  0.50  0.04  0.33   1.11  2.0 | -1.1 +1.2 +1.2 -1.0 |    Attention.
+P18  s6_c    1.52  0.50  0.07  0.01   0.94  0.0 | +0.0 +0.0 -1.1 -1.2 |    Prospects.
+P19  s6_c    1.58  0.50  0.33  0.00   0.74  0.0 | +1.1 -0.3 +0.7 +1.4 |    Conversations.
+P20  s6_c    1.89  0.50  0.03  0.01   1.35  0.0 | +1.3 -1.2 +1.4 +0.8 |    Clients.
+P21  s7_b    1.52  0.01  0.08  0.00   1.42  0.0 | +1.4 +0.9 -1.1 -1.3 | s7_a:1.34  s7_c:0.32   Parce qu’une bonne publicité ne doit pas
+P22  s7_b    3.50  0.03  0.48  0.00   1.79  1.2 | +1.4 +0.7 -1.4 +0.9 | s7_a:20.93  s7_c:20.54   Elle doit créer de véritables opportunit
+P23  s8_b    1.86  0.24  0.10  0.00   1.52  0.0 | +0.5 -1.3 +1.4 -1.0 | s8_a:1.57  s8_c:1.80   Eskayli DZ.
+P24  s8_b    1.25  0.31  0.29  0.02   0.63  0.0 | +1.0 +1.0 +0.5 -0.7 | s8_a:3.09  s8_c:2.42   Meta Ads.
+P25  s8_b    1.31  0.50  0.23  0.01   0.56  0.0 | +1.0 +0.6 -0.5 +1.0 | s8_a:4.29  s8_c:1.50   Stratégie.
+P26  s8_c    0.98  0.01  0.01  0.02   0.94  0.0 | +1.0 -1.0 +1.3 -0.3 | s8_a:0.93  s8_b:1.50   Création.
+P27  s8_c    0.87  0.04  0.10  0.08   0.65  0.0 | +1.2 -0.8 +0.3 +0.4 | s8_a:2.51  s8_b:1.74   Performance.
+P28  s8_c    0.74  0.00  0.05  0.01   0.67  0.0 | -0.2 +0.4 -1.3 +0.0 | s8_a:1.02  s8_b:1.94   Vous voulez faire de Facebook et Instagr
+P29  s8_a    1.41  0.00  0.27  0.01   1.13  0.0 | -1.0 -0.6 +1.2 -1.4 | s8_b:1.10  s8_c:21.42   Parlons de votre projet.
+
+match EQ: 79:-0.6, 99:-1.3, 125:-1.2, 157:-0.6, 250:+0.4, 397:+0.9, 630:-0.4, 794:-1.0, 1000:-0.9, 1260:-0.7, 1587:+0.3, 2000:+0.5, 2520:+0.5, 4000:-0.5, 6350:+1.9, 8000:+1.9, 10079:+4.2
+duration 79.61 s (lead-in 0.12 s, tail 2.4 s)
+
+voice QA — vo_final.wav
+speaker similarity to the real voice: 0.978
+median F0 141.1 Hz, 10-90 % spread 102.6 Hz
+French WER vs the script: 9.4 %
+largest sample jump at a phrase edge: 0.0415 (99.9th pct inside speech 0.3672)
+ASR: Vous investissez dans la publicité sur Facebook ou Instagram ? Mais est-ce que votre budget vous apporte vraiment des clients ? Lancer une campagne Meta Ads, ce n'est pas simplement créer une vidéo. Choisir un bouton et appuyer sur Publier. Avant de dépenser votre budget publicitaire, il faut comprendre votre business. Votre offre, votre marché, votre client idéal, ses besoins, ses frustrations et ses motivations. Chez Eskayli DZ, nous construisons votre stratégie Meta Ads autour de votre business. Nous travaillons le bon angle, le bon message, la bonne créative, le bon ciblage. Puis, nous lançons, testons et optimisons vos campagnes Facebook et Instagram Ads. L'objectif ? Transformer votre budget publicitaire en attention, prospect, conversation, client. Parce qu'une bonne publicité ne doit pas seulement générer des vues. Elle doit créer de véritables opportunités commerciales. Eskayli DZ, Meta Ads, stratégie, création, performance. Vous voulez faire de Facebook et Instagram un véritable canal d'acquisition pour votre business ? Parlons de votre projet. Sous-titrage Société Radio-Canada Sous-titrage Société Radio-Canada Sous-titrage Société Radio-Canada
