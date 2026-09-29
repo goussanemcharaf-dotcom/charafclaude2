@@ -1,6 +1,6 @@
 # « Un seul lien » — Premium Creator Portfolio · French Meta Ad
 
-A 36.9 s vertical ad (1080 × 1920, 30 fps) for a premium website-portfolio service aimed at French-speaking UGC creators, content creators, voice-over artists and influencers. 100 % French, voiced by the client in their own voice (cloned with their consent from their own promo narration, then dialogue-edited to the picture). Built entirely in 2D/2.5D code — React + SVG + CSS rendered with [Remotion](https://www.remotion.dev), original synthesized audio in Python, FFmpeg for delivery. No Blender, no 3D pipeline.
+A 36.9 s vertical ad (1080 × 1920, 30 fps) for a premium website-portfolio service aimed at French-speaking UGC creators, content creators, voice-over artists and influencers. 100 % French, voiced by the client in their own voice (cloned with their consent from their own promo narration, directed beat by beat for emotion, then dialogue-edited to the picture). Built entirely in 2D/2.5D code — React + SVG + CSS rendered with [Remotion](https://www.remotion.dev), original synthesized audio in Python, FFmpeg for delivery. No Blender, no 3D pipeline.
 
 > **Ton travail mérite une meilleure présentation.** Au lieu d'envoyer dix liens… tu envoies un seul lien.
 

@@ -38,3 +38,76 @@ COMP (utils/voice/fit_vo.py): phrase, take, natural -> fitted duration, tempo, c
   P17 take_seed_4_r20.flac    1.86s ->  1.66s (slot  1.66s)  x1.122  F0  124.2 Hz  clip gain -0.3 dB
 
 Every phrase start the picture is cut on is unchanged (to the ms) vs the v1 edit; total length 36.933 s (1108 frames).
+
+====================================================================================================
+v5 — EMOTIONAL RE-DIRECTION (18 directed section takes, emotion-scored comp, register + dynamics arc)
+====================================================================================================
+directed takes (Seed Audio 1.0, same voice reference; rate / pitch = the model's speech_rate / pitch_rate)
+
+file         section                                    rate/pitch    sim   F0 Hz  note
+emo_s1_a     call-out + mess + question « ?! »             -6 / +1  0.945   148.6  junk between sentences (« clat clat »)
+emo_s1_b     call-out + mess + question « ?! »              -9 / 0  0.973   143.5  junk between sentences; used P4
+emo_s1_c     call-out + mess + question « ?! »             -4 / +2  0.874   181.9  identity drift, out
+emo_q_a      staccato + question « ?! »                      0 / 0  0.943   152.9  
+emo_q_b      staccato + question « ?! »                    +3 / +1  0.913   192.7  
+emo_q_c      staccato + question « ?! »                    -3 / +1  0.913   197.8  
+emo_s2_a     « Non. » + « Ton travail… »                  -14 / -1  0.918   128.6  « Non, ton… » run-on
+emo_s2_b     « Non ! » + « Ton travail… »                  -12 / 0  0.935   173.7  
+emo_s2_c     « Non. Ton travail… » one line               -16 / -2  0.887   110.0  run-on; identity drift
+emo_s3_a     promise with « ! »                            -8 / +1  0.926   155.6  
+emo_s3_b     promise, plain                                -10 / 0  0.964   154.7  used P12
+emo_s3_c     promise with « ! »                            -6 / +2  0.865   175.7  identity drift, out
+emo_s4_a     « …un seul lien ! » + proof                   -8 / +1  0.915   144.4  
+emo_s4_b     « …un seul lien. » + proof                    -10 / 0  0.949   156.1  
+emo_s4_c     « …un seul lien ! » + proof                   -6 / +2  0.847   157.4  very slow; identity drift, out
+emo_s5_a     proof + « Écris-moi, et on commence ! »       -10 / 0  0.942   141.1  
+emo_s5_b     proof + « Écris-moi… et on commence ! »      -12 / +1  0.881   130.5  identity drift
+emo_s5_c     proof + « Écris-moi et on commence. »         -8 / -1  0.921   137.8  
+
+identity guard: takes below 0.935 similarity cost ((0.935 - sim) / 0.03)^2 per phrase
+
+emotion per phrase: z-scores of the chosen reading vs all readings of that phrase (pitch, range, loudness, effort)
+  P1  (11 readings) wanted +0.7 +0.8 +0.6 +0.6  got -0.6 +0.5 +0.3 +0.1  cost 0.60  Si tu es UGC Creator,
+  P2  (11 readings) wanted +0.7 +0.8 +0.6 +0.6  got +0.6 +0.9 +0.3 +2.2  cost 0.62  Content Creator,
+  P3  (11 readings) wanted +0.7 +0.8 +0.6 +0.6  got -0.1 +0.8 +0.0 +0.4  cost 0.29  Voice Over Artist ou Influenceur…
+  P4  (11 readings) wanted +0.5 +0.6 +0.5 +0.5  got -0.4 +1.2 +0.6 +0.3  cost 0.41  et que tu envoies encore ton trava
+  P5  (14 readings) wanted +0.7 +0.8 +0.6 +0.6  got +0.8 +0.4 +0.7 -0.1  cost 0.20  Une vidéo ici.
+  P6  (14 readings) wanted +0.7 +0.8 +0.6 +0.6  got +0.0 +0.0 -0.8 +0.7  cost 0.95  Un fichier là.
+  P7  (14 readings) wanted +0.7 +0.8 +0.6 +0.6  got -0.2 +0.2 +1.6 +0.7  cost 0.66  Un autre lien ailleurs.
+  P8  (12 readings) wanted +0.8 +1.0 +0.5 +0.5  got -1.3 -0.6 +0.1 -0.2  cost 2.29  Et ton client doit chercher partou
+  P9  ( 9 readings) wanted -0.8 -0.3 +0.8 +0.5  got -0.4 +0.1 +0.1 -0.4  cost 0.48  Non.
+  P10 ( 9 readings) wanted -0.5 -0.2 -0.3 -0.5  got +0.6 +0.5 +0.3 -0.7  cost 0.66  Ton travail mérite une meilleure p
+  P11 ( 9 readings) wanted +0.5 +0.7 +0.5 +0.5  got +0.8 +0.8 +0.3 +1.7  cost 0.46  Je crée pour toi un Premium Websit
+  P12 ( 9 readings) wanted +0.6 +0.8 +0.6 +0.6  got +0.3 +1.8 -0.6 +0.0  cost 0.88  Tes projets, tes services, ton sty
+  P13 (11 readings) wanted +0.0 +0.4 +0.0 +0.0  got -1.3 +1.5 -0.3 +1.8  cost 1.82  Au lieu d’envoyer dix liens…
+  P14 (11 readings) wanted +0.5 +0.8 +0.7 +0.6  got +0.2 +0.5 +1.5 +0.3  cost 0.28  tu envoies un seul lien.
+  P15 (11 readings) wanted +0.0 +0.0 +0.3 +0.3  got -0.8 -1.7 -0.2 +1.7  cost 1.79  Ton client clique.
+  P16 (14 readings) wanted +0.5 +0.8 +0.5 +0.5  got +0.8 -0.9 +0.8 -0.3  cost 1.17  Et découvre un portfolio professio
+  P17 (11 readings) wanted +0.2 +0.4 +0.0 +0.2  got +0.2 -0.7 +0.3 -0.8  cost 0.70  Écris-moi et on commence.
+
+COMP v5 (fit_vo.py --emotion, 28 takes): phrase, take, natural -> fitted, tempo, clip gain (incl. arc level), register move
+P1  pickup_open_r12.flac   natural  1.73s x1.166 ->  1.49s (slot  1.49s)  F0  158.3 Hz  level  -16.7 dB (clip gain +0.1)  register +0.90 st
+P2  pickup_open_r12.flac   natural  0.97s x1.166 ->  0.83s (slot  0.83s)  F0  153.8 Hz  level  -17.6 dB (clip gain +0.7)  register +0.90 st
+P3  pickup_open_r12.flac   natural  2.43s x1.166 ->  2.08s (slot  2.08s)  F0  152.5 Hz  level  -17.0 dB (clip gain +0.3)  register +0.90 st
+P4  emo_s1_b.flac          natural  3.80s x1.045 ->  3.64s (slot  3.64s)  F0  133.1 Hz  level  -17.0 dB (clip gain +0.3)  register +0.90 st
+P5  take_seed_6_r8.flac    natural  0.83s x0.967 ->  0.86s (slot  0.90s)  F0  185.6 Hz  level  -14.6 dB (clip gain -0.6)  register +0.29 st
+P6  take_seed_6_r8.flac    natural  0.78s x1.041 ->  0.74s (slot  0.74s)  F0    nan Hz  level  -17.5 dB (clip gain +1.2)  register +0.29 st
+P7  pickup_open_r12.flac   natural  1.14s x1.136 ->  1.00s (slot  1.00s)  F0  137.1 Hz  level  -15.7 dB (clip gain +0.1)  register +0.29 st
+P8  take_seed_7_r12.flac   natural  3.22s x1.054 ->  3.05s (slot  3.05s)  F0  154.7 Hz  level  -17.2 dB (clip gain +1.0)  register +0.60 st
+P9  take_seed_7_r12.flac   natural  0.42s x0.983 ->  0.43s (slot  0.44s)  F0  110.0 Hz  level  -15.5 dB (clip gain +1.0)  register +0.00 st
+P10 take_seed_7_r12.flac   natural  2.14s x1.065 ->  2.00s (slot  2.00s)  F0  150.8 Hz  level  -16.2 dB (clip gain -1.1)  register -0.43 st
+P11 take_seed_6_r8.flac    natural  3.54s x0.985 ->  3.60s (slot  3.60s)  F0  158.3 Hz  level  -16.5 dB (clip gain +0.5)  register +0.00 st
+P12 emo_s3_b.flac          natural  5.10s x1.204 ->  4.24s (slot  4.24s)  F0  165.8 Hz  level  -16.4 dB (clip gain +0.5)  register +0.00 st
+P13 pickup_end_r8.flac     natural  1.17s x0.959 ->  1.22s (slot  1.22s)  F0  140.3 Hz  level  -16.0 dB (clip gain +0.8)  register +0.66 st
+P14 pickup_end_r8.flac     natural  1.29s x0.959 ->  1.35s (slot  1.35s)  F0  149.5 Hz  level  -16.1 dB (clip gain +0.8)  register +0.66 st
+P15 take_seed_2_r18.flac   natural  1.07s x1.077 ->  1.00s (slot  1.00s)  F0  128.6 Hz  level  -17.2 dB (clip gain +0.5)  register +0.32 st
+P16 take_seed_2_r18.flac   natural  3.30s x1.077 ->  3.07s (slot  3.07s)  F0  152.9 Hz  level  -16.2 dB (clip gain -0.1)  register +0.32 st
+P17 pickup_end_r8.flac     natural  1.40s x0.946 ->  1.48s (slot  1.66s)  F0  135.5 Hz  level  -16.4 dB (clip gain +0.0)  register +1.00 st
+
+FINAL v5                           similarity   F0 Hz  spread   WER
+  real voice (reference)                  -      152.1   106.9     -
+  v3 comp (vo_packed_clone, v3)        0.982     149.5    92.6   1.8%
+  v5 comp (vo_packed_clone)            0.970     152.1   104.9   0.9%
+  v5 on the timeline (vo_final.wav)    0.970     152.9   105.5   1.8%  (« UGC » heard as « UJC » in this pass, « dix » -> 10)
+  spread = F0 10-90 % range: the read now varies as much as the real voice does
+breaths: none in any take (digital silence between sentences) nor in the reference narration (breath-edited); none added

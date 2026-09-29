@@ -1,8 +1,8 @@
 duration            36.933 s
-tempo               A 120 BPM (0 -> « Non. »), B 117.03 BPM (drop 1 20.332 s, drop 2 28.535 s = 16 beats later)
-VO (solo)           -14.60 LUFS (EQ + 3:1 compression)
-music under VO      -22.22 LUFS (pre-master), spectral ducking 3.5 / 9 / 4.5 dB (low / mid / high)
-SFX                 -22.60 LUFS (pre-master)
-master integrated   -13.99 LUFS (target -14.0)
+tempo               A 120 BPM (0 -> « Non. »), B 117.13 BPM (drop 1 20.302 s, drop 2 28.498 s = 16 beats later)
+VO (solo)           -14.28 LUFS (EQ + 3:1 compression)
+music under VO      -21.89 LUFS (pre-master), spectral ducking 3.5 / 9 / 4.5 dB (low / mid / high)
+SFX                 -22.28 LUFS (pre-master)
+master integrated   -14.00 LUFS (target -14.0)
 master true peak     -1.30 dBTP (ceiling -1.0)
 silence at 'Non.'   max |x| 0.00e+00 in music+SFX from 14.49s to 15.35s

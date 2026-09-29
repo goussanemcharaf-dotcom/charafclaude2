@@ -1,21 +1,21 @@
 1
-00:00:00,030 --> 00:00:01,558
+00:00:00,030 --> 00:00:01,555
 Si tu es UGC Creator,
 
 2
-00:00:01,578 --> 00:00:02,693
+00:00:01,575 --> 00:00:02,549
 Content Creator,
 
 3
-00:00:02,713 --> 00:00:04,590
+00:00:02,569 --> 00:00:04,660
 Voice Over Artist ou Influenceur…
 
 4
-00:00:04,610 --> 00:00:05,960
+00:00:04,680 --> 00:00:05,827
 et que tu envoies encore ton travail
 
 5
-00:00:05,980 --> 00:00:08,330
+00:00:05,847 --> 00:00:08,330
 entre Google Drive,
 WhatsApp et plusieurs liens…
 
@@ -41,7 +41,7 @@ pour comprendre qui tu es
 et ce que tu fais ?
 
 11
-00:00:14,440 --> 00:00:15,075
+00:00:14,440 --> 00:00:15,070
 Non.
 
 12
@@ -50,28 +50,28 @@ Ton travail mérite
 une meilleure présentation.
 
 13
-00:00:17,885 --> 00:00:20,252
+00:00:17,885 --> 00:00:20,222
 Je crée pour toi
 un Premium Website Portfolio,
 
 14
-00:00:20,272 --> 00:00:21,680
+00:00:20,242 --> 00:00:21,678
 pensé autour de ton univers.
 
 15
-00:00:21,700 --> 00:00:23,821
+00:00:21,700 --> 00:00:24,139
 Tes projets, tes services, ton style…
 
 16
-00:00:23,841 --> 00:00:26,113
+00:00:24,275 --> 00:00:26,160
 réunis dans une seule expérience.
 
 17
-00:00:26,235 --> 00:00:27,840
+00:00:26,235 --> 00:00:27,735
 Au lieu d’envoyer dix liens…
 
 18
-00:00:27,953 --> 00:00:29,332
+00:00:27,779 --> 00:00:29,319
 tu envoies un seul lien.
 
 19
@@ -87,5 +87,5 @@ Et découvre un portfolio
 professionnel, clair et différent.
 
 22
-00:00:34,050 --> 00:00:35,926
+00:00:34,050 --> 00:00:35,725
 Écris-moi et on commence.

@@ -1,78 +1,78 @@
 [
  {
   "text": "et que tu envoies encore ton travail",
-  "start": 4.61,
-  "end": 5.96,
+  "start": 4.68,
+  "end": 5.827,
   "words": [
    {
     "w": "et",
-    "start": 4.66
+    "start": 4.73
    },
    {
     "w": "que",
-    "start": 4.76
+    "start": 4.768
    },
    {
     "w": "tu",
-    "start": 4.853
+    "start": 4.883
    },
    {
     "w": "envoies",
-    "start": 4.909
+    "start": 4.998
    },
    {
     "w": "encore",
-    "start": 5.189
+    "start": 5.247
    },
    {
     "w": "ton",
-    "start": 5.507
+    "start": 5.4
    },
    {
     "w": "travail",
-    "start": 5.675
+    "start": 5.591
    }
   ]
  },
  {
   "text": "entre Google Drive, WhatsApp",
-  "start": 5.98,
-  "end": 7.286,
+  "start": 5.847,
+  "end": 7.168,
   "words": [
    {
     "w": "entre",
-    "start": 6.03
+    "start": 5.897
    },
    {
     "w": "Google",
-    "start": 6.292
+    "start": 6.127
    },
    {
     "w": "Drive,",
-    "start": 6.59
+    "start": 6.433
    },
    {
     "w": "WhatsApp",
-    "start": 7.076
+    "start": 6.969
    }
   ]
  },
  {
   "text": "et plusieurs liens…",
-  "start": 7.306,
-  "end": 8.48,
+  "start": 7.188,
+  "end": 8.476,
   "words": [
    {
     "w": "et",
-    "start": 7.356
+    "start": 7.238
    },
    {
     "w": "plusieurs",
-    "start": 7.618
+    "start": 7.486
    },
    {
     "w": "liens…",
-    "start": 7.842
+    "start": 7.735
    }
   ]
  },
@@ -125,7 +125,7 @@
  {
   "text": "Tes projets, tes services, ton style…",
   "start": 21.7,
-  "end": 23.821,
+  "end": 24.159,
   "words": [
    {
     "w": "Tes",
@@ -133,57 +133,57 @@
    },
    {
     "w": "projets,",
-    "start": 21.878
+    "start": 21.86
    },
    {
     "w": "tes",
-    "start": 22.45
+    "start": 22.51
    },
    {
     "w": "services,",
-    "start": 22.519
+    "start": 22.577
    },
    {
     "w": "ton",
-    "start": 23.091
+    "start": 23.307
    },
    {
     "w": "style…",
-    "start": 23.182
+    "start": 23.407
    }
   ]
  },
  {
   "text": "réunis dans une seule expérience.",
-  "start": 23.841,
-  "end": 26.133,
+  "start": 24.275,
+  "end": 26.18,
   "words": [
    {
     "w": "réunis",
-    "start": 23.891
+    "start": 24.325
    },
    {
     "w": "dans",
-    "start": 24.212
+    "start": 24.831
    },
    {
     "w": "une",
-    "start": 24.605
+    "start": 25.03
    },
    {
     "w": "seule",
-    "start": 24.784
+    "start": 25.262
    },
    {
     "w": "expérience.",
-    "start": 25.081
+    "start": 25.445
    }
   ]
  },
  {
   "text": "Au lieu d’envoyer dix liens…",
   "start": 26.235,
-  "end": 27.86,
+  "end": 27.755,
   "words": [
    {
     "w": "Au",
@@ -191,46 +191,46 @@
    },
    {
     "w": "lieu",
-    "start": 26.396
+    "start": 26.412
    },
    {
     "w": "d’envoyer",
-    "start": 26.548
+    "start": 26.558
    },
    {
     "w": "dix",
-    "start": 27.025
+    "start": 27.017
    },
    {
     "w": "liens…",
-    "start": 27.292
+    "start": 27.163
    }
   ]
  },
  {
   "text": "tu envoies un seul lien.",
-  "start": 27.953,
-  "end": 29.352,
+  "start": 27.779,
+  "end": 29.339,
   "words": [
    {
     "w": "tu",
-    "start": 28.003
+    "start": 27.829
    },
    {
     "w": "envoies",
-    "start": 28.116
+    "start": 27.955
    },
    {
     "w": "un",
-    "start": 28.44
+    "start": 28.406
    },
    {
     "w": "seul",
-    "start": 28.555
+    "start": 28.518
    },
    {
     "w": "lien.",
-    "start": 28.765
+    "start": 28.747
    }
   ]
  },

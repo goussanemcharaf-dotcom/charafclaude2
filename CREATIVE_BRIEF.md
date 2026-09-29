@@ -6,7 +6,7 @@
 |---|---|
 | Format | 1080 × 1920, 30 fps, H.264 + AAC, 36.9 s |
 | Language | 100 % French (voice, captions, supers, CTA). Creator-industry terms (UGC Creator, Voice Over, Reels) only where they are the real names of the jobs/formats. |
-| Voice | The client's own voice — cloned (with their consent) from their own promo narration: the person who makes the portfolios is the one speaking. Direct, confident, conversational "tu", European French. |
+| Voice | The client's own voice — cloned (with their consent) from their own promo narration: the person who makes the portfolios is the one speaking. Direct, confident, conversational "tu", European French. Performed, not read: each beat has its colour — a bright call-out, an exasperated question, a low and firm « Non. », a closer, calmer « Ton travail mérite une meilleure présentation. », pride building into the drop, the affirmation on « un seul lien », a settled invitation. |
 | Production | 2D / 2.5D only — React + SVG + CSS rendered with Remotion, audio synthesized in Python, assembled with FFmpeg. No Blender, no 3D pipeline, no WebGL. |
 | Style reference | The supplied Reel (violet/white kinetic-typography ad). Used for **motion language only** — no footage, face, name, copy or assets from it. |
 

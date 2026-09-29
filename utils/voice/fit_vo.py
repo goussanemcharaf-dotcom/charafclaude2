@@ -2,7 +2,8 @@
 
 Usage:
   python3 utils/voice/fit_vo.py --take A.wav --words A_words.json [--take B.wav --words B_words.json ...]
-         --label "source description" [--pick 9=2,15=1] [--ref-voice audio/voiceover/clone/voice_sample_clean.mp3]
+         --label "source description" [--pick 9=2,15=1] [--emotion]
+         [--ref-voice audio/voiceover/clone/voice_sample_clean.mp3]
          [--out audio/voiceover/clone/vo_packed_clone.flac] [--ref audio/voiceover/julian/vo_packed_timing.json]
 
 TAKE_words.json = ASR word list for the take: [[word, start, end, prob], ...] or {"words": [...]}
@@ -14,8 +15,12 @@ the ASR words to the script, then cut, trimmed and its inner pauses tightened. W
 take each phrase comes from is chosen the way a dialogue editor would comp them, jointly for all phrases
 (dynamic programming) on:
   - time-stretch needed to reach the phrase's duration in the reference edit (less is better, slowing
-    down costs more than speeding up, beyond TEMPO_RANGE the timeline would have to move),
-  - a clean read: ASR match to the script words and word confidence,
+    down costs more than speeding up, beyond TEMPO_RANGE the timeline would have to move; a reading
+    shorter than its slot may rather leave a longer pause after it),
+  - a clean read: ASR match to the script words and word confidence, no inserted word, and a voice
+    that stays voiced (a reading whose loud frames are mostly aperiodic, creak or whisper, is a TTS
+    artefact that sounds synthetic),
+  - voice identity: a take whose speaker similarity to the reference voice is below SIM_OK costs,
   - pitch: the phrase's median F0 against the other takes' reading of it and against the reference voice,
   - clean cuts: a phrase the take runs into its neighbour without a pause costs (it is then cut at the
     quietest point between the two words, never through a word); so does a pause the take makes where
@@ -27,6 +32,17 @@ Takes are loudness-matched first (BS.1770 on the speech); after the comp, phrase
 out (clip gain that keeps 40 % of each phrase's natural deviation) and the whole read gets a gentle
 match EQ towards the long-term spectrum of the reference voice (--ref-voice), so the clone sounds like
 the voice as it was recorded, not like the TTS model's own colour.
+
+With --emotion the comp also directs the performance: every reading of a phrase is placed against the
+other readings of the same phrase on four acoustic correlates of arousal and assurance (median pitch,
+pitch range, loudness, vocal effort) and the reading closest to the emotion that beat of the story calls
+for (EMOTION) is preferred; the pull towards the consensus pitch is halved so expressive readings can
+win. It then shapes the performance across the story, as a VO editor would in Melodyne (ARC): every
+sentence gets a register (median pitch vs the real voice) and a level, so the hook is bright, « Non. »
+low and firm, the next line calm, the promise builds. A sentence is moved only REGISTER_AMOUNT of the
+way to its register (formants preserved, at most REGISTER_MAX), all of it by the same amount so its own
+melody is the take's, and never back from a reading that already goes further (a bright sentence is only
+ever raised, a dark one only lowered).
 
 Each unit (a phrase, or the opening list, see UNITS) is time-stretched with Rubber Band R3 ("finer"
 engine, short window: pitch and formants kept) to the duration it had in the reference edit, so the
@@ -79,6 +95,40 @@ CREAK_HZ = 85.0                # voicing below this before a phrase's first phon
 INSERTED_WORD = 1.5            # per word the take says that the script doesn't
 LEVEL_KEEP = 0.4               # share of a phrase's level deviation (vs the comp median) that is kept
 MATCH_AMOUNT, MATCH_MAX_DB, MATCH_BAND = 0.6, 5.0, (90.0, 10500.0)
+
+# --emotion: the read follows the story. Per phrase, the wanted prosody as z-scores against the other
+# readings of the same phrase: (pitch, pitch range, loudness, vocal effort = 1-4 kHz vs 80 Hz-1 kHz).
+# Acoustic correlates of arousal / assurance; no emotion-recognition model is needed.
+ENERGY, QUESTION, FIRM, CALM, WARM = (0.7, 0.8, 0.6, 0.6), (0.8, 1.0, 0.5, 0.5), (-0.8, -0.3, 0.8, 0.5), (-0.5, -0.2, -0.3, -0.5), (0.2, 0.4, 0.0, 0.2)
+EMOTION = {
+    0: ENERGY, 1: ENERGY, 2: ENERGY,              # the call-out
+    3: (0.5, 0.6, 0.5, 0.5),                      # the mess (complicit, building)
+    4: ENERGY, 5: ENERGY, 6: ENERGY,              # "Une vidéo ici. Un fichier là. Un autre lien ailleurs." (staccato)
+    7: QUESTION,                                  # "…et ce que tu fais ?!" (incredulous)
+    8: FIRM,                                      # "Non." (low, decisive)
+    9: CALM,                                      # "Ton travail mérite une meilleure présentation." (warm conviction)
+    10: (0.5, 0.7, 0.5, 0.5), 11: (0.6, 0.8, 0.6, 0.6),   # pride, rising enthusiasm
+    12: (0.0, 0.4, 0.0, 0.0), 13: (0.5, 0.8, 0.7, 0.6),   # set-up, then the affirmation on "un seul lien"
+    14: (0.0, 0.0, 0.3, 0.3), 15: (0.5, 0.8, 0.5, 0.5),   # "Ton client clique." assured / the three adjectives
+    16: WARM,                                     # "Écris-moi et on commence." (smiling invitation)
+}
+EMOTION_W = 1.2
+# voice identity: a take whose speaker similarity to the real voice (whole take, Resemblyzer) falls below
+# SIM_OK costs ((SIM_OK - sim) / SIM_UNIT)^2 per phrase. Above it, the differences are the reading, not the voice.
+SIM_OK, SIM_UNIT = 0.935, 0.03
+# the arc of the read: (phrases of one sentence, register in semitones vs the real voice, level in dB)
+ARC = [([0, 1, 2, 3], +1.0, 0.0),     # the call-out and the mess
+       ([4, 5, 6], +1.0, +0.5),       # "Une vidéo ici. Un fichier là. Un autre lien ailleurs."
+       ([7], +1.5, +0.5),             # the exasperated question
+       ([8], -4.0, +1.5),             # "Non."
+       ([9], -1.0, -1.0),             # "Ton travail mérite une meilleure présentation." (closer, calmer)
+       ([10], +0.5, +0.5), ([11], +1.0, +0.5),   # the promise builds into the drop
+       ([12, 13], +0.5, +1.0),        # "…tu envoies un seul lien."
+       ([14, 15], 0.0, 0.0),          # the client's side
+       ([16], 0.0, 0.0)]              # "Écris-moi et on commence." (settled, not low)
+REGISTER_AMOUNT, REGISTER_MAX = 0.5, 1.5
+assert sorted(k for g in ARC for k in g[0]) == list(range(len(PHRASES)))
+VOICED_OK, VOICED_UNIT = 0.45, 0.10  # share of the loud frames with a pitch; below VOICED_OK: creak / whisper
 
 # Units are fitted as a whole: inside a unit the phrases keep the take's own rhythm and only the unit's
 # total duration is matched. The picture only follows word cues inside them: the opening list
@@ -185,12 +235,15 @@ def time_map(bp, t):
     return float(np.interp(t, xs, ys))
 
 
-def stretch(seg, tempo):
-    """Rubber Band R3 (finer engine, short window): cleanest on speech of the engines tested."""
-    if abs(tempo - 1) < 0.004:
+def stretch(seg, tempo, semis=0.0):
+    """Rubber Band R3 (finer engine, short window): cleanest on speech of the engines tested. semis: pitch
+    shift with the formants preserved (the timbre stays the voice's)."""
+    if abs(tempo - 1) < 0.004 and abs(semis) < 0.05:
         return seg
-    st = RubberBandStretcher(SR, 1, Option.PROCESS_OFFLINE | Option.ENGINE_FINER | Option.WINDOW_SHORT,
-                             initial_time_ratio=1.0 / tempo)
+    opts = Option.PROCESS_OFFLINE | Option.ENGINE_FINER | Option.WINDOW_SHORT
+    if abs(semis) >= 0.05:
+        opts |= Option.FORMANT_PRESERVED
+    st = RubberBandStretcher(SR, 1, opts, initial_time_ratio=1.0 / tempo, initial_pitch_scale=2 ** (semis / 12))
     a = seg.astype(np.float32)[None, :]
     st.set_max_process_size(a.shape[1])
     st.set_expected_input_duration(a.shape[1])
@@ -222,6 +275,7 @@ class Take:
                         or (0 < k < len(PHRASES) - 1 and heard[k - 1] >= 0.6 and heard[k + 1] >= 0.6)}
         self.lufs = integrated_lufs(self.x)
         self.f0_t, self.f0 = f0_track(self.x)
+        self.speech_db = active_db(self.x)
         self.gain = 1.0
 
     def boundary(self, i):
@@ -271,14 +325,19 @@ class Take:
         m = (self.f0_t >= s) & (self.f0_t <= e) & ~np.isnan(self.f0)
         ws, we = times[idx[0]][0], times[idx[-1]][1]
         probs = [w[3] for w in self.words if len(w) > 3 and w[1] >= s - 0.05 and w[2] <= e + 0.05]
+        voiced = self.f0[m]
         return {
             "take": self.name, "idx": idx, "s": s, "seg": seg, "bp": bp, "nat": len(seg) / SR,
-            "f0": float(np.median(self.f0[m])) if m.sum() >= 5 else float("nan"),
+            "f0": float(np.median(voiced)) if m.sum() >= 5 else float("nan"),
+            "f0_range": float(12 * np.log2(np.percentile(voiced, 90) / np.percentile(voiced, 10))) if m.sum() >= 5 else float("nan"),
+            "level": active_db(raw) - self.speech_db,
+            "effort": vocal_effort(raw),
             "match": sum(self.heard[i] for i in idx) / sum(self.n_atoms[i] for i in idx),
             "prob": float(np.mean(probs)) if probs else 0.5,
             "inserted": sum(1 for ti in self.inserted if s <= ti <= e),
             "join": join_c + pause_c,
             "f0_start": self.f0_median(ws - 0.05, ws + 0.35), "f0_end": self.f0_median(we - 0.35, we + 0.05),
+            "voiced": self.voiced_share(s, e),
         }
 
     def speech_onset(self, s, e):
@@ -311,6 +370,23 @@ class Take:
                 cost += UNSCRIPTED_PAUSE * (1.5 if j == 0 or j == len(idx) - 2 else 1.0)
         return cost
 
+    def voiced_share(self, s, e):
+        """Share of the loud 60 ms frames of [s, e] (within 20 dB of the phrase peak) that are periodic
+        (normalised autocorrelation >= 0.5 at a 70-400 Hz lag, window-corrected as in Praat). pYIN is not
+        used here: it drops some nasal / slightly rough vowels ("Non.") that are plainly voiced."""
+        y = signal.resample_poly(self.x[int(s * SR):int(e * SR)], 1, 3)  # 16 kHz
+        n, hop, lo, hi = 960, 320, 16000 // 400, 16000 // 70
+        if len(y) < n:
+            return 1.0
+        win = np.hanning(n)
+        rw = np.fft.irfft(np.abs(np.fft.rfft(win, 2 * n)) ** 2)[:n]
+        fr = np.lib.stride_tricks.sliding_window_view(y, n)[::hop] * win
+        en = np.sqrt(np.mean(fr ** 2, axis=1)) + 1e-12
+        fr = fr[20 * np.log10(en / np.max(en)) > -20]
+        ac = np.fft.irfft(np.abs(np.fft.rfft(fr, 2 * n, axis=1)) ** 2, axis=1)[:, :n]
+        r = (ac[:, lo:hi] / (ac[:, :1] + 1e-12)) / (rw[lo:hi] / rw[0])
+        return float(np.mean(np.max(r, axis=1) >= 0.5))
+
     def f0_median(self, a, b):
         v = self.f0[(self.f0_t >= a) & (self.f0_t <= b)]
         v = v[~np.isnan(v)]
@@ -325,24 +401,30 @@ def semitones(f0, f0_ref, default=0.0):
     return 12 * math.log2(f0 / f0_ref) if math.isfinite(f0) else default
 
 
-def unit_cost(cs, targets, f0_ref, consensus):
+def unit_cost(cs, targets, f0_ref, consensus, pitch_w=1.0):
     """Cost of one unit (its phrases cs, all from one take) stretched as a whole to sum(targets).
-    consensus: per phrase, the median F0 of that phrase across the takes (semitones vs f0_ref)."""
+    consensus: per phrase, the median F0 of that phrase across the takes (semitones vs f0_ref).
+    pitch_w: weight of the pitch terms (halved with --emotion, where EMOTION decides the register)."""
     if any(c is None for c in cs):  # a pickup that doesn't contain this unit
         return math.inf, {"tempo": 1.0, "resid": 0.0, "parts": ()}
     nat, target = sum(c["nat"] for c in cs), sum(targets)
     tempo = tempo_for(nat, target)
+    if nat < target:  # a short reading is slowed down only as far as that beats leaving a longer pause after it
+        tempo = float(min(np.linspace(tempo, 1.0, 21), key=lambda tp: len(cs) * (math.log(tp) / STRETCH_UNIT) ** 2
+                          * SLOW_FACTOR + (target - nat / tp) / PAD_UNIT))
     resid = nat / tempo - target
     stretch_c = len(cs) * (math.log(tempo) / STRETCH_UNIT) ** 2 * (SLOW_FACTOR if tempo < 1 else 1.0)
     resid_c = (resid / OVERRUN_UNIT) ** 2 if resid > 0 else -resid / PAD_UNIT
-    read_c = sum(3.0 * (1 - c["match"]) + 1.0 * (1 - c["prob"]) + INSERTED_WORD * c["inserted"] for c in cs)
+    read_c = sum(3.0 * (1 - c["match"]) + 1.0 * (1 - c["prob"]) + INSERTED_WORD * c["inserted"]
+                 + max(0.0, VOICED_OK - c["voiced"]) / VOICED_UNIT for c in cs)
     pitch_c = 0.0
     for c, cons in zip(cs, consensus):
         st = semitones(c["f0"], f0_ref, cons)
-        pitch_c += 0.5 * ((st - cons) / 3.0) ** 2 + 0.25 * (st / 5.0) ** 2
+        pitch_c += pitch_w * (0.5 * ((st - cons) / 3.0) ** 2 + 0.25 * (st / 5.0) ** 2)
     join_c = sum(c["join"] for c in cs)
-    return stretch_c + resid_c + read_c + pitch_c + join_c, {
-        "tempo": tempo, "resid": resid, "parts": (stretch_c, resid_c, read_c, pitch_c, join_c)}
+    emo_c = sum(c.get("emo_cost", 0.0) + c.get("sim_cost", 0.0) for c in cs)
+    return stretch_c + resid_c + read_c + pitch_c + join_c + emo_c, {
+        "tempo": tempo, "resid": resid, "parts": (stretch_c, resid_c, read_c, pitch_c, join_c, emo_c)}
 
 
 def switch_cost(k):
@@ -419,6 +501,35 @@ def match_eq(y, ref):
     return signal.fftconvolve(y, h, mode="full")[n // 2:n // 2 + len(y)], dict(zip(np.round(c).astype(int), np.round(corr, 1)))
 
 
+def vocal_effort(x):
+    """Spectral balance of the loud frames, dB of 1-4 kHz over 80 Hz-1 kHz: rises with vocal effort / arousal."""
+    w = int(0.02 * SR)
+    n = len(x) // w
+    if n < 3:
+        return float("nan")
+    fr = x[: n * w].reshape(n, w)
+    e = np.sqrt(np.mean(fr ** 2, axis=1))
+    fr = fr[e > np.max(e) * 10 ** (-25 / 20)] * np.hanning(w)
+    P = np.mean(np.abs(np.fft.rfft(fr, axis=1)) ** 2, axis=0)
+    f = np.fft.rfftfreq(w, 1 / SR)
+    hi, lo = P[(f >= 1000) & (f < 4000)].sum(), P[(f >= 80) & (f < 1000)].sum()
+    return float(10 * np.log10((hi + 1e-12) / (lo + 1e-12)))
+
+
+def emotion_costs(cuts, f0_ref):
+    """Per phrase, z-score each reading's prosody against the other readings of the same phrase and
+    cost its distance to the wanted emotion (EMOTION). Stores c["emo"] (z-scores) and c["emo_cost"]."""
+    for k, row in enumerate(cuts):
+        cs = [c for c in row if c]
+        feats = np.array([[semitones(c["f0"], f0_ref, np.nan), c["f0_range"], c["level"], c["effort"]] for c in cs], float)
+        mu, sd = np.nanmean(feats, axis=0), np.nanstd(feats, axis=0) + 1e-6
+        target = np.array(EMOTION[k])
+        for c, f in zip(cs, feats):
+            z = np.nan_to_num((f - mu) / sd)
+            c["emo"] = z
+            c["emo_cost"] = EMOTION_W * float(np.mean((np.clip(z, -2, 2) - target) ** 2)) if len(cs) > 2 else 0.0
+
+
 def snap_words(seg, spans, below_db=20.0):
     """ASR word timestamps absorb the pause before a word (Whisper starts "pensé" where "Portfolio" ends):
     move each word start past leading silence (or breath) and each end before trailing silence, measured
@@ -465,6 +576,7 @@ def main():
     ap.add_argument("--out", default="audio/voiceover/clone/vo_packed_clone.flac")
     ap.add_argument("--ref", default="audio/voiceover/julian/vo_packed_timing.json")
     ap.add_argument("--timing-out", default="audio/voiceover/vo_packed_timing.json")
+    ap.add_argument("--emotion", action="store_true", help="prefer the reading that fits each beat (EMOTION)")
     a = ap.parse_args()
     if len(a.take) != len(a.words):
         raise SystemExit("one --words per --take")
@@ -478,15 +590,28 @@ def main():
     level = float(np.median([tk.lufs for tk in takes]))
     for tk in takes:
         tk.gain = 10 ** ((level - tk.lufs) / 20)
+    from resemblyzer import VoiceEncoder, preprocess_wav
+    enc = VoiceEncoder("cpu", verbose=False)
+    e_ref = enc.embed_utterance(preprocess_wav(ref_voice.astype(np.float32), source_sr=SR))
+    for tk in takes:
+        e = enc.embed_utterance(preprocess_wav(tk.x.astype(np.float32), source_sr=SR))
+        tk.sim = float(np.dot(e_ref, e) / (np.linalg.norm(e_ref) * np.linalg.norm(e)))
     print(f"reference voice F0 {f0_ref:.1f} Hz; takes matched to {level:.1f} LUFS")
     for i, tk in enumerate(takes, 1):
         have = "all phrases" if len(tk.present) == len(PHRASES) else "phrases " + ",".join(str(k + 1) for k in sorted(tk.present))
-        print(f"  take {i}: {tk.name}  ({len(tk.x) / SR:.1f}s, {tk.lufs:.1f} LUFS, {have})")
+        print(f"  take {i}: {tk.name}  ({len(tk.x) / SR:.1f}s, {tk.lufs:.1f} LUFS, speaker sim {tk.sim:.3f}, {have})")
 
     cuts = [[tk.cut(k, ref_dur[k]) if k in tk.present else None for tk in takes] for k in range(len(PHRASES))]
+    for row in cuts:
+        for tk, c in zip(takes, row):
+            if c:
+                c["sim_cost"] = (max(0.0, SIM_OK - tk.sim) / SIM_UNIT) ** 2
+    if a.emotion:
+        emotion_costs(cuts, f0_ref)
     consensus = [float(np.median([semitones(c["f0"], f0_ref, np.nan) for c in row if c and math.isfinite(c["f0"])] or [0.0]))
                  for row in cuts]
-    scored = [[unit_cost([cuts[k][t] for k in ks], [ref_dur[k] for k in ks], f0_ref, [consensus[k] for k in ks])
+    scored = [[unit_cost([cuts[k][t] for k in ks], [ref_dur[k] for k in ks], f0_ref, [consensus[k] for k in ks],
+                         pitch_w=0.5 if a.emotion else 1.0)
                for t in range(len(takes))] for ks in UNITS]
     unit_of = {k: u for u, ks in enumerate(UNITS) for k in ks}
     forced = {}
@@ -510,17 +635,37 @@ def main():
             a_, b_ = path[k - 1], path[k]
             jc = join_pitch_cost(cuts[k - 1][a_], cuts[k][b_], cuts[k - 1][b_], cuts[k][a_])
             print(f"  switch P{k}|P{k + 1}: take {a_ + 1} -> {b_ + 1} (base {switch_cost(k):.1f}, pitch step {jc:.2f})")
+    if a.emotion:
+        print("\nemotion: z vs the other readings (pitch, range, loudness, effort), wanted -> chosen reading")
+        for k in range(len(PHRASES)):
+            c = cuts[k][path[k]]
+            n = sum(1 for cc in cuts[k] if cc)
+            print(f"  P{k + 1:<2} ({n:2d} readings) wanted " + " ".join(f"{v:+.1f}" for v in EMOTION[k])
+                  + "  got " + " ".join(f"{v:+.1f}" for v in c["emo"]) + f"  cost {c['emo_cost']:.2f}  {PHRASES[k][:34]}")
 
+    # performance arc: per sentence, a register shift towards ARC (duration-weighted F0 of the chosen readings)
+    reg_shift, arc_db = [0.0] * len(PHRASES), [0.0] * len(PHRASES)
+    if a.emotion:
+        for ks, register, db in ARC:
+            st = [(semitones(cuts[k][path[k]]["f0"], f0_ref), cuts[k][path[k]]["nat"]) for k in ks
+                  if math.isfinite(cuts[k][path[k]]["f0"])]
+            now = sum(v * w for v, w in st) / sum(w for _, w in st) if st else register
+            move = REGISTER_AMOUNT * (register - now)
+            if register * move < 0:  # the reading is already brighter / darker than asked: keep it
+                move = 0.0
+            for k in ks:
+                reg_shift[k] = float(np.clip(move, -REGISTER_MAX, REGISTER_MAX))
+                arc_db[k] = db
     fitted = []
     for k in range(len(PHRASES)):
-        seg = stretch(cuts[k][path[k]]["seg"], scored[unit_of[k]][path[k]][1]["tempo"])
+        seg = stretch(cuts[k][path[k]]["seg"], scored[unit_of[k]][path[k]][1]["tempo"], reg_shift[k])
         f = int(0.004 * SR)
         seg[:f] *= np.linspace(0, 1, f)
         seg[-f:] *= np.linspace(1, 0, f)
         fitted.append(seg)
     levels = np.array([active_db(seg) for seg in fitted])
     mid = float(np.median(levels))
-    fitted = [seg * 10 ** (-(lv - mid) * (1 - LEVEL_KEEP) / 20) for seg, lv in zip(fitted, levels)]
+    fitted = [seg * 10 ** ((-(lv - mid) * (1 - LEVEL_KEEP) + db) / 20) for seg, lv, db in zip(fitted, levels, arc_db)]
 
     # slots (ms-exact): a unit fills exactly its reference duration, padded at its end if it could not
     # slow down enough; one that could not speed up enough overruns and moves the timeline (reported)
@@ -554,7 +699,9 @@ def main():
         comp_log.append({"phrase": pid, "take": c["take"], "tempo": round(tempo, 3),
                          "natural": round(c["nat"], 3), "fitted": round(dur, 3), "slot": round(slots[k], 3),
                          "f0": round(c["f0"], 1), "level_db": round(float(levels[k]), 1),
-                         "clip_gain_db": round(-(float(levels[k]) - mid) * (1 - LEVEL_KEEP), 1)})
+                         "clip_gain_db": round(-(float(levels[k]) - mid) * (1 - LEVEL_KEEP) + arc_db[k], 1),
+                         **({"register_shift_st": round(reg_shift[k], 2)} if a.emotion else {}),
+                         **({"emotion_z": [round(float(v), 2) for v in c["emo"]]} if a.emotion else {})})
         packed.append(seg)
         packed.append(np.zeros(int(round(GAP * SR))))
         t = round(t + slots[k] + GAP, 3)
@@ -574,7 +721,8 @@ def main():
     print()
     for r in comp_log:
         print(f"P{r['phrase']:<2} {r['take']:22s} natural {r['natural']:5.2f}s x{r['tempo']:.3f} -> {r['fitted']:5.2f}s "
-              f"(slot {r['slot']:5.2f}s)  F0 {r['f0']:6.1f} Hz  level {r['level_db']:6.1f} dB (clip gain {r['clip_gain_db']:+.1f})")
+              f"(slot {r['slot']:5.2f}s)  F0 {r['f0']:6.1f} Hz  level {r['level_db']:6.1f} dB (clip gain {r['clip_gain_db']:+.1f})"
+              + (f"  register {r['register_shift_st']:+.2f} st" if "register_shift_st" in r else ""))
     print(f"timeline shift vs reference edit: {shift:+.3f}s")
     print(f"wrote {out} ({len(y) / SR:.2f}s) and {a.timing_out}")
 

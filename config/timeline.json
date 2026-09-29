@@ -6,7 +6,7 @@
  "frames": 1108,
  "vo": {
   "file": "audio/voiceover/vo_final.wav",
-  "voice": "Client's own voice (Twin MCP narration, cloned with the owner's consent): Higgsfield Seed Audio 1.0 with the isolated narration as audio reference; dialogue-edited comp of 6 takes + 4 pickups (see comp)",
+  "voice": "Client's own voice (Twin MCP narration, cloned with the owner's consent): Higgsfield Seed Audio 1.0 with the isolated narration as audio reference; emotion-directed comp of 28 readings (10 takes/pickups + 18 directed section takes) with a register and dynamics arc (see comp)",
   "codec_cleanup": false
  },
  "phrases": [
@@ -15,29 +15,29 @@
    "text": "Si tu es UGC Creator,",
    "src": [
     0.0,
-    1.477
+    1.485
    ],
    "start": 0.08,
-   "end": 1.557
+   "end": 1.565
   },
   {
    "id": 2,
    "text": "Content Creator,",
    "src": [
-    1.597,
-    2.571
+    1.605,
+    2.436
    ],
-   "start": 1.617,
-   "end": 2.591
+   "start": 1.625,
+   "end": 2.456
   },
   {
    "id": 3,
    "text": "Voice Over Artist ou Influenceur…",
    "src": [
-    2.691,
+    2.556,
     4.64
    ],
-   "start": 2.651,
+   "start": 2.516,
    "end": 4.6
   },
   {
@@ -135,19 +135,19 @@
    "text": "Au lieu d’envoyer dix liens…",
    "src": [
     25.445,
-    26.843
+    26.669
    ],
    "start": 26.285,
-   "end": 27.683
+   "end": 27.509
   },
   {
    "id": 14,
    "text": "tu envoies un seul lien.",
    "src": [
-    26.963,
+    26.789,
     28.135
    ],
-   "start": 28.003,
+   "start": 27.829,
    "end": 29.175
   },
   {
@@ -186,175 +186,175 @@
    "w": "Si",
    "phrase": 1,
    "start": 0.08,
-   "end": 0.239
+   "end": 0.305
   },
   {
    "w": "tu",
    "phrase": 1,
-   "start": 0.239,
-   "end": 0.37
+   "start": 0.305,
+   "end": 0.425
   },
   {
    "w": "es",
    "phrase": 1,
-   "start": 0.37,
-   "end": 0.482
+   "start": 0.425,
+   "end": 0.579
   },
   {
    "w": "UGC",
    "phrase": 1,
-   "start": 0.482,
-   "end": 1.005
+   "start": 0.703,
+   "end": 1.077
   },
   {
    "w": "Creator,",
    "phrase": 1,
-   "start": 1.005,
-   "end": 1.417
+   "start": 1.077,
+   "end": 1.437
   },
   {
    "w": "Content",
    "phrase": 2,
-   "start": 1.628,
-   "end": 1.946
+   "start": 1.625,
+   "end": 1.899
   },
   {
    "w": "Creator,",
    "phrase": 2,
-   "start": 1.946,
-   "end": 2.45
+   "start": 1.899,
+   "end": 2.328
   },
   {
    "w": "Voice",
    "phrase": 3,
-   "start": 2.763,
-   "end": 2.931
+   "start": 2.619,
+   "end": 2.79
   },
   {
    "w": "Over",
    "phrase": 3,
-   "start": 2.931,
-   "end": 3.156
+   "start": 2.79,
+   "end": 2.979
   },
   {
    "w": "Artist",
    "phrase": 3,
-   "start": 3.156,
-   "end": 3.567
+   "start": 2.979,
+   "end": 3.322
   },
   {
    "w": "ou",
    "phrase": 3,
-   "start": 3.567,
-   "end": 3.773
+   "start": 3.322,
+   "end": 3.631
   },
   {
    "w": "Influenceur…",
    "phrase": 3,
-   "start": 3.773,
-   "end": 4.483
+   "start": 3.631,
+   "end": 4.471
   },
   {
    "w": "et",
    "phrase": 4,
-   "start": 4.66,
-   "end": 4.76
+   "start": 4.73,
+   "end": 4.768
   },
   {
    "w": "que",
    "phrase": 4,
-   "start": 4.76,
-   "end": 4.853
+   "start": 4.768,
+   "end": 4.883
   },
   {
    "w": "tu",
    "phrase": 4,
-   "start": 4.853,
-   "end": 4.909
+   "start": 4.883,
+   "end": 4.998
   },
   {
    "w": "envoies",
    "phrase": 4,
-   "start": 4.909,
-   "end": 5.189
+   "start": 4.998,
+   "end": 5.247
   },
   {
    "w": "encore",
    "phrase": 4,
-   "start": 5.189,
-   "end": 5.507
+   "start": 5.247,
+   "end": 5.4
   },
   {
    "w": "ton",
    "phrase": 4,
-   "start": 5.507,
-   "end": 5.675
+   "start": 5.4,
+   "end": 5.591
   },
   {
    "w": "travail",
    "phrase": 4,
-   "start": 5.675,
-   "end": 6.03
+   "start": 5.591,
+   "end": 5.897
   },
   {
    "w": "entre",
    "phrase": 4,
-   "start": 6.03,
-   "end": 6.292
+   "start": 5.897,
+   "end": 6.127
   },
   {
    "w": "Google",
    "phrase": 4,
-   "start": 6.292,
-   "end": 6.59
+   "start": 6.127,
+   "end": 6.433
   },
   {
    "w": "Drive,",
    "phrase": 4,
-   "start": 6.59,
-   "end": 6.908
+   "start": 6.433,
+   "end": 6.835
   },
   {
    "w": "WhatsApp",
    "phrase": 4,
-   "start": 7.076,
-   "end": 7.356
+   "start": 6.969,
+   "end": 7.238
   },
   {
    "w": "et",
    "phrase": 4,
-   "start": 7.356,
-   "end": 7.618
+   "start": 7.238,
+   "end": 7.486
   },
   {
    "w": "plusieurs",
    "phrase": 4,
-   "start": 7.618,
-   "end": 7.842
+   "start": 7.486,
+   "end": 7.735
   },
   {
    "w": "liens…",
    "phrase": 4,
-   "start": 7.842,
-   "end": 8.16
+   "start": 7.735,
+   "end": 8.156
   },
   {
    "w": "Une",
    "phrase": 5,
    "start": 8.4,
-   "end": 8.571
+   "end": 8.564
   },
   {
    "w": "vidéo",
    "phrase": 5,
-   "start": 8.571,
-   "end": 8.831
+   "start": 8.564,
+   "end": 8.812
   },
   {
    "w": "ici.",
    "phrase": 5,
-   "start": 8.831,
-   "end": 9.133
+   "start": 8.812,
+   "end": 9.102
   },
   {
    "w": "Un",
@@ -378,25 +378,25 @@
    "w": "Un",
    "phrase": 7,
    "start": 10.16,
-   "end": 10.272
+   "end": 10.271
   },
   {
    "w": "autre",
    "phrase": 7,
-   "start": 10.272,
-   "end": 10.459
+   "start": 10.271,
+   "end": 10.447
   },
   {
    "w": "lien",
    "phrase": 7,
-   "start": 10.459,
-   "end": 10.665
+   "start": 10.447,
+   "end": 10.676
   },
   {
    "w": "ailleurs.",
    "phrase": 7,
-   "start": 10.665,
-   "end": 11.02
+   "start": 10.676,
+   "end": 11.028
   },
   {
    "w": "Et",
@@ -498,7 +498,7 @@
    "w": "Non.",
    "phrase": 9,
    "start": 14.49,
-   "end": 14.775
+   "end": 14.77
   },
   {
    "w": "Ton",
@@ -540,205 +540,205 @@
    "w": "Je",
    "phrase": 11,
    "start": 17.935,
-   "end": 18.072
+   "end": 18.069
   },
   {
    "w": "crée",
    "phrase": 11,
-   "start": 18.072,
-   "end": 18.224
+   "start": 18.069,
+   "end": 18.252
   },
   {
    "w": "pour",
    "phrase": 11,
-   "start": 18.224,
-   "end": 18.377
+   "start": 18.252,
+   "end": 18.414
   },
   {
    "w": "toi",
    "phrase": 11,
-   "start": 18.377,
-   "end": 18.581
+   "start": 18.414,
+   "end": 18.556
   },
   {
    "w": "un",
    "phrase": 11,
-   "start": 18.76,
-   "end": 18.853
+   "start": 18.556,
+   "end": 18.739
   },
   {
    "w": "Premium",
    "phrase": 11,
-   "start": 18.853,
-   "end": 19.142
+   "start": 18.739,
+   "end": 19.044
   },
   {
    "w": "Website",
    "phrase": 11,
-   "start": 19.142,
-   "end": 19.618
+   "start": 19.044,
+   "end": 19.449
   },
   {
    "w": "Portfolio,",
    "phrase": 11,
-   "start": 19.618,
-   "end": 20.111
+   "start": 19.449,
+   "end": 20.038
   },
   {
    "w": "pensé",
    "phrase": 11,
-   "start": 20.322,
-   "end": 20.604
+   "start": 20.292,
+   "end": 20.546
   },
   {
    "w": "autour",
    "phrase": 11,
-   "start": 20.604,
-   "end": 20.808
+   "start": 20.546,
+   "end": 20.749
   },
   {
    "w": "de",
    "phrase": 11,
-   "start": 20.808,
-   "end": 20.944
+   "start": 20.749,
+   "end": 20.891
   },
   {
    "w": "ton",
    "phrase": 11,
-   "start": 20.944,
-   "end": 21.063
+   "start": 20.891,
+   "end": 21.012
   },
   {
    "w": "univers.",
    "phrase": 11,
-   "start": 21.063,
-   "end": 21.403
+   "start": 21.012,
+   "end": 21.378
   },
   {
    "w": "Tes",
    "phrase": 12,
    "start": 21.75,
-   "end": 21.878
+   "end": 21.86
   },
   {
    "w": "projets,",
    "phrase": 12,
-   "start": 21.878,
-   "end": 22.29
+   "start": 21.86,
+   "end": 22.259
   },
   {
    "w": "tes",
    "phrase": 12,
-   "start": 22.45,
-   "end": 22.519
+   "start": 22.51,
+   "end": 22.577
   },
   {
    "w": "services,",
    "phrase": 12,
-   "start": 22.519,
-   "end": 22.953
+   "start": 22.577,
+   "end": 23.058
   },
   {
    "w": "ton",
    "phrase": 12,
-   "start": 23.091,
-   "end": 23.182
+   "start": 23.307,
+   "end": 23.407
   },
   {
    "w": "style…",
    "phrase": 12,
-   "start": 23.182,
-   "end": 23.594
+   "start": 23.407,
+   "end": 23.839
   },
   {
    "w": "réunis",
    "phrase": 12,
-   "start": 23.891,
-   "end": 24.212
+   "start": 24.325,
+   "end": 24.831
   },
   {
    "w": "dans",
    "phrase": 12,
-   "start": 24.212,
-   "end": 24.372
+   "start": 24.831,
+   "end": 25.03
   },
   {
    "w": "une",
    "phrase": 12,
-   "start": 24.605,
-   "end": 24.784
+   "start": 25.03,
+   "end": 25.262
   },
   {
    "w": "seule",
    "phrase": 12,
-   "start": 24.784,
-   "end": 25.081
+   "start": 25.262,
+   "end": 25.445
   },
   {
    "w": "expérience.",
    "phrase": 12,
-   "start": 25.081,
-   "end": 25.813
+   "start": 25.445,
+   "end": 25.86
   },
   {
    "w": "Au",
    "phrase": 13,
    "start": 26.285,
-   "end": 26.396
+   "end": 26.412
   },
   {
    "w": "lieu",
    "phrase": 13,
-   "start": 26.396,
-   "end": 26.548
+   "start": 26.412,
+   "end": 26.558
   },
   {
    "w": "d’envoyer",
    "phrase": 13,
-   "start": 26.548,
-   "end": 27.025
+   "start": 26.558,
+   "end": 27.017
   },
   {
    "w": "dix",
    "phrase": 13,
-   "start": 27.025,
-   "end": 27.292
+   "start": 27.017,
+   "end": 27.163
   },
   {
    "w": "liens…",
    "phrase": 13,
-   "start": 27.292,
-   "end": 27.54
+   "start": 27.163,
+   "end": 27.435
   },
   {
    "w": "tu",
    "phrase": 14,
-   "start": 28.003,
-   "end": 28.116
+   "start": 27.829,
+   "end": 27.955
   },
   {
    "w": "envoies",
    "phrase": 14,
-   "start": 28.116,
-   "end": 28.44
+   "start": 27.955,
+   "end": 28.309
   },
   {
    "w": "un",
    "phrase": 14,
-   "start": 28.44,
-   "end": 28.555
+   "start": 28.406,
+   "end": 28.518
   },
   {
    "w": "seul",
    "phrase": 14,
-   "start": 28.555,
-   "end": 28.765
+   "start": 28.518,
+   "end": 28.747
   },
   {
    "w": "lien.",
    "phrase": 14,
-   "start": 28.765,
-   "end": 29.032
+   "start": 28.747,
+   "end": 29.019
   },
   {
    "w": "Ton",
@@ -797,7 +797,7 @@
   {
    "w": "et",
    "phrase": 16,
-   "start": 33.053,
+   "start": 33.05,
    "end": 33.153
   },
   {
@@ -810,25 +810,25 @@
    "w": "Écris-moi",
    "phrase": 17,
    "start": 34.1,
-   "end": 34.699
+   "end": 34.664
   },
   {
    "w": "et",
    "phrase": 17,
-   "start": 34.699,
-   "end": 35.002
+   "start": 34.664,
+   "end": 34.876
   },
   {
    "w": "on",
    "phrase": 17,
-   "start": 35.002,
-   "end": 35.127
+   "start": 34.876,
+   "end": 34.981
   },
   {
    "w": "commence.",
    "phrase": 17,
-   "start": 35.127,
-   "end": 35.626
+   "start": 34.981,
+   "end": 35.425
   }
  ],
  "scenes": {
@@ -862,10 +862,10 @@
   ],
   "s08_ten_links": [
    26.185,
-   27.953
+   27.779
   ],
   "s09_one_link": [
-   27.953,
+   27.779,
    29.435
   ],
   "s10_client": [
@@ -882,13 +882,13 @@
   ]
  },
  "cues": {
-  "ugc": 0.482,
-  "content": 1.628,
-  "voice": 2.763,
-  "influenceur": 3.773,
-  "drive": 6.292,
-  "whatsapp": 7.076,
-  "liens": 7.842,
+  "ugc": 0.703,
+  "content": 1.625,
+  "voice": 2.619,
+  "influenceur": 3.631,
+  "drive": 6.127,
+  "whatsapp": 6.969,
+  "liens": 7.735,
   "video": 8.4,
   "fichier": 9.355,
   "autre_lien": 10.16,
@@ -897,20 +897,20 @@
   "non": 14.49,
   "non_end": 14.93,
   "merite": 15.65,
-  "premium": 18.853,
-  "univers": 21.063,
-  "projets": 21.878,
-  "services": 22.519,
-  "style": 23.182,
-  "experience": 24.784,
-  "dix_liens": 27.025,
-  "un_seul": 28.555,
+  "premium": 18.739,
+  "univers": 21.012,
+  "projets": 21.86,
+  "services": 22.577,
+  "style": 23.407,
+  "experience": 25.262,
+  "dix_liens": 27.017,
+  "un_seul": 28.518,
   "clique": 29.965,
   "decouvre": 30.757,
   "professionnel": 31.63,
   "clair": 32.601,
   "different": 33.153,
   "ecris": 34.1,
-  "commence": 35.127
+  "commence": 34.981
  }
 }
